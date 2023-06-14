@@ -50,7 +50,7 @@ function showAddressBar() {
     }, 0);
 }
 
-function showIntruction() {
+function showInstruction() {
     instruction.style.display = "block";
     const isPortrait = window.outerWidth < window.outerHeight;
     if (isPortrait) {
@@ -115,7 +115,7 @@ function updateViewport() {
 }
 
 function updateFullScreen() {
-    showIntruction();
+    showInstruction();
     const gameContainer = document.getElementById("Cocos3dGameContainer");
     if (gameContainer) {
         gameContainer.style.top = window.scrollY + "px";
@@ -124,17 +124,17 @@ function updateFullScreen() {
 
 function handleFullScreen() {
     if (userAgent.match(/iPad|iPhone|iPod/i)) {
-        showIntruction();
+        showInstruction();
         updateViewport();
         var timeoutScroll;
         var timeoutResize;
 
         const canvas = document.getElementById("GameCanvas");
         canvas.onfocus = () => {
-            showIntruction();
+            showInstruction();
         };
         canvas.onblur = () => {
-            showIntruction();
+            showInstruction();
         };
 
         window.addEventListener("orientationchange", function () {
