@@ -251,8 +251,14 @@ function getCurrentLanguage() {
     } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
-        const lang = urlParams.get("lang");
-        language = getLanguageURLparams(lang);
+        language = getLanguageURLparams(urlParams.get("lang"));
+    }
+
+    if (urlParams.has("params")) {
+        const otherParams = new URLSearchParams(window.atob(urlParams.get("params")));
+        if (otherParams.has("lang")) {
+            language = getLanguageURLparams(otherParams.get("lang"));
+        }
     }
     return language;
 }
