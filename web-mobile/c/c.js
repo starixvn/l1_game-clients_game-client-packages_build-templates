@@ -1,6 +1,6 @@
 window.envConfig = {
     isDev: true,
-    systemType: "SC1",
+    systemType: "SG",
     ssl: false,
     serverDomainMapper: {
         localhost: "localhost:5002",
