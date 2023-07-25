@@ -45,22 +45,13 @@
                 <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
             </div>
         </div>
-        <div id="myInstruction" class="instruction">
-            <div class="instruction-content">
-                <span class="close"></span>
-                <img class="img-sroll" src="fullscreen-drag.gif" />
-            </div>
-        </div>
         <div id="splash" class="splash-container">
             <div id="splash_logo"></div>
             <div id="splash_text" class="splash_text"></div>
         </div>
-        <div id="buttonFullAndroid" class="instructionAndroid">
-            <img class="img-sroll" src="fullscreen-click.gif" />
-        </div>
         <!-- Configs. -->
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
-        <script type="text/javascript" src="./fullscreen.js?v=<%= Date.now() %>"></script>
+        <script type="text/javascript" src="./splash.js?v=<%= Date.now() %>"></script>
         <%- include(cocosTemplate, {}) %>
     </body>
 </html>

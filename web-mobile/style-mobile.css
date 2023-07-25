@@ -92,15 +92,6 @@ body {
     overflow-x: hidden !important;
 }
 
-#buttonFullAndroid {
-    display: none;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-}
-
 a:link,
 a:visited {
     color: #666;
@@ -128,11 +119,6 @@ p.footer {
     .splash-container {
         height: 100vw;
         width: 100vh;
-        transform: rotate(90deg);
-    }
-
-    .instruction {
-        height: 100vh !important;
         transform: rotate(90deg);
     }
 
@@ -294,21 +280,6 @@ p.footer {
         top: 51vh;
         background-size: auto 2.5vh;
     }
-    /* .conner-container {
-        position: fixed;
-        width: calc(100vh - 70);
-        height: 100vw;
-        -ms-transform: translateY(-100vw) rotate(90deg);
-        -o-transform: translateY(-100vw) rotate(90deg);
-        -ms-transform: translateY(-100vw) rotate(90deg);
-        -o-transform: translateY(-100vw) rotate(90deg);
-        transform: translateY(-100vw) rotate(90deg);
-        -webkit-transform-origin: left bottom;
-        -moz-transform-origin: left bottom;
-        top: unset;
-        bottom: unset;
-        right: unset;
-    }  */
 }
 
 .text {
@@ -319,26 +290,6 @@ p.footer {
     -webkit-text-fill-color: transparent;
     font-size: 1.8em;
     font-family: Arial;
-}
-
-.instructionAndroid {
-    display: none;
-    position: absolute;
-    z-index: 9999;
-    height: 110vh;
-    width: 100%;
-    padding-top: 10vh;
-    background: rgba(0, 0, 0, 1);
-}
-
-.instruction {
-    display: none;
-    position: absolute;
-    z-index: 9999;
-    height: 150vh;
-    width: 100%;
-    padding-top: 10vh;
-    background: rgba(0, 0, 0, 1);
 }
 
 @keyframes animate-stripes {
