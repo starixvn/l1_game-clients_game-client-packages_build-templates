@@ -161,17 +161,19 @@ p.footer {
 }
 
 .splash {
-    position: relative;
-    top: 36.25vh;
-    background: url(./logo_saba.png) no-repeat center;
-    background-size: auto 17.81vh;
-    width: auto;
-    height: 17.81vh;
+    position: absolute;
+    top:10;
+    right: 0;
+    margin: 3%;
+    background: url(./logo_saba.png) no-repeat top right;
+    background-size: auto 10.81vh;
+    width: 100%;
+    height: 100%;
 }
 
 .splash_text {
     position: relative;
-    top: 37.3vh;
+    top: 76vh;
     background: no-repeat center;
     background-size: auto 4.7vh;
     width: auto;
@@ -252,6 +254,15 @@ p.footer {
     left: 0;
 }
 
+.centered-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+}
+
+
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
     .light {
         background-size: 31.47vw 8.79vw;
@@ -262,12 +273,13 @@ p.footer {
 
 @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     .splash {
-        top: 33vh;
-        background-size: auto 9.3vh;
+        top: 28vh;
+        left: 22vh;
+        background-size: auto 6.3vh;
     }
 
     .splash_text {
-        top: 28vh;
+        top: 63vh;
         background-size: auto 2.8vh;
     }
 
@@ -279,6 +291,10 @@ p.footer {
     .splash_text_Vgaming {
         top: 51vh;
         background-size: auto 2.5vh;
+    }
+
+    .centered-image {
+        top: 50vh;
     }
 }
 
@@ -301,3 +317,4 @@ p.footer {
         background-position: 60px 0;
     }
 }
+
