@@ -162,18 +162,83 @@ p.footer {
 
 .splash {
     position: absolute;
-    top:10;
-    right: 0;
-    margin: 3%;
-    background: url(./logo_saba.png) no-repeat top right;
-    background-size: auto 10.81vh;
+    top: 5vh;
+    /*right: 3rem;
+     margin: 3%; */
+    background: url(./logo_saba.png) no-repeat top center;
+    background-size: auto 9.1vh;
     width: 100%;
     height: 100%;
 }
 
+.splash_bg_game {
+    position: absolute;
+    background: no-repeat center;
+    background-size: auto 56.5vh;
+    width: 100%;
+    height: 100%;
+}
+
+.splash_bg_game_vi {
+    background-image: url("./game-background/splash_bg_game_vi.png");
+}
+
+.splash_bg_game_en {
+    background-image: url("./game-background/splash_bg_game_en.png");
+}
+
+.splash_bg_game_th {
+    background-image: url("./game-background/splash_bg_game_th.png");
+}
+
+.splash_bg_game_id {
+    background-image: url("./game-background/splash_bg_game_id.png");
+}
+
+.splash_bg_game_zh_cn {
+    background-image: url("./game-background/splash_bg_game_zh_cn.png");
+}
+
+.splash_bg_game_zh_tw {
+    background-image: url("./game-background/splash_bg_game_zh_tw.png");
+}
+
+.splash_game_name {
+    position: relative;
+    top: 88vh;
+    background: no-repeat center;
+    background-size: auto 2.7vh;
+    width: auto;
+    height: 2.7vh;
+}
+
+.splash_game_name_vi {
+    background-image: url("./game-name/game_name_vi.png");
+}
+
+.splash_game_name_en {
+    background-image: url("./game-name/game_name_en.png");
+}
+
+.splash_game_name_id {
+    background-image: url("./game-name/game_name_id.png");
+}
+
+.splash_game_name_th {
+    background-image: url("./game-name/game_name_th.png");
+}
+
+.splash_game_name_zh_cn {
+    background-image: url("./game-name/game_name_zh_cn.png");
+}
+
+.splash_game_name_zh_tw {
+    background-image: url("./game-name/game_name_zh_tw.png");
+}
+
 .splash_text {
     position: relative;
-    top: 76vh;
+    top: 82vh;
     background: no-repeat center;
     background-size: auto 4.7vh;
     width: auto;
@@ -262,7 +327,6 @@ p.footer {
     max-width: 100%;
 }
 
-
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
     .light {
         background-size: 31.47vw 8.79vw;
@@ -274,7 +338,7 @@ p.footer {
 @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     .splash {
         top: 28vh;
-        left: 22vh;
+        left: 0;
         background-size: auto 6.3vh;
     }
 
@@ -295,6 +359,15 @@ p.footer {
 
     .centered-image {
         top: 50vh;
+    }
+
+    .splash_bg_game {
+        background-size: auto 25vh;
+    }
+
+    .splash_game_name {
+        top: 64vh;
+        background-size: auto 2vh;
     }
 }
 
@@ -317,4 +390,3 @@ p.footer {
         background-position: 60px 0;
     }
 }
-

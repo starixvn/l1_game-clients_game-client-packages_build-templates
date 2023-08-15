@@ -1,18 +1,22 @@
 window.envConfig = {
-    isDev: true,
+    isDev: false, // if this property is true, then you should add token=anything into the querytring to sso to the game http://localhost:7456/?token=anything
     systemType: "SG",
-    ssl: false,
     serverDomainMapper: {
-        localhost: "localhost:5002",
+        localhost: "lumigame.com",
     },
-    subDomain: "",
+    ssl: true,
+    subDomain: "l1-proxy3",
     env: "LOCAL",
-    subGuideDomain: "l1-guide",
+    subGuideDomain: "l1-guide-3",
+    SGConnectSubDomain: "connectsite",
     enableMsgpackParserAllGames: false,
     enableMsgpackParserOnNotification: false,
-    userServiceUrlDev: "http://localhost:3000/user",
-    proxyRoute: "",
-    wsPath: "sedie",
+    websocket: {
+        proxyPath: "dragontigerfight",
+        route: "dragontigerfight",
+    },
+    mainObserverNamespace: "DragonTigerFight",
+    tolgeeUrl: "",
 };
 
-console.error("Wrong mapping config, please check your deployment");
+// console.error("Wrong mapping config, please check your deployment");

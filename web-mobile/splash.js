@@ -105,7 +105,10 @@ function getCurrentLanguage() {
 
 function updateLocalizedImages() {
     const splashText = document.getElementById("splash_text");
-    const language = getCurrentLanguage();
+    const splashBgGame = document.getElementById("splash_bg_game");
+    const splashGameName = document.getElementById("splash_game_name");
+    const language = getCurrentLanguage().replace(/['"]+/g, "");
+
     let suffixSite;
     let rel = document.getElementById("favicon");
     if (window.envConfig.systemType === "VG") {
@@ -122,8 +125,13 @@ function updateLocalizedImages() {
         suffixSite = "_sc1";
     }
 
-    const className = `splash_text${suffixSite}_${language}`;
-    splashText.className += ` ${className}`;
+    const classNameText = `splash_text${suffixSite}_${language}`;
+    const classNameBG = `splash_bg_game_${language}`;
+    const classNameGameName = `splash_game_name_${language}`;
+
+    splashText.className += ` ${classNameText}`;
+    splashBgGame.className += ` ${classNameBG}`;
+    splashGameName.className += ` ${classNameGameName}`;
 }
 
 function updateSplashLogo() {
