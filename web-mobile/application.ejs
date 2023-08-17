@@ -6,7 +6,7 @@ function setLoadingDisplay() {
   gameCanvas.style.display = "none";
   splash.style.display = "block";
 
-  cc.director.once(cc.Director.EVENT_AFTER_SCENE_LAUNCH, function () {
+  cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
       gameCanvas.style.display = "block";
       splash.style.display = "none";
       document.body.style.background = "#000";
