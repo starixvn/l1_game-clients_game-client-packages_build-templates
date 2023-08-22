@@ -19,4 +19,4 @@ window.envConfig = {
     tolgeeUrl: "",
 };
 
-// console.error("Wrong mapping config, please check your deployment");
+console.error("Wrong mapping config, please check your deployment");
