@@ -126,7 +126,7 @@ function updateLocalizedImages() {
     }
 
     const classNameText = `splash_text${suffixSite}_${language}`;
-    const classNameBG = `splash_bg_game_${language}`;
+    const classNameBG = window.envConfig?.backgroundNoTranslate ? "bg_no_translate" : `splash_bg_game_${language}`;
     const classNameGameName = `splash_game_name_${language}`;
 
     splashText.className += ` ${classNameText}`;

@@ -5,18 +5,19 @@ window.envConfig = {
         localhost: "lumigame.com",
     },
     ssl: true,
-    subDomain: "l1-proxy3",
+    subDomain: "l1-proxy",
     env: "LOCAL",
-    subGuideDomain: "l1-guide-3",
+    subGuideDomain: "l1-guide",
     SGConnectSubDomain: "connectsite",
     enableMsgpackParserAllGames: false,
     enableMsgpackParserOnNotification: false,
     websocket: {
-        proxyPath: "dragontigerfight",
-        route: "dragontigerfight",
+        proxyPath: "colorgame",
+        route: "colorgame",
     },
-    mainObserverNamespace: "DragonTigerFight",
+    mainObserverNamespace: "ColorGame",
     tolgeeUrl: "",
+    backgroundNoTranslate: true,
 };
 
 console.error("Wrong mapping config, please check your deployment");

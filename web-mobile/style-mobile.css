@@ -185,6 +185,10 @@ p.footer {
     height: 100%;
 }
 
+.bg_no_translate {
+    background-image: url("./splash-resources/game_background.png");
+}
+
 .splash_bg_game_vi {
     background-image: url("./splash-resources/game_background_vi.png");
 }
@@ -211,11 +215,11 @@ p.footer {
 
 .splash_game_name {
     position: absolute;
-    top: 92.6vh;
+    top: 91.4vh;
     background: no-repeat center;
-    background-size: auto 2.8vh;
+    background-size: auto 5.2vh;
     width: 100%;
-    height: 2.8vh;
+    height: 5.2vh;
 }
 
 .splash_game_name_vi {
