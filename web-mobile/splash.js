@@ -142,6 +142,30 @@ function updateSplashLogo() {
     splashText.className = `splash_text${suffix}`;
 }
 
+function isInstant() {
+    const instantKey = "instant";
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has(instantKey)) {
+        return !!urlParams.get(instantKey);
+    }
+    try {
+        if (localStorage.getItem("ss")) {
+            return JSON.parse(localStorage.getItem("ss"))?.system === 3;
+        }
+    } catch (e) {}
+    return false;
+}
+
+function updateSplashByAppType() {
+    if (isInstant()) {
+        const className = "instant-game";
+        const splash = document.getElementById("splash");
+        splash.classList.add(className);
+        document.body.classList.add(className);
+    }
+}
+
+updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
 initGA();
