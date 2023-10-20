@@ -85,8 +85,11 @@ function getLanguageURLparams(locale) {
 function getCurrentLanguage() {
     let language = "vi";
     try {
-        if (localStorage.getItem("current_language")) {
-            language = localStorage.getItem("current_language");
+        const languageKey = window.envConfig?.storagePrefixKey
+            ? `current_language_${window.envConfig.storagePrefixKey}`
+            : "current_language";
+        if (localStorage.getItem(languageKey)) {
+            language = localStorage.getItem(languageKey);
         }
     } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
@@ -149,8 +152,9 @@ function isInstant() {
         return !!urlParams.get(instantKey);
     }
     try {
-        if (localStorage.getItem("ss")) {
-            return JSON.parse(localStorage.getItem("ss"))?.system === 3;
+        const sessionStorageKey = window.envConfig?.storagePrefixKey ? `ss_${window.envConfig.storagePrefixKey}` : "ss";
+        if (localStorage.getItem(sessionStorageKey)) {
+            return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
     } catch (e) {}
     return false;
