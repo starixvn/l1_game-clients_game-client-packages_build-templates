@@ -152,7 +152,7 @@ function isInstant() {
         return !!urlParams.get(instantKey);
     }
     try {
-        const sessionStorageKey = window.envConfig?.storagePrefixKey ? `ss_${window.envConfig.storagePrefixKey}` : "ss";
+        const sessionStorageKey = window.envConfig?.storagePrefixKey ? `${window.envConfig.storagePrefixKey}_ss` : "ss";
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
