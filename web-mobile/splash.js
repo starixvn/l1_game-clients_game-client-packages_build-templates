@@ -86,7 +86,7 @@ function getCurrentLanguage() {
     let language = "vi";
     try {
         const languageKey = window.envConfig?.storagePrefixKey
-            ? `current_language_${window.envConfig.storagePrefixKey}`
+            ? `${window.envConfig.storagePrefixKey}_current_language`
             : "current_language";
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
