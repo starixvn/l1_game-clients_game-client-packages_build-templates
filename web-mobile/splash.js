@@ -49,7 +49,7 @@ function addGATrackingButton() {
             }
             gtag("js", new Date());
             gtag("config", gaCode);
-            window.gtag = gtag;
+            globalThis.gtag = gtag;
         },
         (reason) => {
             console.log("Init GA failed with" + reason);
