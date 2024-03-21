@@ -1,11 +1,11 @@
 window.envConfig = {
     isDev: false, // if this property is true, then you should add token=anything into the querytring to sso to the game http://localhost:7456/?token=anything
-    systemType: "SG",
+    systemType: "VG",
     serverDomainMapper: {
         localhost: "lumigame.com",
     },
     ssl: true,
-    subDomain: "l1-proxy",
+    subDomain: "l2-proxy2",
     env: "LOCAL",
     subGuideDomain: "l1-guide",
     SGConnectSubDomain: "connectsite",

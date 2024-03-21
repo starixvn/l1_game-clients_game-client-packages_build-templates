@@ -106,26 +106,57 @@ function getCurrentLanguage() {
     return language;
 }
 
+function getCurrentOperator() {
+    let operator = "";
+    try {
+        const operatorKey = window.envConfig?.storagePrefixKey
+            ? `${window.envConfig.storagePrefixKey}_current_operator`
+            : "current_operator";
+        if (localStorage.getItem(operatorKey)) {
+            operator = localStorage.getItem(operatorKey);
+        }
+    } catch (e) {}
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("op")) {
+        operator = urlParams.get("op");
+    }
+
+    if (urlParams.has("params")) {
+        const otherParams = new URLSearchParams(window.atob(urlParams.get("params")));
+        if (otherParams.has("op")) {
+            operator = otherParams.get("op");
+        }
+    }
+    return operator;
+}
+
 function updateLocalizedImages() {
     const splashText = document.getElementById("splash_text");
     const splashBgGame = document.getElementById("splash_bg_game");
     const splashGameName = document.getElementById("splash_game_name");
     const language = getCurrentLanguage().replace(/['"]+/g, "");
-
+    const operator = getCurrentOperator();
+    console.log("operator", operator);
     let suffixSite;
     let rel = document.getElementById("favicon");
-    if (window.envConfig.systemType === "VG") {
-        document.title = "Vgaming";
-        suffixSite = "_sc2";
-        rel.href = "favicon_vgaming.ico?v=3";
-    } else {
-        rel.href = "favicon.ico?v=3";
-        if (language === "vi") {
-            document.title = "Cổng Game SABA";
-        } else {
-            document.title = "SABA.games";
-        }
-        suffixSite = "_sc1";
+    switch (operator.toUpperCase()) {
+        case "SP":
+            document.title = "SabaPlay";
+            suffixSite = "_sc2";
+            rel.href = "favicon_sabaplay.ico?v=4";
+            break;
+        default:
+            if (window.envConfig.systemType === "VG") {
+                document.title = "Vgaming";
+                suffixSite = "_sc2";
+                rel.href = "favicon_vgaming.ico?v=4";
+            } else {
+                rel.href = "favicon.ico?v=4";
+                const title = language === "vi" ? "Cổng Game SABA" : "SABA.games";
+                document.title = title;
+                suffixSite = "_sc1";
+            }
+            break;
     }
 
     const classNameText = `splash_text${suffixSite}_${language}`;
@@ -140,9 +171,14 @@ function updateLocalizedImages() {
 function updateSplashLogo() {
     const splash = document.getElementById("splash_logo");
     const splashText = document.getElementById("splash_text");
-    const suffix = window.envConfig.systemType === "VG" ? "_Vgaming" : "";
+    const suffix = window.envConfig.systemType === "VG" ? getSuffixVG() : "";
     splash.className = `splash${suffix}`;
     splashText.className = `splash_text${suffix}`;
+}
+
+function getSuffixVG() {
+    const operator = getCurrentOperator();
+    return operator.toUpperCase() === "SP" ? "_sabaplay" : "_Vgaming";
 }
 
 function isInstant() {
