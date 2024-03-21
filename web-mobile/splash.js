@@ -36,7 +36,7 @@ function initGA() {
 }
 
 function addGATrackingButton() {
-    if (window.envConfig.env !== "PRO") {
+    if (window.envConfig.env !== "PROD") {
         return;
     }
     const gaCode = "G-W13X2FGNGN";
