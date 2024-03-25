@@ -110,8 +110,8 @@ function getCurrentOperator() {
     let operator = "";
     try {
         const operatorKey = window.envConfig?.storagePrefixKey
-            ? `${window.envConfig.storagePrefixKey}_current_operator`
-            : "current_operator";
+            ? `${window.envConfig.storagePrefixKey}_op`
+            : "op";
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
