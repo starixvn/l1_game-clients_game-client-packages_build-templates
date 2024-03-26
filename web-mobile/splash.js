@@ -116,6 +116,7 @@ function getCurrentOperator() {
             operator = localStorage.getItem(operatorKey);
         }
     } catch (e) {}
+
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
         operator = urlParams.get("op");
@@ -135,8 +136,8 @@ function updateLocalizedImages() {
     const splashBgGame = document.getElementById("splash_bg_game");
     const splashGameName = document.getElementById("splash_game_name");
     const language = getCurrentLanguage().replace(/['"]+/g, "");
-    const operator = getCurrentOperator();
-    console.log("operator", operator);
+    const operator = getCurrentOperator().replace(/['"]+/g, "");
+
     let suffixSite;
     let rel = document.getElementById("favicon");
     switch (operator.toUpperCase()) {
@@ -177,7 +178,7 @@ function updateSplashLogo() {
 }
 
 function getSuffixVG() {
-    const operator = getCurrentOperator();
+    const operator = getCurrentOperator().replace(/['"]+/g, "");
     return operator.toUpperCase() === "SP" ? "_sabaplay" : "_Vgaming";
 }
 
