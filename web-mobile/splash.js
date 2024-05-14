@@ -139,6 +139,7 @@ function updateLocalizedImages() {
         SP: "SP",
         VG: "VG",
         SG: "SG",
+        TIP88: "tip88",
     };
 
     let title, favicon;
@@ -152,7 +153,11 @@ function updateLocalizedImages() {
             favicon = "favicon_vgaming.ico?v=4";
             break;
         case OperatorAlias.SG:
-            title = (language === "vi") ? "Cổng Game SABA" : "SABA.games";
+            title = language === "vi" ? "Cổng Game SABA" : "SABA.games";
+            favicon = "favicon.ico?v=4";
+            break;
+        case OperatorAlias.TIP88:
+            title = "SoiBet";
             favicon = "favicon.ico?v=4";
             break;
         default:
@@ -167,7 +172,6 @@ function updateLocalizedImages() {
     const classNameGameName = `splash_game_name_${language}`;
     splashBgGame.className += ` ${classNameBG}`;
     splashGameName.className += ` ${classNameGameName}`;
-
 }
 
 function setTitleAndFavicon(title, favicon) {
@@ -178,26 +182,23 @@ function setTitleAndFavicon(title, favicon) {
 
 function setSplashTextClass(language) {
     const splashText = document.getElementById("splash_text");
-    const systemType = window.envConfig.systemType;
-    const suffixSite = systemType === "VG" ? "_sc2" : "_sc1";
-    const className = `splash_text${suffixSite}_${language}`;
+    const className = `splash_text_${language}`;
     splashText.className += ` ${className}`;
 }
 
 function updateSplashLogo() {
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splash = document.getElementById("splash_logo");
-    const splashText = document.getElementById("splash_text");
     const suffix = getCSSClassName(operator);
     splash.className = `splash${suffix}`;
-    splashText.className = `splash_text${suffix}`;
 }
 
-function getCSSClassName(operator) {  
+function getCSSClassName(operator) {
     const operators = {
         SP: "_sabaplay",
         VG: "_Vgaming",
         SG: "",
+        TIP88: "_tip88",
     };
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
