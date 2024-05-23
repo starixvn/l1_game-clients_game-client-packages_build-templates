@@ -337,8 +337,8 @@ p.footer {
 
 #splash.instant-game .splash_tip88 {
     top: 0.7vh;
-    background-size: auto 27.32vh;
-    height: 27.32vh;
+    background-size: auto 17.76vh;
+    height: 17.76vh;
 }
 
 #splash.instant-game .splash_sabaplay {
@@ -364,8 +364,8 @@ p.footer {
 }
 #splash.instant-game .splash_text {
     top: 18.5vh;
-    background-size: auto 6.59vh;
-    height: 6.59vh;
+    background-size: auto 4.28vh;
+    height: 4.28vh;
 }
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
     .light {
@@ -440,17 +440,9 @@ p.footer {
         background-size: auto 15.8vh;
     }
 
-    #splash.instant-game .splash_tip88 {
-        top: 1vh;
-        background-size: auto 16.87vh;
-        height: 16.87vh;
-    }
 
-    #splash.instant-game .splash_text {
-        top: 18.5vh;
-        background-size: auto 4.07vh;
-        height: 4.07vh;
-    }
+
+
 
 }
 
