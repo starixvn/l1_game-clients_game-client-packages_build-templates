@@ -363,7 +363,7 @@ p.footer {
     max-width: 100%;
 }
 #splash.instant-game .splash_text {
-    top: 16.5vh;
+    top: 19.6vh;
     background-size: auto 4.28vh;
     height: 4.28vh;
 }
@@ -397,11 +397,6 @@ p.footer {
         left: 0px;
         background-size: auto 10.18vh;
     }
-
-    /* .splash_text_Vgaming {
-        top: 36vh;
-        background-size: auto 1.8vh;
-    } */
 
     .centered-image {
         top: 50vh;
@@ -441,14 +436,14 @@ p.footer {
     }
     #splash.instant-game .splash_tip88 {
         top: 0.7vh;
-        background-size: auto 24.59vh;
-        height: 24.59vh;
+        background-size: auto 15.18vh;
+        height: 15.18vh;
     }
 
     #splash.instant-game .splash_text {
         top: 18.5vh;
-        background-size: auto 5.93vh;
-        height: 5.93vh;
+        background-size: auto 3.66vh;
+        height: 3.66vh;
     }
 
 
