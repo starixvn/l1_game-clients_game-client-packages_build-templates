@@ -363,7 +363,7 @@ p.footer {
     max-width: 100%;
 }
 #splash.instant-game .splash_text {
-    top: 18.5vh;
+    top: 16.5vh;
     background-size: auto 4.28vh;
     height: 4.28vh;
 }
@@ -439,9 +439,17 @@ p.footer {
         top: 1vh;
         background-size: auto 15.8vh;
     }
+    #splash.instant-game .splash_tip88 {
+        top: 0.7vh;
+        background-size: auto 24.59vh;
+        height: 24.59vh;
+    }
 
-
-
+    #splash.instant-game .splash_text {
+        top: 18.5vh;
+        background-size: auto 5.93vh;
+        height: 5.93vh;
+    }
 
 
 }
