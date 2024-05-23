@@ -286,14 +286,14 @@ p.footer {
     height: 14.25vh;
 }
 
-.splash_text_Vgaming, .splash_text_sabaplay {
+/* .splash_text_Vgaming, .splash_text_sabaplay {
     position: absolute;
     top: 17.3vh;
     background: no-repeat center;
     background-size: auto 3.44vh;
     width: 100%;
     height: 3.44vh;
-}
+} */
 
 .splash_text_vi {
     background-image: url("./splash_text_vi.png");
@@ -337,8 +337,8 @@ p.footer {
 
 #splash.instant-game .splash_tip88 {
     top: 0.7vh;
-    background-size: auto 16.15vh;
-    height: 16.15vh;
+    background-size: auto 27.32vh;
+    height: 27.32vh;
 }
 
 #splash.instant-game .splash_sabaplay {
@@ -362,7 +362,11 @@ p.footer {
     transform: translate(-50%, -50%);
     max-width: 100%;
 }
-
+#splash.instant-game .splash_text {
+    top: 18.5vh;
+    background-size: auto 6.59vh;
+    height: 6.59vh;
+}
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
     .light {
         background-size: 31.47vw 8.79vw;
@@ -391,13 +395,13 @@ p.footer {
     #splash.instant-game .splash_Vgaming {
         top: 1vh;
         left: 0px;
-        background-size: auto 14.8vh;
+        background-size: auto 10.18vh;
     }
 
-    .splash_text_Vgaming {
+    /* .splash_text_Vgaming {
         top: 36vh;
         background-size: auto 1.8vh;
-    }
+    } */
 
     .centered-image {
         top: 50vh;
@@ -438,12 +442,14 @@ p.footer {
 
     #splash.instant-game .splash_tip88 {
         top: 1vh;
-        background-size: auto 10.96vh;
+        background-size: auto 16.87vh;
+        height: 16.87vh;
     }
 
     #splash.instant-game .splash_text {
         top: 18.5vh;
-        background-size: auto 2.64vh;
+        background-size: auto 4.07vh;
+        height: 4.07vh;
     }
 
 }
