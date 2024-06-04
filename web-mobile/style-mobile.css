@@ -331,7 +331,7 @@ p.footer {
 
 #splash.instant-game .splash_bg_game {
     top: 1.9vh;
-    background-image: url("./splash-resources/landscape_game_background.png");
+    background-image: url("./splash-resources/landscape_game_background.png?v=1");
     background-size: auto;
 }
 
@@ -428,7 +428,7 @@ p.footer {
 
     #splash.instant-game .splash_bg_game {
         top: -1vh;
-        background-image: url("./splash-resources/portrait_game_background.png");
+        background-image: url("./splash-resources/portrait_game_background.png?v=1");
     }
 
     #splash.instant-game .splash_sabaplay {
