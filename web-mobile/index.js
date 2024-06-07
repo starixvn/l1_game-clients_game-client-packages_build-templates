@@ -20,7 +20,7 @@ System.register(["./application.js"], function (_export, _context) {
             canvas.width = bcr.width;
             canvas.height = bcr.height;
             application = new Application();
-            topLevelImport("http://l1-proxy1.lumigame.com/game/static/_cocos-shared/cc.js")
+            topLevelImport("https://l1-proxy1.lumigame.com/game/static/_cocos-shared/cc.js")
                 .then(function (engine) {
                     return application.init(engine);
                 })
