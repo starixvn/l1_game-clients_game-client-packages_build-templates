@@ -56,6 +56,10 @@
         <!-- Configs. -->
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./splash.js?v=<%= Date.now() %>"></script>
-        <%- include(cocosTemplate, {}) %>
+        <script>
+            System.import("./index.js").catch(function (err) {
+                console.error(err);
+            });
+        </script>
     </body>
 </html>
