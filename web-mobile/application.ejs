@@ -28,6 +28,7 @@ const initWorker = () => {
 
     const stopWorker = () => {
         if (worker) {
+            console.log("stopWorker client------")
             worker.terminate();
             worker = null;
             clearTimeout(timeOutStopWorker);
@@ -36,6 +37,7 @@ const initWorker = () => {
     };
 
     const startWorker = () => {
+        console.log("startWorker client++++++")
         isTimeoutWorker = false;
         worker = new Worker("worker.js");
         timeOutStopWorker = setTimeout(() => {
