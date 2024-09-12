@@ -17,17 +17,18 @@ window.mobilecheck = function () {
 const userAgent = window.navigator.userAgent;
 
 function initGA() {
-    const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
+    const gaCode = "G-KBPRBYLF2W";
 
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
         () => {
-            console.log("Init GA");
+            console.log("Init GA test");
             window.dataLayer = window.dataLayer || [];
             function gtag() {
                 dataLayer.push(arguments);
             }
             gtag("js", new Date());
             gtag("config", gaCode);
+            globalThis.gtag = gtag;
         },
         (reason) => {
             console.log("Init GA failed with" + reason);
