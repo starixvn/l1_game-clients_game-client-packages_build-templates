@@ -85,9 +85,8 @@ function getLanguageURLparams(locale) {
 function getCurrentLanguage() {
     let language = "vi";
     try {
-        const languageKey = window.envConfig?.storagePrefixKey
-            ? `${window.envConfig.storagePrefixKey}_current_language`
-            : "current_language";
+        const storagePrefixKey = window.crossConfig?.storagePrefixKey;
+        const languageKey = storagePrefixKey ? `${storagePrefixKey}_current_language` : "current_language";
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
@@ -109,7 +108,8 @@ function getCurrentLanguage() {
 function getCurrentOperator() {
     let operator = "";
     try {
-        const operatorKey = window.envConfig?.storagePrefixKey ? `${window.envConfig.storagePrefixKey}_op` : "op";
+        const storagePrefixKey = window.crossConfig?.storagePrefixKey;
+        const operatorKey = storagePrefixKey ? `${storagePrefixKey}_op` : "op";
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
@@ -168,7 +168,7 @@ function updateLocalizedImages() {
 
     setTitleAndFavicon(title, favicon);
     setSplashTextClass(language);
-    const classNameBG = window.envConfig?.backgroundNoTranslate ? "bg_no_translate" : `splash_bg_game_${language}`;
+    const classNameBG = window.crossConfig?.backgroundNoTranslate ? "bg_no_translate" : `splash_bg_game_${language}`;
     const classNameGameName = `splash_game_name_${language}`;
     splashBgGame.className += ` ${classNameBG}`;
     splashGameName.className += ` ${classNameGameName}`;
@@ -210,7 +210,8 @@ function isInstant() {
         return !!urlParams.get(instantKey);
     }
     try {
-        const sessionStorageKey = window.envConfig?.storagePrefixKey ? `${window.envConfig.storagePrefixKey}_ss` : "ss";
+        const storagePrefixKey = window.crossConfig?.storagePrefixKey;
+        const sessionStorageKey = storagePrefixKey ? `${storagePrefixKey}_ss` : "ss";
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
