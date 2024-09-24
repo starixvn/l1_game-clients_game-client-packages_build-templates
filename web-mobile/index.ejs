@@ -41,6 +41,7 @@
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
     </head>
     <body>
+        <div id="Background"></div>
         <div id="GameDiv" cc_exact_fit_screen="true">
             <div id="Cocos3dGameContainer">
                 <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
@@ -51,7 +52,6 @@
             <div id="splash_bg_game" class="splash_bg_game"></div>
             <div id="splash_logo"></div>
             <div id="splash_text" class="splash_text"></div>
-            <div id="splash_game_name" class="splash_game_name"></div>
         </div>
         <!-- Configs. -->
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>

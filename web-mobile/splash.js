@@ -131,7 +131,6 @@ function getCurrentOperator() {
 
 function updateLocalizedImages() {
     const splashBgGame = document.getElementById("splash_bg_game");
-    const splashGameName = document.getElementById("splash_game_name");
     const language = getCurrentLanguage().replace(/['"]+/g, "");
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
 
@@ -169,9 +168,7 @@ function updateLocalizedImages() {
     setTitleAndFavicon(title, favicon);
     setSplashTextClass(language);
     const classNameBG = window.crossConfig?.backgroundNoTranslate ? "bg_no_translate" : `splash_bg_game_${language}`;
-    const classNameGameName = `splash_game_name_${language}`;
     splashBgGame.className += ` ${classNameBG}`;
-    splashGameName.className += ` ${classNameGameName}`;
 }
 
 function setTitleAndFavicon(title, favicon) {
