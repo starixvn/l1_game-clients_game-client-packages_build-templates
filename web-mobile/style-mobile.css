@@ -121,57 +121,8 @@ p.footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(./background.jpg);
+    background: url(./background.jpg) no-repeat;
     background-size: auto 100vh;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
-    body {
-        background-size: 100vh auto;
-    }
-
-    .splash-container {
-        height: 100vw;
-        width: 100vh;
-        transform: rotate(90deg);
-    }
-
-    .container-themes {
-        position: fixed;
-        height: calc(89.56vw - 70px);
-        -ms-transform: translateY(-89.56vw) rotate(90deg);
-        -o-transform: translateY(-89.56vw) rotate(90deg);
-        -ms-transform: translateY(-89.56vw) rotate(90deg);
-        -o-transform: translateY(-89.56vw) rotate(90deg);
-        transform: translateY(-89.56vw) rotate(90deg);
-        -webkit-transform-origin: left bottom;
-        -moz-transform-origin: left bottom;
-        top: unset;
-        bottom: unset;
-        right: unset;
-        left: 5.22vw;
-    }
-
-    .img-themes {
-        background-size: auto 50.36vh;
-        width: auto;
-        height: 50.36vh;
-    }
-
-    #Background {
-        background-size: 100vh 100vw;
-        transform: rotate(90deg);
-        transform-origin: bottom left;
-        width: 100vh;
-        height: 100vw;
-        top: -100vw;
-    }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-    .splash-container {
-        transform: rotate(0deg);
-    }
 }
 
 .splash-container {
@@ -270,15 +221,6 @@ p.footer {
     height: 14.25vh;
 }
 
-/* .splash_text_Vgaming, .splash_text_sabaplay {
-    position: absolute;
-    top: 17.3vh;
-    background: no-repeat center;
-    background-size: auto 3.44vh;
-    width: 100%;
-    height: 3.44vh;
-} */
-
 .splash_text_vi {
     background-image: url("./splash_text_vi.png");
 }
@@ -347,15 +289,68 @@ p.footer {
     background-size: auto 4.28vh;
     height: 4.28vh;
 }
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
+
+.text {
+    margin-bottom: 36px;
+    text-transform: capitalize;
+    background: linear-gradient(to bottom, #ffe28e 0%, #f9a71a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8em;
+    font-family: Arial;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
+    body {
+        background-size: 100vh auto;
+    }
+
+    .splash-container {
+        height: 100vw;
+        width: 100vh;
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+        top: -100vw;
+        left: 0;
+    }
+
+    .container-themes {
+        position: fixed;
+        height: calc(89.56vw - 70px);
+        -ms-transform: translateY(-89.56vw) rotate(90deg);
+        -o-transform: translateY(-89.56vw) rotate(90deg);
+        -ms-transform: translateY(-89.56vw) rotate(90deg);
+        -o-transform: translateY(-89.56vw) rotate(90deg);
+        transform: translateY(-89.56vw) rotate(90deg);
+        -webkit-transform-origin: left bottom;
+        -moz-transform-origin: left bottom;
+        top: unset;
+        bottom: unset;
+        right: unset;
+        left: 5.22vw;
+    }
+
+    .img-themes {
+        background-size: auto 50.36vh;
+        width: auto;
+        height: 50.36vh;
+    }
+
+    #Background {
+        background-size: 100vh 100vw;
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+        width: 100vh;
+        height: 100vw;
+        top: -100vw;
+    }
+
     .light {
         background-size: 31.47vw 8.79vw;
         width: 31.47vw;
         height: 8.79vw;
     }
-}
 
-@media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     .splash {
         top: 28vh;
         left: 0;
@@ -363,8 +358,8 @@ p.footer {
     }
 
     .splash_text {
-        top: 34vh;
-        background-size: auto 2.8vh;
+        top: 17.3vw;
+        background-size: auto 3.44vw;
     }
 
     .splash_Vgaming {
@@ -420,16 +415,6 @@ p.footer {
         background-size: auto 3.66vh;
         height: 3.66vh;
     }
-}
-
-.text {
-    margin-bottom: 36px;
-    text-transform: capitalize;
-    background: linear-gradient(to bottom, #ffe28e 0%, #f9a71a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8em;
-    font-family: Arial;
 }
 
 @keyframes animate-stripes {
