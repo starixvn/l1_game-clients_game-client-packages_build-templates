@@ -17,7 +17,7 @@ window.envConfig = {
     },
     mainObserverNamespace: "ColorGame",
     tolgeeUrl: "",
-    backgroundNoTranslate: true,
+    backgroundLocalized: true,
 };
 
 console.error("Wrong mapping config, please check your deployment");
