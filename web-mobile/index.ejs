@@ -64,7 +64,7 @@
         <script src="<%= systemJsBundleFile %>" charset="utf-8"></script>
 
         <!-- Import map -->
-        <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"></script>
+        <script src="./customize/import-map.json?v=1" type="systemjs-importmap" charset="utf-8"></script>
 
         <script>
             System.import("./<%= indexJsName %>").catch(function (err) {
