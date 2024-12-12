@@ -74,6 +74,7 @@ body {
     margin: 0px !important;
     width: 100% !important;
     height: 100% !important;
+    opacity: 0;
 }
 
 #Cocos3dGameContainer {
@@ -131,16 +132,77 @@ p.footer {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 999;
+    background: url(./background.jpg) no-repeat;
 }
 
 .splash {
     position: absolute;
     top: 5vh;
     background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
-    background-size: auto 8.92vh;
+    background-size: auto 100vh;
     width: 100%;
     height: 100%;
+}
+
+#splash_logo {
+    background: url(./logo_saba.png) no-repeat center;
+    width: 100%;
+    height: 120px;
+    top: 35vh;
+    position: absolute;
+}
+
+#LoadingPercentage {
+    position: absolute;
+    bottom: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    color: white;
+    font-size: 22px;
+}
+
+#GameName {
+    position: absolute;
+    top: 92vh;
+    background-size: auto 3.44vh;
+    width: 100%;
+    height: 3.44vh;
+}
+
+#ProgressBarContainer {
+    position: absolute;
+    top: 88vh;
+    width: 100%;
+    height: 0.44vh;
+}
+
+#ProgressBarContent {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ProgressBarBG {
+    background: url("./splash-resources/progress-bg.png") no-repeat center;
+    background-size: 100% 0.44vh;
+}
+
+#ProgressBar {
+    background: url("./splash-resources/progress-bar.png") no-repeat;
+    background-size: 44% 0.44vh;
+    margin-top: -0.44vh;
+}
+
+#ProgressBarBG,
+#ProgressBar {
+    height: 0.44vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game_name_vi {
+    background: url("./splash-resources/game_name_vi.png") no-repeat center;
 }
 
 .splash_bg_game {
@@ -306,11 +368,8 @@ p.footer {
     }
 
     .splash-container {
-        height: 100vw;
-        width: 100vh;
         /*transform: rotate(90deg);*/
         transform-origin: bottom left;
-        top: -100vw;
         left: 0;
     }
 
@@ -336,15 +395,6 @@ p.footer {
         height: 50.36vh;
     }
 
-    #Background {
-        background-size: 100vh 100vw;
-        transform: rotate(90deg);
-        transform-origin: bottom left;
-        width: 100vh;
-        height: 100vw;
-        top: -100vw;
-    }
-
     .light {
         background-size: 31.47vw 8.79vw;
         width: 31.47vw;
@@ -358,7 +408,7 @@ p.footer {
     }
 
     .splash_text {
-        top: 17.3vw;
+        top: 97.3vw;
         background-size: auto 3.44vw;
     }
 

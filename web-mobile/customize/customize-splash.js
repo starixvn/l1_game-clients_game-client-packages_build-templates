@@ -130,7 +130,6 @@ function getCurrentOperator() {
 }
 
 function updateLocalizedImages() {
-    const splashBgGame = document.getElementById("splash_bg_game");
     const language = getCurrentLanguage().replace(/['"]+/g, "");
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
 
@@ -167,8 +166,8 @@ function updateLocalizedImages() {
 
     setTitleAndFavicon(title, favicon);
     setSplashTextClass(language);
+    setGameNameClass(language);
     const classNameBG = window.crossConfig?.backgroundLocalized ? `splash_bg_game_${language}` : "bg_no_translate";
-    splashBgGame.className += ` ${classNameBG}`;
 }
 
 function setTitleAndFavicon(title, favicon) {
@@ -181,6 +180,12 @@ function setSplashTextClass(language) {
     const splashText = document.getElementById("splash_text");
     const className = `splash_text_${language}`;
     splashText.className += ` ${className}`;
+}
+
+function setGameNameClass(language) {
+    const gameNameText = document.getElementById("GameName");
+    const className = `game_name_${language}`;
+    gameNameText.className += ` ${className}`;
 }
 
 function updateSplashLogo() {
@@ -224,6 +229,43 @@ function updateSplashByAppType() {
         document.body.classList.add(className);
     }
 }
+
+function getUIPercentage() {
+    return +document.getElementById("LoadingPercentage").innerText.replace("%", "");
+}
+
+function updateLoadingPercentage() {
+    // Get the percentage from local storage
+    let percentage = Math.round(+localStorage.getItem("loading") * 100 || 0);
+
+    if (percentage < getUIPercentage() && getUIPercentage() < 90) {
+        percentage = getUIPercentage() + 1;
+    }
+
+    if (percentage === 0) {
+        percentage = 1;
+    }
+
+    if (percentage > 100) {
+        percentage = 100;
+    }
+
+    console.log("update percentage", percentage);
+
+    // Stop the interval when percentage reaches 100%
+    if (percentage >= 100) {
+        clearInterval(intervalId);
+    }
+
+    if (percentage === 100) {
+        percentage = 99;
+    }
+    // Update the div with the current percentage
+    document.getElementById("LoadingPercentage").innerText = percentage + "%";
+}
+
+localStorage.setItem("loading", "0");
+let intervalId = setInterval(updateLoadingPercentage, 200);
 
 updateSplashByAppType();
 updateSplashLogo();

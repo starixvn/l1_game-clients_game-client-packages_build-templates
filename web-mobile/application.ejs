@@ -1,14 +1,11 @@
 let cc;
 
 function setLoadingDisplay() {
-  var splash = document.getElementById("splash");
   var gameCanvas = document.getElementById("GameCanvas");
   gameCanvas.style.display = "none";
-  splash.style.display = "block";
-
+  
   cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
       gameCanvas.style.display = "block";
-      splash.style.display = "none";
       document.body.style.background = "#000";
   });
 }
