@@ -133,6 +133,8 @@ p.footer {
     width: 100%;
     height: 100%;
     background: url(./background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .splash {
@@ -148,13 +150,14 @@ p.footer {
     background: url(./logo_saba.png) no-repeat center;
     width: 100%;
     height: 120px;
-    top: 35vh;
+    top: 45vh;
     position: absolute;
+    margin-top: -70px;
 }
 
 #LoadingPercentage {
     position: absolute;
-    bottom: 120px;
+    top: 84vh;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -164,10 +167,22 @@ p.footer {
 
 #GameName {
     position: absolute;
-    top: 92vh;
-    background-size: auto 3.44vh;
+    top: 91vh;
     width: 100%;
     height: 3.44vh;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+#NoticeMessage {
+    position: absolute;
+    top: 96vh;
+    width: 100%;
+    height: 3.44vh;
+    text-align: center;
+    color: #d0c9c9;
+    font-size: 12px;
 }
 
 #ProgressBarContainer {
@@ -243,7 +258,7 @@ p.footer {
 
 .splash_text {
     position: absolute;
-    top: 17.3vh;
+    top: 50vh;
     background: no-repeat center;
     background-size: auto 3.44vh;
     width: 100%;
@@ -408,7 +423,7 @@ p.footer {
     }
 
     .splash_text {
-        top: 97.3vw;
+        top: 50vh;
         background-size: auto 3.44vw;
     }
 

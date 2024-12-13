@@ -166,8 +166,8 @@ function updateLocalizedImages() {
 
     setTitleAndFavicon(title, favicon);
     setSplashTextClass(language);
-    setGameNameClass(language);
-    const classNameBG = window.crossConfig?.backgroundLocalized ? `splash_bg_game_${language}` : "bg_no_translate";
+    setGameName(language);
+    setFirstVisitMsg(language);
 }
 
 function setTitleAndFavicon(title, favicon) {
@@ -182,10 +182,30 @@ function setSplashTextClass(language) {
     splashText.className += ` ${className}`;
 }
 
-function setGameNameClass(language) {
+function setGameName(language) {
+    const gameNames = {
+        vi: "Xóc Đĩa",
+        en: "Se Die",
+        id: "Se Die",
+        th: "Se Die",
+        zh_cn: "色碟",
+        zh_tw: "色碟",
+    };
     const gameNameText = document.getElementById("GameName");
-    const className = `game_name_${language}`;
-    gameNameText.className += ` ${className}`;
+    gameNameText.innerText = gameNames[language];
+}
+
+function setFirstVisitMsg(language) {
+    const msg = {
+        vi: "Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.",
+        en: "If this is your first visit, downloading may take a while",
+        id: "Jika ini adalah kunjungan pertama Anda, pengunduhan mungkin memakan waktu cukup lama.",
+        th: "หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่",
+        zh_cn: "如果这是您第一次访问，下载可能需要一段时间。",
+        zh_tw: "如果這是您第一次訪問，下載可能需要一段時間。",
+    };
+    const gameNameText = document.getElementById("NoticeMessage");
+    gameNameText.innerText = msg[language];
 }
 
 function updateSplashLogo() {
@@ -262,6 +282,7 @@ function updateLoadingPercentage() {
     }
     // Update the div with the current percentage
     document.getElementById("LoadingPercentage").innerText = percentage + "%";
+    document.getElementById("ProgressBar").style.backgroundSize = `${percentage + "%"} 0.44vh`;
 }
 
 localStorage.setItem("loading", "0");
