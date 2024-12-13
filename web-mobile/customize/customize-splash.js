@@ -280,9 +280,12 @@ function updateLoadingPercentage() {
     if (percentage === 100) {
         percentage = 99;
     }
-    // Update the div with the current percentage
-    document.getElementById("LoadingPercentage").innerText = percentage + "%";
-    document.getElementById("ProgressBar").style.backgroundSize = `${percentage + "%"} 0.44vh`;
+
+    if (percentage > getUIPercentage()) {
+        // Update the div with the current percentage
+        document.getElementById("LoadingPercentage").innerText = percentage + "%";
+        document.getElementById("ProgressBar").style.backgroundSize = `${percentage + "%"} 0.44vh`;
+    }
 }
 
 localStorage.setItem("loading", "0");
