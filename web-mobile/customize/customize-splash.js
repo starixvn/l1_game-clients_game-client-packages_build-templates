@@ -270,8 +270,6 @@ function updateLoadingPercentage() {
         percentage = 100;
     }
 
-    console.log("update percentage", percentage);
-
     // Stop the interval when percentage reaches 100%
     if (percentage >= 100) {
         clearInterval(intervalId);

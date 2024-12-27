@@ -132,7 +132,7 @@ p.footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(./background.jpg) no-repeat;
+    background: url(./../images/background.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -147,10 +147,11 @@ p.footer {
 }
 
 #splash_logo {
-    background: url(./logo_saba.png) no-repeat center;
+    background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
     width: 100%;
-    height: 120px;
-    top: 45vh;
+    height: 155px;
+    scale: 0.8;
+    top: 43vh;
     position: absolute;
     margin-top: -70px;
 }
@@ -199,12 +200,12 @@ p.footer {
 }
 
 #ProgressBarBG {
-    background: url("./splash-resources/progress-bg.png") no-repeat center;
+    background: url("./../splash-resources/progress-bg.png") no-repeat center;
     background-size: 100% 0.44vh;
 }
 
 #ProgressBar {
-    background: url("./splash-resources/progress-bar.png") no-repeat;
+    background: url("./../splash-resources/progress-bar.png") no-repeat;
     background-size: 44% 0.44vh;
     margin-top: -0.44vh;
 }
