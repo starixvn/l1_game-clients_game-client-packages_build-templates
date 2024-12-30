@@ -199,7 +199,7 @@ function setFirstVisitMsg(language) {
     const msg = {
         vi: "Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.",
         en: "If this is your first visit, downloading may take a while",
-        id: "Jika ini adalah kunjungan pertama Anda, pengunduhan mungkin memakan waktu cukup lama.",
+        id: "Jika ini adalah kunjungan pertama Anda,\npengunduhan mungkin memakan waktu cukup lama.",
         th: "หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่",
         zh_cn: "如果这是您第一次访问，下载可能需要一段时间。",
         zh_tw: "如果這是您第一次訪問，下載可能需要一段時間。",
