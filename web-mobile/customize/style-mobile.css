@@ -219,44 +219,12 @@ p.footer {
     margin-right: auto;
 }
 
-.game_name_vi {
-    background: url("./splash-resources/game_name_vi.png") no-repeat center;
-}
-
 .splash_bg_game {
     position: absolute;
     background: no-repeat center;
     background-size: auto 56.5vh;
     width: 100%;
     height: 100%;
-}
-
-.bg_no_translate {
-    background-image: url("./../splash-resources/game_background.webp?v=1");
-}
-
-.splash_bg_game_vi {
-    background-image: url("./../splash-resources/game_background_vi.webp?v=1");
-}
-
-.splash_bg_game_en {
-    background-image: url("./../splash-resources/game_background_en.webp?v=1");
-}
-
-.splash_bg_game_th {
-    background-image: url("./../splash-resources/game_background_th.webp?v=1");
-}
-
-.splash_bg_game_id {
-    background-image: url("./../splash-resources/game_background_id.webp?v=1");
-}
-
-.splash_bg_game_zh_cn {
-    background-image: url("./../splash-resources/game_background_zh_cn.webp?v=1");
-}
-
-.splash_bg_game_zh_tw {
-    background-image: url("./../splash-resources/game_background_zh_tw.webp?v=1");
 }
 
 .splash_text {
@@ -328,12 +296,6 @@ p.footer {
 #splash.instant-game .splash {
     top: 4vh;
     background-size: auto 11.1vh;
-}
-
-#splash.instant-game .splash_bg_game {
-    top: 1.9vh;
-    background-image: url("./../splash-resources/landscape_game_background.webp?v=2");
-    background-size: auto;
 }
 
 #splash.instant-game .splash_tip88 {
@@ -466,11 +428,6 @@ p.footer {
     #splash.instant-game .splash {
         top: 4vh;
         background-size: auto 9.5vh;
-    }
-
-    #splash.instant-game .splash_bg_game {
-        top: -1vh;
-        background-image: url("./../splash-resources/portrait_game_background.webp?v=2");
     }
 
     #splash.instant-game .splash_sabaplay {
