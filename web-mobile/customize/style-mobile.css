@@ -158,7 +158,7 @@ p.footer {
 
 #LoadingPercentage {
     position: absolute;
-    top: 85vh;
+    bottom: 16vh;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -169,7 +169,7 @@ p.footer {
 
 #GameName {
     position: absolute;
-    top: 89vh;
+    bottom: 10vh;
     width: 100%;
     height: 3.44vh;
     text-align: center;
@@ -181,21 +181,20 @@ p.footer {
 
 #NoticeMessage {
     position: absolute;
-    top: 95vh;
+    bottom: 3vh;
     width: 100%;
     height: 3.44vh;
     text-align: center;
     color: #d0c9c9;
-    font-size: 13.5px;
-    font-weight: bold;
+    font-size: 13px;
     font-family: "Noto Serif", serif;
 }
 
 #ProgressBarContainer {
     position: absolute;
-    top: 88vh;
+    bottom: 14vh;
     width: 100%;
-    height: 0.44vh;
+    height: 1.0vh;
 }
 
 #ProgressBarContent {
@@ -205,19 +204,19 @@ p.footer {
 }
 
 #ProgressBarBG {
-    background: url("./../splash-resources/progress-bg.webp") no-repeat center;
-    background-size: 100% 0.44vh;
+    background: url("./../splash-resources/progress-bg.webp") no-repeat;
+    background-size: 100% 1.0vh;
 }
 
 #ProgressBar {
     background: url("./../splash-resources/progress-bar.webp") no-repeat;
-    background-size: 44% 0.44vh;
-    margin-top: -0.44vh;
+    background-size: 100% 1.0vh;
+    margin-top: -1vh;
 }
 
 #ProgressBarBG,
 #ProgressBar {
-    height: 0.44vh;
+    height: 1.0vh;
     margin-left: auto;
     margin-right: auto;
 }
