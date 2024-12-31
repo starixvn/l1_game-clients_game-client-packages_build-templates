@@ -164,6 +164,7 @@ p.footer {
     width: 100%;
     color: white;
     font-size: 18px;
+    font-family: "Noto Serif", serif;
 }
 
 #GameName {
@@ -175,6 +176,7 @@ p.footer {
     color: white;
     font-size: 18px;
     font-weight: bold;
+    font-family: "Noto Serif", serif;
 }
 
 #NoticeMessage {
@@ -186,6 +188,7 @@ p.footer {
     color: #d0c9c9;
     font-size: 13.5px;
     font-weight: bold;
+    font-family: "Noto Serif", serif;
 }
 
 #ProgressBarContainer {
