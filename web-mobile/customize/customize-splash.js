@@ -187,6 +187,11 @@ function setGameName(language) {
     gameNameText.innerText = window.gameNames?.[language] || "Game Name";
 }
 
+function setSplashScreenNoticeMessage(message) {
+    const noticeMessage = document.getElementById("NoticeMessage");
+    noticeMessage.innerText = message;
+}
+
 function setFirstVisitMsg(language) {
     const msg = {
         vi: "Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.",
@@ -196,8 +201,7 @@ function setFirstVisitMsg(language) {
         zh_cn: "如果这是您第一次访问，下载可能需要一段时间。",
         zh_tw: "如果這是您第一次訪問，下載可能需要一段時間。",
     };
-    const noticeMessage = document.getElementById("NoticeMessage");
-    noticeMessage.innerText = msg[language];
+    setSplashScreenNoticeMessage(msg[language]);
 }
 
 function updateSplashLogo() {
@@ -246,40 +250,10 @@ function getUIPercentage() {
     return +document.getElementById("LoadingPercentage").innerText.replace("%", "");
 }
 
-function updateLoadingPercentage() {
-    // Get the percentage from local storage
-    let percentage = Math.round(+localStorage.getItem("loading") * 100 || 0);
-
-    if (percentage < getUIPercentage() && getUIPercentage() < 90) {
-        percentage = getUIPercentage() + 1;
-    }
-
-    if (percentage === 0) {
-        percentage = 1;
-    }
-
-    if (percentage > 100) {
-        percentage = 100;
-    }
-
-    // Stop the interval when percentage reaches 100%
-    if (percentage >= 100) {
-        clearInterval(intervalId);
-    }
-
-    if (percentage === 100) {
-        percentage = 99;
-    }
-
-    if (percentage > getUIPercentage()) {
-        // Update the div with the current percentage
-        document.getElementById("LoadingPercentage").innerText = percentage + "%";
-        document.getElementById("ProgressBar").style.width = `${percentage}%`;
-    }
+function updateLoadingPercentage(percentage) {
+    document.getElementById("LoadingPercentage").innerText = percentage + "%";
+    document.getElementById("ProgressBar").style.width = `${percentage}%`;
 }
-
-localStorage.setItem("loading", "0");
-let intervalId = setInterval(updateLoadingPercentage, 200);
 
 updateSplashByAppType();
 updateSplashLogo();
