@@ -183,16 +183,8 @@ function setSplashTextClass(language) {
 }
 
 function setGameName(language) {
-    const gameNames = {
-        vi: "Xóc Đĩa",
-        en: "Se Die",
-        id: "Se Die",
-        th: "Se Die",
-        zh_cn: "色碟",
-        zh_tw: "色碟",
-    };
     const gameNameText = document.getElementById("GameName");
-    gameNameText.innerText = gameNames[language];
+    gameNameText.innerText = window.gameNames?.[language] || "Game Name";
 }
 
 function setFirstVisitMsg(language) {
@@ -204,8 +196,8 @@ function setFirstVisitMsg(language) {
         zh_cn: "如果这是您第一次访问，下载可能需要一段时间。",
         zh_tw: "如果這是您第一次訪問，下載可能需要一段時間。",
     };
-    const gameNameText = document.getElementById("NoticeMessage");
-    gameNameText.innerText = msg[language];
+    const noticeMessage = document.getElementById("NoticeMessage");
+    noticeMessage.innerText = msg[language];
 }
 
 function updateSplashLogo() {
