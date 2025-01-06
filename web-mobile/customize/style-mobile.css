@@ -194,31 +194,35 @@ p.footer {
     position: absolute;
     bottom: 14vh;
     width: 100%;
-    height: 1.0vh;
+    height: 1vh;
 }
 
 #ProgressBarContent {
     width: 60%;
+    height: 1vh;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
 }
 
 #ProgressBarBG {
-    background: url("./../splash-resources/progress-bg.webp") no-repeat;
-    background-size: 100% 1.0vh;
+    width: 100%;
+    background-image: url("./../splash-resources/progress-bg.webp");
+    overflow: hidden;
 }
 
 #ProgressBar {
-    background: url("./../splash-resources/progress-bar.webp") no-repeat;
-    background-size: 100% 1.0vh;
-    margin-top: -1vh;
+    width: 1%; /* Default progress value */
+    background-image: url("./../splash-resources/progress-bar.webp");
+    transition: width 0.3s ease-in-out;
 }
 
 #ProgressBarBG,
 #ProgressBar {
-    height: 1.0vh;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    border-radius: 50px;
 }
 
 .splash_bg_game {

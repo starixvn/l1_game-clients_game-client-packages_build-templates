@@ -274,7 +274,7 @@ function updateLoadingPercentage() {
     if (percentage > getUIPercentage()) {
         // Update the div with the current percentage
         document.getElementById("LoadingPercentage").innerText = percentage + "%";
-        document.getElementById("ProgressBar").style.backgroundSize = `${percentage + "%"} 1.0vh`;
+        document.getElementById("ProgressBar").style.width = `${percentage}%`;
     }
 }
 
