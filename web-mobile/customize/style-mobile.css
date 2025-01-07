@@ -212,7 +212,7 @@ p.footer {
 }
 
 #ProgressBar {
-    width: 1%; /* Default progress value */
+    width: 0%;
     background-image: url("./../splash-resources/progress-bar.webp");
     transition: width 0.3s ease-in-out;
 }
