@@ -168,6 +168,9 @@ function updateLocalizedImages() {
     setSplashTextClass(language);
     setGameName(language);
     setFirstVisitMsg(language);
+    const classNameBG = window.crossConfig?.backgroundLocalized ? `splash_bg_game_${language}` : "bg_no_translate";
+    const splash = document.getElementById("splash");
+    splash.className += ` ${classNameBG}`;
 }
 
 function setTitleAndFavicon(title, favicon) {
