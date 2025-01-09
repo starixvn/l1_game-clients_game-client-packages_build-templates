@@ -2,4 +2,19 @@
     background: url(./game_background.webp) no-repeat;
     background-size: cover;
     background-position: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: calc((786 / 1398) * 100vh); /* Maintain aspect ratio based on height */
+    max-height: 100vh;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: calc((786 / 1398) * 100vh)) {
+    #splash.splash-container {
+        width: 100vw;
+        height: calc((1398 / 786) * 100vw); /* Adjust height if width constrained */
+    }
 }
