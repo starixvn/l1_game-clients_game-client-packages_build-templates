@@ -235,7 +235,7 @@ p.footer {
 
 .splash_text {
     position: absolute;
-    top: 50vh;
+    top: calc(43vh + 35px * 0.8 + 2rem);
     background: no-repeat center;
     background-size: auto 3.44vh;
     width: 100%;
@@ -418,7 +418,7 @@ p.footer {
     }
 
     .splash_text {
-        top: 50vh;
+        top: calc(43vh + 35px * 0.8 + 2rem);
         background-size: auto 3.44vw;
     }
 
