@@ -166,8 +166,6 @@ function updateLocalizedImages() {
 
     setTitleAndFavicon(title, favicon);
     setSplashTextClass(language);
-    setGameName(language);
-    setFirstVisitMsg(language);
     const classNameBG = window.crossConfig?.backgroundLocalized ? `splash_bg_game_${language}` : "bg_no_translate";
     const splash = document.getElementById("splash");
     splash.className += ` ${classNameBG}`;
@@ -183,28 +181,6 @@ function setSplashTextClass(language) {
     const splashText = document.getElementById("splash_text");
     const className = `splash_text_${language}`;
     splashText.className += ` ${className}`;
-}
-
-function setGameName(language) {
-    const gameNameText = document.getElementById("GameName");
-    gameNameText.innerText = window.gameNames?.[language] || "Game Name";
-}
-
-function setSplashScreenNoticeMessage(message) {
-    const noticeMessage = document.getElementById("NoticeMessage");
-    noticeMessage.innerText = message;
-}
-
-function setFirstVisitMsg(language) {
-    const msg = {
-        vi: "Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.",
-        en: "If this is your first visit, downloading may take a while",
-        id: "Jika ini adalah kunjungan pertama Anda,\npengunduhan mungkin memakan waktu cukup lama.",
-        th: "หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่",
-        zh_cn: "如果这是您第一次访问，下载可能需要一段时间。",
-        zh_tw: "如果這是您第一次訪問，下載可能需要一段時間。",
-    };
-    setSplashScreenNoticeMessage(msg[language]);
 }
 
 function updateSplashLogo() {
@@ -247,15 +223,6 @@ function updateSplashByAppType() {
         splash.classList.add(className);
         document.body.classList.add(className);
     }
-}
-
-function getUIPercentage() {
-    return +document.getElementById("LoadingPercentage").innerText.replace("%", "");
-}
-
-function updateLoadingPercentage(percentage) {
-    document.getElementById("LoadingPercentage").innerText = percentage + "%";
-    document.getElementById("ProgressBar").style.width = `${percentage}%`;
 }
 
 function showGuideRotate() {
