@@ -58,6 +58,12 @@
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/customize-splash.js?v=<%= Date.now() %>"></script>
+
+        <!-- open when debug build -->
+        <!-- <%- include(cocosTemplate, {}) %> -->
+        <!----->
+
+        <!-- hide all when debug build -->
         <!-- Polyfills bundle. -->
         <script src="<%= polyfillsBundleFile %>" charset="utf-8"></script>
 
@@ -72,5 +78,7 @@
                 console.error(err);
             });
         </script>
+
+        <!------->
     </body>
 </html>
