@@ -146,16 +146,32 @@ p.footer {
     height: 100%;
 }
 
+
+.splash-logo-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    scale: 1;
+    justify-content: center;
+}
+
+
 #splash_logo {
     background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
     width: 100%;
     height: 17vh;
     scale: 0.8;
-    top: 43vh;
-    position: absolute;
-    margin-top: -70px;
+    position: relative;
     background-size: auto 17vh;
 }
+
 
 #LoadingPercentage {
     position: absolute;
@@ -236,9 +252,8 @@ p.footer {
 
 .splash_text {
     position: absolute;
-    top: calc(43vh + 35px * 0.8 + 2rem);
+
     background: no-repeat center;
-    background-size: auto 3.44vh;
     width: 100%;
     height: 3.44vh;
 }
@@ -335,9 +350,9 @@ p.footer {
 
 #splash.instant-game .splash_text {
     top: 19.6vh;
-    background-size: auto 4.28vh;
     height: 4.28vh;
 }
+
 
 .text {
     margin-bottom: 36px;
@@ -432,15 +447,6 @@ p.footer {
         background-size: auto 6.3vh;
     }
 
-    .splash_text {
-        top: calc(43vh + 35px * 0.8 + 2rem);
-        background-size: auto 3.44vw;
-    }
-
-    #splash_logo {
-        background-size: auto 17vw;
-        height: 17vw;
-    }
 
     .splash_Vgaming {
         top: 25vh;
@@ -498,6 +504,20 @@ p.footer {
     }
     
 }
+
+#splash_text {
+    position: relative;
+    top: -3vh;
+    background-size: auto 3.44vh;
+}
+
+
+@media screen and (max-width: 400px) {
+    #splash_text {
+        background-size: auto calc(3.44vh * 0.8);
+    }
+}
+
 
 @keyframes animate-stripes {
     0% {
