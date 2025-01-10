@@ -225,61 +225,6 @@ function updateSplashByAppType() {
     }
 }
 
-function showGuideRotate() {
-    const isPortrait = window.outerWidth < window.outerHeight;
-    const guideRotate = document.getElementById("guideRotate");
-    const infoGuide = document.getElementById("infoGuide");
-    const texts = {
-        vi: "Vui lòng xoay thiết bị của bạn.",
-        en: "Please rotate your device",
-        id: "JSilakan putar perangkat Anda.",
-        th: "กรุณาหมุนอุปกรณ์ของคุณ",
-        zh_cn: "请旋转您的设备。",
-        zh_tw: "請旋轉您的設備。",
-    };
-    const language = getCurrentLanguage().replace(/['"]+/g, "");
-    infoGuide.textContent = texts[language] || texts.en;
-
-    if (isPortrait) {
-        guideRotate.style.display = "none";
-
-        return;
-    }
-
-    guideRotate.style.display = "block";
-}
-
-function handleShowGuideRotate() {
-    if (window.mobilecheck()) {
-        showGuideRotate();
-        var timeoutResize;
-        var timeoutOrientationChange;
-
-        const canvas = document.getElementById("GameCanvas");
-        canvas.onfocus = () => {
-            showGuideRotate();
-        };
-        canvas.onblur = () => {
-            showGuideRotate();
-        };
-
-        window.addEventListener("orientationchange", function () {
-            clearTimeout(timeoutOrientationChange);
-            timeoutOrientationChange = setTimeout(function () {
-                showGuideRotate();
-            }, 100);
-        });
-
-        window.addEventListener("resize", function () {
-            clearTimeout(timeoutResize);
-            timeoutResize = setTimeout(function () {
-                showGuideRotate();
-            }, 100);
-        });
-    }
-}
-
-handleShowGuideRotate();
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();

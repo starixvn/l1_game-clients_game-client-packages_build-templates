@@ -39,33 +39,23 @@
         <link rel="icon" id="favicon" />
         <link rel="stylesheet" type="text/css" href="./customize/style-mobile.css?v=<%= Date.now() %>" />
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     </head>
     <body>
-        <div id="splash" class="splash-container">
-            <div class="splash-logo-container">
-                <div id="splash_logo"></div>
-                <div id="splash_text" class="splash_text"></div>
-            </div>
-        </div>
-
+        <div id="Background"></div>
         <div id="GameDiv" cc_exact_fit_screen="true">
             <div id="Cocos3dGameContainer">
                 <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
             </div>
         </div>
 
-        <div id="guideRotate" class="guideRotate">
-            <div class="container-guide">
-                <img src="./images/landscape-icon.svg" alt="landscape-icon" />
-                <p id="infoGuide" class="infoGuide"></p>
-            </div>
+        <div id="splash" class="splash-container">
+            <div id="splash_bg_game" class="splash_bg_game"></div>
+            <div id="splash_logo"></div>
+            <div id="splash_text" class="splash_text"></div>
         </div>
 
         <!-- Configs. -->
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>
-        <script type="text/javascript" src="./splash-resources/game-names.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/customize-splash.js?v=<%= Date.now() %>"></script>
         <!-- Polyfills bundle. -->
