@@ -143,11 +143,11 @@ p.footer {
 
 .splash {
     position: relative;
-    top: 36.6vh;
+    top: 36.36vh;
     background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
-    background-size: auto 11.09vh;
+    background-size: auto 14.38vh;
     width: auto;
-    height: 11.09vh;
+    height: 14.38vh;
 }
 
 .splash_bg_game {
@@ -184,7 +184,7 @@ p.footer {
 
 .splash_text {
     position: absolute;
-    top: 47.71vh;
+    top: 50.83vh;
     background: no-repeat center;
     background-size: auto 1.93vh;
     width: 100%;
@@ -199,29 +199,29 @@ p.footer {
 
 .splash_Vgaming {
     position: relative;
-    top: 36.6vh;
+    top: 36.36vh;
     background: url("./../images/logo_vgaming.webp?v=2") no-repeat center;
-    background-size: auto 7.44vh;
+    background-size: auto 9.65vh;
     width: auto;
-    height: 7.44vh;
+    height: 9.65vh;
 }
 
 .splash_sabaplay {
     position: relative;
-    top: 36.6vh;
+    top: 36.36vh;
     background: url("./../images/logo_sabaplay.webp?v=2") no-repeat center;
-    background-size: auto 7.65vh;
+    background-size: auto 9.93vh;
     width: auto;
-    height: 7.65vh;
+    height: 9.93vh;
 }
 
 .splash_tip88 {
     position: relative;
-    top: 36.6vh;
+    top: 36.36vh;
     background: url("./../images/logo_tip88.webp?v=2") no-repeat center;
-    background-size: auto 8.01vh;
+    background-size: auto 10.39vh;
     width: auto;
-    height: 8.01vh;
+    height: 10.39vh;
 }
 
 .splash_text_vi {
