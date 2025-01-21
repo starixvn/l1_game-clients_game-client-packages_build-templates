@@ -137,17 +137,26 @@ p.footer {
 .bg_no_translate {
     background: url(../splash-resources/game_background.webp) no-repeat center;
     width: 100%;
-    background-size: auto 100vh;
-    height: 100vh;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+}
+
+#mockup {
+    background: url(../splash-resources/mockup.jpg) no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
 }
 
 .splash {
     position: relative;
-    top: 36.36vh;
+    top: 34%;
     background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
-    background-size: auto 14.38vh;
-    width: auto;
-    height: 14.38vh;
+    background-size: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .splash_bg_game {
@@ -184,11 +193,11 @@ p.footer {
 
 .splash_text {
     position: absolute;
-    top: 50.83vh;
-    background: no-repeat center;
-    background-size: auto 2.5vh;
+    top: 50.5%;
+    background: no-repeat top center;
+    background-size: auto;
     width: 100%;
-    height: 2.5vh;
+    height: 100%;
 }
 
 #splash.instant-game .splash_Vgaming {
@@ -199,29 +208,29 @@ p.footer {
 
 .splash_Vgaming {
     position: relative;
-    top: 36.36vh;
-    background: url("./../images/logo_vgaming.webp?v=2") no-repeat center;
-    background-size: auto 9.65vh;
-    width: auto;
-    height: 9.65vh;
+    top: 34%;
+    background: url("./../images/logo_vgaming.webp?v=2") no-repeat top center;
+    background-size: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .splash_sabaplay {
     position: relative;
-    top: 36.36vh;
-    background: url("./../images/logo_sabaplay.webp?v=2") no-repeat center;
-    background-size: auto 9.93vh;
-    width: auto;
-    height: 9.93vh;
+    top: 34%;
+    background: url("./../images/logo_sabaplay.webp?v=2") no-repeat top center;
+    background-size: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .splash_tip88 {
     position: relative;
-    top: 36.36vh;
-    background: url("./../images/logo_tip88.webp?v=2") no-repeat center;
-    background-size: auto 10.39vh;
-    width: auto;
-    height: 10.39vh;
+    top: 34%;
+    background: url("./../images/logo_tip88.webp?v=2") no-repeat top center;
+    background-size: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .splash_text_vi {
@@ -246,69 +255,4 @@ p.footer {
 
 .splash_text_zh_tw {
     background-image: url("./../images/splash_text_zh_tw.webp?v=1");
-}
-
-#splash.instant-game .splash {
-    top: 4vh;
-    background-size: auto 11.1vh;
-}
-
-#splash.instant-game .splash_bg_game {
-    top: 1.9vh;
-    background-image: url("./../splash-resources/landscape_game_background.webp?v=2");
-    background-size: auto;
-}
-
-#splash.instant-game .splash_tip88 {
-    top: 0.7vh;
-    background-size: auto 17.76vh;
-    height: 17.76vh;
-}
-
-#splash.instant-game .splash_sabaplay {
-    top: 0.7vh;
-    background-size: auto 16.96vh;
-    height: 16.96vh;
-}
-
-.conner-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.centered-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-}
-
-#splash.instant-game .splash_text {
-    top: 19.6vh;
-    background-size: auto 4.28vh;
-    height: 4.28vh;
-}
-
-.text {
-    margin-bottom: 36px;
-    text-transform: capitalize;
-    background: linear-gradient(to bottom, #ffe28e 0%, #f9a71a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8em;
-    font-family: Arial;
-}
-
-@keyframes animate-stripes {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 60px 0;
-    }
 }
