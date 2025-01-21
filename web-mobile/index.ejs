@@ -57,19 +57,8 @@
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/customize-splash.js?v=<%= Date.now() %>"></script>
-        <!-- Polyfills bundle. -->
-        <script src="<%= polyfillsBundleFile %>" charset="utf-8"></script>
 
-        <!-- SystemJS support. -->
-        <script src="<%= systemJsBundleFile %>" charset="utf-8"></script>
 
-        <!-- Import map -->
-        <script src="./customize/import-map.json?v=1" type="systemjs-importmap" charset="utf-8"></script>
-
-        <script>
-            System.import("./<%= indexJsName %>").catch(function (err) {
-                console.error(err);
-            });
-        </script>
+        <%- include(cocosTemplate, {}) %>
     </body>
 </html>
