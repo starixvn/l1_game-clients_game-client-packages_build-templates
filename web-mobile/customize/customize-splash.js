@@ -15,6 +15,7 @@ window.mobilecheck = function () {
 };
 
 const userAgent = window.navigator.userAgent;
+const appTypeDirect = 7;
 
 function initGA() {
     const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
@@ -129,6 +130,29 @@ function getCurrentOperator() {
     return operator;
 }
 
+function getAppType() {
+    let appType = 1;
+    try {
+        const storagePrefixKey = window.crossConfig?.storagePrefixKey;
+        const sessionKey = storagePrefixKey ? `${storagePrefixKey}_ss` : "ss";
+        if (localStorage.getItem(sessionKey)) {
+            const sessionData = JSON.parse(localStorage.getItem(sessionKey));
+            appType = +sessionData?.system;
+        }
+    } catch (e) {}
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("appType")) {
+        appType = urlParams.get("appType");
+    }
+
+    return appType;
+}
+
+function getAppTypePrefix() {
+    return getAppType() === appTypeDirect ? "_direct" : "_portrait";
+}
+
 function updateLocalizedImages() {
     const language = getCurrentLanguage().replace(/['"]+/g, "");
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
@@ -180,14 +204,17 @@ function setTitleAndFavicon(title, favicon) {
 function setSplashTextClass(language) {
     const splashText = document.getElementById("splash_text");
     const className = `splash_text_${language}`;
-    splashText.className += ` ${className}`;
+    const classNameAppType = `splash_text${getAppTypePrefix()}_${language}`;
+    splashText.className += ` ${className} ${classNameAppType}`;
 }
 
 function updateSplashLogo() {
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splash = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
-    splash.className = `splash${suffix}`;
+    const className = `splash${suffix}`;
+    const classNameAppType = `splash${suffix}${getAppTypePrefix()}`;
+    splash.className = `${className} ${classNameAppType}`;
 }
 
 function getCSSClassName(operator) {
@@ -216,16 +243,6 @@ function isInstant() {
     return false;
 }
 
-function updateSplashByAppType() {
-    if (isInstant()) {
-        const className = "instant-game";
-        const splash = document.getElementById("splash");
-        splash.classList.add(className);
-        document.body.classList.add(className);
-    }
-}
-
-updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
 initGA();
