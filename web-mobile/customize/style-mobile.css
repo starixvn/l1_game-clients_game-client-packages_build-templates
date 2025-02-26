@@ -300,6 +300,14 @@ p.footer {
     font-family: Arial;
 }
 
+.loading_icon {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: no-repeat center;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
     body {
         background-size: 100vh auto;
