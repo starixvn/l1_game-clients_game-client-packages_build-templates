@@ -183,29 +183,109 @@ p.footer {
     height: 100%;
 }
 
-.splash_text_vi {
-    background-image: url("./../images/splash_text_vi.webp?v=1");
+
+.splash_sabaplay_text_vi {
+    background-image: url("./../images/splash_sabaplay_text_vi.webp?v=1");
 }
 
-.splash_text_en {
-    background-image: url("./../images/splash_text_en.webp?v=1");
+.splash_sabaplay_text_en {
+    background-image: url("./../images/splash_sabaplay_text_en.webp?v=1");
 }
 
-.splash_text_th {
-    background-image: url("./../images/splash_text_th.webp?v=1");
+.splash_sabaplay_text_th {
+    background-image: url("./../images/splash_sabaplay_text_th.webp?v=1");
 }
 
-.splash_text_id {
-    background-image: url("./../images/splash_text_id.webp?v=1");
+.splash_sabaplay_text_id {
+    background-image: url("./../images/splash_sabaplay_text_id.webp?v=1");
 }
 
-.splash_text_zh_cn {
-    background-image: url("./../images/splash_text_zh_cn.webp?v=1");
+.splash_sabaplay_text_zh_cn {
+    background-image: url("./../images/splash_sabaplay_text_zh_cn.webp?v=1");
 }
 
-.splash_text_zh_tw {
-    background-image: url("./../images/splash_text_zh_tw.webp?v=1");
+.splash_sabaplay_text_zh_tw {
+    background-image: url("./../images/splash_sabaplay_text_zh_tw.webp?v=1");
 }
+
+
+.splash_saba_text_vi {
+    background-image: url("./../images/splash_saba_text_vi.webp?v=1");
+}
+
+.splash_saba_text_en {
+    background-image: url("./../images/splash_saba_text_en.webp?v=1");
+}
+
+.splash_saba_text_th {
+    background-image: url("./../images/splash_saba_text_th.webp?v=1");
+}
+
+.splash_saba_text_id {
+    background-image: url("./../images/splash_saba_text_id.webp?v=1");
+}
+
+.splash_saba_text_zh_cn {
+    background-image: url("./../images/splash_saba_text_zh_cn.webp?v=1");
+}
+
+.splash_saba_text_zh_tw {
+    background-image: url("./../images/splash_saba_text_zh_tw.webp?v=1");
+}
+
+
+.splash_tip88_text_vi {
+    background-image: url("./../images/splash_tip88_text_vi.webp?v=1");
+}
+
+.splash_tip88_text_en {
+    background-image: url("./../images/splash_tip88_text_en.webp?v=1");
+}
+
+.splash_tip88_text_th {
+    background-image: url("./../images/splash_tip88_text_th.webp?v=1");
+}
+
+.splash_tip88_text_id {
+    background-image: url("./../images/splash_tip88_text_id.webp?v=1");
+}
+
+.splash_tip88_text_zh_cn {
+    background-image: url("./../images/splash_tip88_text_zh_cn.webp?v=1");
+}
+
+.splash_tip88_text_zh_tw {
+    background-image: url("./../images/splash_tip88_text_zh_tw.webp?v=1");
+}
+
+
+.splash_vgaming_text_vi {
+    background-image: url("./../images/splash_vgaming_text_vi.webp?v=1");
+}
+
+.splash_vgaming_text_en {
+    background-image: url("./../images/splash_vgaming_text_en.webp?v=1");
+}
+
+.splash_vgaming_text_th {
+    background-image: url("./../images/splash_vgaming_text_th.webp?v=1");
+}
+
+.splash_vgaming_text_id {
+    background-image: url("./../images/splash_vgaming_text_id.webp?v=1");
+}
+
+.splash_vgaming_text_zh_cn {
+    background-image: url("./../images/splash_vgaming_text_zh_cn.webp?v=1");
+}
+
+.splash_vgaming_text_zh_tw {
+    background-image: url("./../images/splash_vgaming_text_zh_tw.webp?v=1");
+}
+
+
+
+
 
 /* ===direct=== */
 .splash_direct {

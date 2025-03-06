@@ -202,8 +202,10 @@ function setTitleAndFavicon(title, favicon) {
 }
 
 function setSplashTextClass(language) {
+    const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splashText = document.getElementById("splash_text");
-    const className = `splash_text_${language}`;
+    const suffix = getCSSClassName(operator);
+    const className = `splash_${suffix}_text_${language}`;
     const classNameAppType = `splash_text${getAppTypePrefix()}_${language}`;
     splashText.className += ` ${className} ${classNameAppType}`;
 }
@@ -216,6 +218,9 @@ function updateSplashLogo() {
     const classNameAppType = `splash${suffix}${getAppTypePrefix()}`;
     splash.className = `${className} ${classNameAppType}`;
 }
+
+
+
 
 function getCSSClassName(operator) {
     const operators = {
