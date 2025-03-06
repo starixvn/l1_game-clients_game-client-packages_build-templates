@@ -313,7 +313,7 @@ p.footer {
 .splash_text_direct_id,
 .splash_text_direct_zh_cn,
 .splash_text_direct_zh_tw {
-    background-size: 60.69vw auto;
+    background-size: 44.69vw auto;
 }
 
 /* ---portrait--- */
@@ -333,14 +333,14 @@ p.footer {
     background-size: 16.8vw auto;
 }
 
-.splash_text_portrait_vi {
+/* .splash_text_portrait_vi {
     background-size: 43.65vw auto;
-}
+} */
 
 .splash_text_portrait_en,
 .splash_text_portrait_th,
 .splash_text_portrait_id,
 .splash_text_portrait_zh_cn,
-.splash_text_portrait_zh_tw {
-    background-size: 48.94vw auto;
+.splash_text_portrait_zh_tw,.splash_text_portrait_vi {
+    background-size: 60.94vw auto;
 }
