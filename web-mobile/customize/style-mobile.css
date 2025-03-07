@@ -263,7 +263,7 @@ p.footer {
 .splash_text_direct_id,
 .splash_text_direct_zh_cn,
 .splash_text_direct_zh_tw {
-    background-size: 44.69vw auto;
+    background-size: 76.94vw auto;
 }
 
 /* ---portrait--- */
@@ -293,5 +293,5 @@ p.footer {
 .splash_text_portrait_zh_cn,
 .splash_text_portrait_zh_tw,
 .splash_text_portrait_vi {
-    background-size: 60.94vw auto;
+    background-size: 76.94vw auto;
 }
