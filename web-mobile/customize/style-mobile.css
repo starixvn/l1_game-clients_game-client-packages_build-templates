@@ -391,19 +391,29 @@ p.footer {
     }
 
     .splash {
-        top: 28vh;
+        top: 2.3vh;
         left: 0;
-        background-size: auto 6.3vh;
+        background-size: auto 4vh;
     }
 
     .splash_text {
-        top: 17.3vw;
+        top: 16vw;
         background-size: auto 3.44vw;
     }
 
     .splash_Vgaming {
-        top: 25vh;
-        background-size: auto 8vh;
+        top: -2.2vh;
+        background-size: auto 13vw;
+    }
+
+    .splash_sabaplay {
+        top: -5vw;
+        background-size: auto 14vw;
+    }
+
+    .splash_tip88 {
+        top: -6.3vw;
+        background-size: auto 15vw;
     }
 
     #splash.instant-game .splash_Vgaming {
