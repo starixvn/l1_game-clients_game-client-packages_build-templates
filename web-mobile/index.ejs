@@ -38,6 +38,7 @@
         <link rel="stylesheet" type="text/css" href="<%= cssUrl %>" />
         <link rel="icon" id="favicon" />
         <link rel="stylesheet" type="text/css" href="./customize/style-mobile.css?v=<%= Date.now() %>" />
+        <link rel="stylesheet" type="text/css" href="./customize/fullscreen.min.css?v=<%= Date.now() %>" />
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
     </head>
     <body>
@@ -53,12 +54,21 @@
             <div id="splash_logo"></div>
             <div id="splash_text" class="splash_text"></div>
             <div id="splash_game_name" class="splash_game_name"></div>
-            <img class="loading_icon" src="./images/loading.gif" />
+            <img class="loading_icon" src="./images/loading.gif" alt="loading" />
+        </div>
+        <div id="ios-instruction">
+            <div class="instruction-content">
+                <img class="img-sroll" src="./images/fullscreen-drag.gif" alt="fullscreen-drag" />
+            </div>
+        </div>
+        <div id="android-instruction">
+            <img class="img-sroll" src="./images/fullscreen-click.gif" alt="fullscreen-click" />
         </div>
         <!-- Configs. -->
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/customize-splash.js?v=<%= Date.now() %>"></script>
+        <script type="text/javascript" src="./customize/fullscreen.min.js?v=<%= Date.now() %>"></script>
         <!-- Polyfills bundle. -->
         <script src="<%= polyfillsBundleFile %>" charset="utf-8"></script>
 

@@ -70,12 +70,6 @@ body {
     height: 89.56vh;
 }
 
-#GameDiv {
-    margin: 0px !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
 #Cocos3dGameContainer {
     position: absolute;
     margin: 0;

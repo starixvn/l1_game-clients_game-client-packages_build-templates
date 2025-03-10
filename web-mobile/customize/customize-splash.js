@@ -146,19 +146,19 @@ function updateLocalizedImages() {
     switch (OperatorAlias[operator]) {
         case OperatorAlias.SP:
             title = "Saba Play";
-            favicon = "favicon_sabaplay.ico?v=5";
+            favicon = "./images/favicon_sabaplay.ico?v=5";
             break;
         case OperatorAlias.VG:
             title = "Vgaming";
-            favicon = "favicon_vgaming.ico?v=4";
+            favicon = "./images/favicon_vgaming.ico?v=4";
             break;
         case OperatorAlias.SG:
             title = language === "vi" ? "Cổng Game SABA" : "SABA.games";
-            favicon = "favicon.ico?v=4";
+            favicon = "./images/favicon.ico?v=4";
             break;
         case OperatorAlias.TIP88:
             title = "SoiBet";
-            favicon = "favicon.ico?v=4";
+            favicon = "./images/favicon_tip88.ico";
             break;
         default:
             title = "Default Title";
