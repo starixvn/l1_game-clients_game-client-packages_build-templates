@@ -304,3 +304,14 @@ p.footer {
 .splash_text_portrait_vi {
     background-size: 76.94vw auto;
 }
+
+.loader {
+    display: inline-block;
+    position: absolute;
+    left: calc(50% - 2rem);
+    bottom: 8rem;
+    width: 4rem;
+    height: 4rem;
+    background-image: url("./../images/icon-loading.gif?v=1");
+    background-size: 10vw auto;
+}
