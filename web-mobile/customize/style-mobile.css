@@ -292,17 +292,16 @@ p.footer {
     background-size: 57.29vw auto;
 }
 
-/* .splash_text_portrait_vi {
-    background-size: 43.65vw auto;
-} */
+.splash_text_portrait_vi {
+    background-size: 76.94vw auto;
+}
 
 .splash_text_portrait_en,
 .splash_text_portrait_th,
 .splash_text_portrait_id,
 .splash_text_portrait_zh_cn,
-.splash_text_portrait_zh_tw,
-.splash_text_portrait_vi {
-    background-size: 76.94vw auto;
+.splash_text_portrait_zh_tw {
+    background-size: 69.94vw auto;
 }
 
 .loader {
