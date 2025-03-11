@@ -239,19 +239,26 @@ p.footer {
 
 /* ===direct=== */
 .splash_direct {
+    top: 35.5%;
     background-size: 50.94vw auto;
 }
 
 .splash_Vgaming_direct {
-    background-size: 17.39vw auto;
+    /* background-size: 17.39vw auto; */
+    top: 35.5%;
+    background-size: 50.94vw auto;
 }
 
 .splash_sabaplay_direct {
-    background-size: 27.66vw auto;
+    /* background-size: 27.66vw auto; */
+    top: 35.5%;
+    background-size: 50.94vw auto;
 }
 
 .splash_tip88_direct {
-    background-size: 15.34vw auto;
+    /* background-size: 15.34vw auto; */
+    top: 35.5%;
+    background-size: 50.94vw auto;
 }
 
 .splash_text_direct_vi {
@@ -272,7 +279,8 @@ p.footer {
 }
 
 .splash_Vgaming_portrait {
-    background-size: 19.05vw auto;
+    /* background-size: 19.05vw auto; */
+    background-size: 57.29vw auto;
 }
 
 .splash_sabaplay_portrait {
@@ -280,7 +288,8 @@ p.footer {
 }
 
 .splash_tip88_portrait {
-    background-size: 16.8vw auto;
+    /* background-size: 16.8vw auto; */
+    background-size: 57.29vw auto;
 }
 
 /* .splash_text_portrait_vi {
