@@ -159,6 +159,7 @@ p.footer {
     height: 100%;
 }
 
+
 .splash_Vgaming {
     position: relative;
     top: 36.36%;
@@ -270,7 +271,7 @@ p.footer {
 .splash_text_direct_id,
 .splash_text_direct_zh_cn,
 .splash_text_direct_zh_tw {
-    background-size: 76.94vw auto;
+    background-size: 68.94vw auto;
 }
 
 /* ---portrait--- */
@@ -301,7 +302,7 @@ p.footer {
 .splash_text_portrait_id,
 .splash_text_portrait_zh_cn,
 .splash_text_portrait_zh_tw {
-    background-size: 69.94vw auto;
+    background-size: 76.94vw auto;
 }
 
 .loader {
