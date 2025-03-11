@@ -309,9 +309,12 @@ p.footer {
     display: inline-block;
     position: absolute;
     left: calc(50% - 2rem);
-    bottom: 8rem;
-    width: 4rem;
-    height: 4rem;
-    background-image: url("./../images/icon-loading.gif?v=1");
-    background-size: 10vw auto;
+    bottom: 5rem;
+    width: 3rem;
+    height: 3rem;
+    background-image: url(./../images/icon-loading.gif?v=1);
+    background-size: 8vw auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 999;
 }
