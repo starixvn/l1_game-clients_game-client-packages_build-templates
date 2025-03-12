@@ -172,13 +172,33 @@ const FullScreenManager = (function () {
         }
     }
 
+    function createImage(src) {
+        const img = document.createElement("img");
+        img.src = src;
+        return img;
+    }
+
+    function createIOSInstruction() {
+        const img = createImage("./images/fullscreen-drag.gif");
+        const instruction = document.getElementById("ios-instruction");
+        instruction.appendChild(img);
+    }
+
+    function createAndroidInstruction() {
+        const img = createImage("./images/fullscreen-click.gif");
+        const instruction = document.getElementById("android-instruction");
+        instruction.appendChild(img);
+    }
+
     return {
         init: function () {
             try {
                 if (isIOS()) {
+                    createIOSInstruction();
                     handleFullScreenForIOS();
                 }
                 if (isAndroid()) {
+                    createAndroidInstruction();
                     handleFullScreenForAndroid();
                 }
             } catch (error) {
