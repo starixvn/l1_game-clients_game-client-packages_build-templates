@@ -91,7 +91,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) {}
+    } catch (e) { }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -114,7 +114,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) {}
+    } catch (e) { }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -139,7 +139,7 @@ function getAppType() {
             const sessionData = JSON.parse(localStorage.getItem(sessionKey));
             appType = +sessionData?.system;
         }
-    } catch (e) {}
+    } catch (e) { }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("appType")) {
@@ -205,7 +205,7 @@ function setSplashTextClass(language) {
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splashText = document.getElementById("splash_text");
     const suffix = getCSSClassName(operator);
-    const className = `splash${suffix}_text_${language}`;
+    const className = `splash_text_${language} splash${suffix}_text_${language} `;
     const classNameAppType = `splash_text${getAppTypePrefix()}_${language}`;
     splashText.className += ` ${className} ${classNameAppType}`;
 }
@@ -244,7 +244,7 @@ function isInstant() {
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
-    } catch (e) {}
+    } catch (e) { }
     return false;
 }
 
