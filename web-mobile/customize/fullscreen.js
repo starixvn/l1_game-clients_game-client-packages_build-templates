@@ -50,6 +50,7 @@ const FullScreenManager = (function () {
             const width = window.innerWidth > window.innerHeight ? window.innerHeight : screen.width;
             const vh = width * 0.01;
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
+            document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
         } else if (isAndroid()) {
             const height = Math.min(window.innerHeight, window.innerWidth);
             const vh = height * 0.01;

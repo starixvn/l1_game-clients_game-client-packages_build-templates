@@ -347,6 +347,7 @@ p.footer {
     .splash-container {
         height: 100vw;
         width: 100vh;
+        width: var(--ih, 100vh);
         transform: rotate(90deg);
         transform-origin: bottom left;
         top: -100vw;
