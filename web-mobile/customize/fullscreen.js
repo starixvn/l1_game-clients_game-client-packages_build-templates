@@ -47,7 +47,7 @@ const FullScreenManager = (function () {
     function updateViewport() {
         const viewportUnit = "--vh";
         if (isIOS()) {
-            const width = window.innerWidth > window.innerHeight ? window.innerHeight : screen.width;
+            const width = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
             const vh = width * 0.01;
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
             document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
