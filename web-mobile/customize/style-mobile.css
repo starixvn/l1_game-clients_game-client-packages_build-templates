@@ -162,7 +162,6 @@ p.footer {
 
 .splash_Vgaming {
     position: relative;
-    top: 36.36%;
     background: url("./../images/logo_vgaming.webp?v=2") no-repeat top center;
     width: 100%;
     height: 100%;
@@ -170,7 +169,6 @@ p.footer {
 
 .splash_sabaplay {
     position: relative;
-    top: 36.36%;
     background: url("./../images/logo_sabaplay.webp?v=2") no-repeat top center;
     width: 100%;
     height: 100%;
@@ -178,7 +176,6 @@ p.footer {
 
 .splash_tip88 {
     position: relative;
-    top: 36.36%;
     background: url("./../images/logo_tip88.webp?v=2") no-repeat top center;
     width: 100%;
     height: 100%;
