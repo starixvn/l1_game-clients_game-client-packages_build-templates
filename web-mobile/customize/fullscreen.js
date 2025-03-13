@@ -208,5 +208,8 @@ const FullScreenManager = (function () {
     };
 })();
 
-// Initialize
-FullScreenManager.init();
+// Initialize only if hideFullscreen parameter is not true
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get("hideFullscreen") !== "true") {
+    FullScreenManager.init();
+}
