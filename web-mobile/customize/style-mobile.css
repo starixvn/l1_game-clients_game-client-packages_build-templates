@@ -145,7 +145,7 @@ p.footer {
 
 .splash {
     position: absolute;
-    top: 36.36%;
+    top: 35.5%;
     background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
     width: 100%;
     height: 100%;
@@ -240,25 +240,21 @@ p.footer {
 
 /* ===direct=== */
 .splash_direct {
-    top: 35.5%;
     background-size: 50.94vw auto;
 }
 
 .splash_Vgaming_direct {
     /* background-size: 17.39vw auto; */
-    top: 35.5%;
     background-size: 50.94vw auto;
 }
 
 .splash_sabaplay_direct {
     /* background-size: 27.66vw auto; */
-    top: 35.5%;
     background-size: 50.94vw auto;
 }
 
 .splash_tip88_direct {
     /* background-size: 15.34vw auto; */
-    top: 35.5%;
     background-size: 50.94vw auto;
 }
 

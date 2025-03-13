@@ -214,7 +214,7 @@ function updateSplashLogo() {
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splash = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
-    const className = `splash${suffix}`;
+    const className = `splash splash${suffix}`;
     const classNameAppType = `splash${suffix}${getAppTypePrefix()}`;
     splash.className = `${className} ${classNameAppType}`;
 }
