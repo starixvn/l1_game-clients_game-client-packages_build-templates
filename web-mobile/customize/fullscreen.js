@@ -166,6 +166,12 @@ const FullScreenManager = (function () {
                 updateViewport();
             };
 
+            window.addEventListener("orientationchange", () => {
+                setTimeout(() => {
+                    window.dispatchEvent(new Event("resize"));
+                }, 500);
+            });
+
             androidInstruction.onclick = () => {
                 toggleFullScreen();
                 androidInstruction.style.display = "none";
