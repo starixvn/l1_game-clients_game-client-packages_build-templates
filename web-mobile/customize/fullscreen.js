@@ -37,7 +37,7 @@ const FullScreenManager = (function () {
         }
     }
 
-    function showAddressBar() {
+    function scrollToTop() {
         window.scroll({
             top: 0,
             behavior: "instant",
@@ -77,7 +77,7 @@ const FullScreenManager = (function () {
         IOSInstruction.style.display = "block";
         const isPortrait = window.outerWidth < window.outerHeight;
         if (isPortrait) {
-            showAddressBar();
+            scrollToTop();
             updateViewport();
             showInstructionAndScroll(false);
             return;
@@ -89,7 +89,7 @@ const FullScreenManager = (function () {
         const isShowOnPrivateMode = window.outerHeight === window.innerHeight && window.scrollY <= 40; // safari IOS v17
         if ((isShowAddressBar || isShowOnPrivateMode) && !window.skipFullscreen) {
             showInstructionAndScroll();
-            showAddressBar();
+            scrollToTop();
         } else {
             showInstructionAndScroll(false);
             updateViewport();
@@ -119,7 +119,10 @@ const FullScreenManager = (function () {
 
         const debouncedUpdate = debounce(updateFullScreen, 100);
 
-        window.addEventListener("orientationchange", debouncedUpdate);
+        window.addEventListener("orientationchange", () => {
+            scrollToTop();
+            debouncedUpdate();
+        });
         window.addEventListener("resize", debouncedUpdate);
         window.addEventListener("scroll", debouncedUpdate);
     }
