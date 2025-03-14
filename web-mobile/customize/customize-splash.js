@@ -152,8 +152,8 @@ function getAppType() {
             appType = +sessionData?.system;
         }
     } catch (e) { }
+    const urlParams = new URLSearchParams(window.location.search);
     if (urlParams) {
-        const urlParams = new URLSearchParams(window.location.search);
         const params = urlParams.get('params');
         const paramsDecode = decodeBase64Url(params);
         appType = getQueryParam(paramsDecode, "appType");
