@@ -130,6 +130,18 @@ function getCurrentOperator() {
     return operator;
 }
 
+function decodeBase64Url(base64Url) {
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) {
+        base64 += '=';
+    }
+    return atob(base64);
+}
+function getQueryParam(queryString, paramName) {
+    let params = new URLSearchParams(queryString);
+    return params.get(paramName);
+}
+
 function getAppType() {
     let appType = 1;
     try {
@@ -140,12 +152,12 @@ function getAppType() {
             appType = +sessionData?.system;
         }
     } catch (e) { }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("appType")) {
-        appType = urlParams.get("appType");
+    if (urlParams) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const params = urlParams.get('params');
+        const paramsDecode = decodeBase64Url(params);
+        appType = getQueryParam(paramsDecode, "appType");
     }
-
     return appType;
 }
 
