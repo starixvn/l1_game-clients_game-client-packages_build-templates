@@ -15,7 +15,7 @@ window.mobilecheck = function () {
 };
 
 const userAgent = window.navigator.userAgent;
-const appTypeDirect = '7';
+const appTypeDirect = 7;
 
 function initGA() {
     const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
@@ -162,7 +162,7 @@ function getAppType() {
 }
 
 function getAppTypePrefix() {
-    return getAppType() === appTypeDirect ? "_direct" : "_portrait";
+    return +getAppType() === appTypeDirect ? "_direct" : "_portrait";
 }
 
 function updateLocalizedImages() {
