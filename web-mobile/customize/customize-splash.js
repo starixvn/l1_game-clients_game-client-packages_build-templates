@@ -15,7 +15,7 @@ window.mobilecheck = function () {
 };
 
 const userAgent = window.navigator.userAgent;
-const appTypeDirect = 7;
+const appTypeDirect = '7';
 
 function initGA() {
     const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
