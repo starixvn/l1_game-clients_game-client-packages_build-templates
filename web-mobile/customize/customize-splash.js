@@ -16,45 +16,76 @@ window.mobilecheck = function () {
 
 const userAgent = window.navigator.userAgent;
 
-function initGA() {
-    const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
+function isSafariPrivateMode() {
+    return new Promise((resolve) => {
+        const dbName = "test";
+        const request = indexedDB.open(dbName);
 
-    loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
-        () => {
-            console.log("Init GA");
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", gaCode);
-        },
-        (reason) => {
-            console.log("Init GA failed with" + reason);
+        request.onsuccess = function () {
+            indexedDB.deleteDatabase(dbName);
+            resolve(false); // Not in private mode
+        };
+
+        request.onerror = function () {
+            resolve(true); // In private mode
+        };
+    });
+}
+
+function initGA() {
+    isSafariPrivateMode().then((isPrivate) => {
+        if (isPrivate) {
+            console.log("GA not initialized: Safari is in private mode");
+            return;
         }
-    );
+
+        const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
+
+        loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
+            () => {
+                console.log("Init GA");
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag("js", new Date());
+                gtag("config", gaCode);
+            },
+            (reason) => {
+                console.log("Init GA failed with" + reason);
+            }
+        );
+    });
 }
 
 function addGATrackingButton() {
-    if (window.envConfig.env !== "PROD") {
-        return;
-    }
-    const gaCode = "G-W13X2FGNGN";
-    loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
-        () => {
-            console.log("Init GA");
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", gaCode);
-            globalThis.gtag = gtag;
-        },
-        (reason) => {
-            console.log("Init GA failed with" + reason);
+    isSafariPrivateMode().then((isPrivate) => {
+        if (isPrivate) {
+            console.log("GA tracking Button not added: Safari is in private mode");
+            return;
         }
-    );
+
+        if (window.envConfig.env !== "PROD") {
+            return;
+        }
+
+        const gaCode = "G-W13X2FGNGN";
+        loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
+            () => {
+                console.log("Init GA");
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag("js", new Date());
+                gtag("config", gaCode);
+                globalThis.gtag = gtag;
+            },
+            (reason) => {
+                console.log("Init GA failed with" + reason);
+            }
+        );
+    });
 }
 
 function loadScript(src) {
