@@ -1,3 +1,5 @@
+import { detectIncognito } from "./detectIncognito/detectIncognito.min.js";
+
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
@@ -16,25 +18,29 @@ window.mobilecheck = function () {
 
 const userAgent = window.navigator.userAgent;
 
-function isSafariPrivateMode() {
-    return new Promise((resolve) => {
-        const dbName = "test";
-        const request = indexedDB.open(dbName);
+// function isSafariPrivateMode() {
+//     return new Promise((resolve) => {
+//         const dbName = "test";
+//         const request = indexedDB.open(dbName);
 
-        request.onsuccess = function () {
-            indexedDB.deleteDatabase(dbName);
-            resolve(false); // Not in private mode
-        };
+//         request.onsuccess = function () {
+//             indexedDB.deleteDatabase(dbName);
+//             resolve(false); // Not in private mode
+//         };
 
-        request.onerror = function () {
-            resolve(true); // In private mode
-        };
-    });
+//         request.onerror = function () {
+//             resolve(true); // In private mode
+//         };
+//     });
+// }
+
+function isSafariPrivateMode(result) {
+    return result && result?.isPrivate && result?.browserName && result?.browserName?.includes("Safari");
 }
 
 function initGA() {
-    isSafariPrivateMode().then((isPrivate) => {
-        if (isPrivate) {
+    detectIncognito().then((result) => {
+        if (isSafariPrivateMode(result)) {
             console.log("GA not initialized: Safari is in private mode");
             return;
         }
@@ -59,8 +65,8 @@ function initGA() {
 }
 
 function addGATrackingButton() {
-    isSafariPrivateMode().then((isPrivate) => {
-        if (isPrivate) {
+    detectIncognito().then((isPrivate) => {
+        if (isSafariPrivateMode(result)) {
             console.log("GA tracking Button not added: Safari is in private mode");
             return;
         }
