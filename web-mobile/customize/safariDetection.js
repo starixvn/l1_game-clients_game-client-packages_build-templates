@@ -1,3 +1,5 @@
+// info https://github.com/Joe12387/detectIncognito
+
 function feid() {
     var toFixedEngineID = 0;
     var neg = parseInt("-1");
@@ -9,7 +11,7 @@ function feid() {
     return toFixedEngineID;
 }
 
-export function isSafari() {
+function isSafariTest() {
     return feid() === 44;
 }
 
@@ -70,10 +72,15 @@ function oldSafariTest() {
     });
 }
 
-export function safariPrivateTest() {
+function safariPrivateTest() {
     if (navigator.maxTouchPoints !== undefined) {
         return newSafariTest();
     } else {
         return oldSafariTest();
     }
 }
+
+module.exports = {
+    isSafariTest,
+    safariPrivateTest,
+};

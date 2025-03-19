@@ -64,7 +64,7 @@ function initGA() {
 }
 
 function addGATrackingButton() {
-    detectIncognito().then((isPrivate) => {
+    detectIncognito().then((result) => {
         if (isSafariPrivateMode(result)) {
             console.log("GA tracking Button not added: Safari is in private mode");
             return;
@@ -270,7 +270,7 @@ updateLocalizedImages();
 initGA();
 addGATrackingButton();
 
-if (isSafari()) {
+if (isSafariTest()) {
     safariPrivateTest().then((isPrivate) => {
         if (isPrivate) {
             console.log("Safari is in private mode");
@@ -278,4 +278,6 @@ if (isSafari()) {
             console.log("Safari is not in private mode");
         }
     });
+} else {
+    console.log("Not Safari");
 }
