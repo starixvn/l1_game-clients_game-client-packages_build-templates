@@ -1,5 +1,3 @@
-import { detectIncognito } from "./detectIncognito/detectIncognito.min.js";
-
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
@@ -35,6 +33,7 @@ const userAgent = window.navigator.userAgent;
 // }
 
 function isSafariPrivateMode(result) {
+    console.log("result--", result);
     return result && result?.isPrivate && result?.browserName && result?.browserName?.includes("Safari");
 }
 
@@ -270,3 +269,13 @@ updateSplashLogo();
 updateLocalizedImages();
 initGA();
 addGATrackingButton();
+
+if (isSafari()) {
+    safariPrivateTest().then((isPrivate) => {
+        if (isPrivate) {
+            console.log("Safari is in private mode");
+        } else {
+            console.log("Safari is not in private mode");
+        }
+    });
+}
