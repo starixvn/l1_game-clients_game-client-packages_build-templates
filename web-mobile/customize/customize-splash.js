@@ -16,30 +16,9 @@ window.mobilecheck = function () {
 
 const userAgent = window.navigator.userAgent;
 
-// function isSafariPrivateMode() {
-//     return new Promise((resolve) => {
-//         const dbName = "test";
-//         const request = indexedDB.open(dbName);
-
-//         request.onsuccess = function () {
-//             indexedDB.deleteDatabase(dbName);
-//             resolve(false); // Not in private mode
-//         };
-
-//         request.onerror = function () {
-//             resolve(true); // In private mode
-//         };
-//     });
-// }
-
-function isSafariPrivateMode(result) {
-    console.log("result--", result);
-    return result && result?.isPrivate && result?.browserName && result?.browserName?.includes("Safari");
-}
-
 function initGA() {
-    detectIncognito().then((result) => {
-        if (isSafariPrivateMode(result)) {
+    detectSafariAndPrivateMode().then((result) => {
+        if (result.isSafari && result.isPrivateMode) {
             console.log("GA not initialized: Safari is in private mode");
             return;
         }
@@ -64,8 +43,8 @@ function initGA() {
 }
 
 function addGATrackingButton() {
-    detectIncognito().then((result) => {
-        if (isSafariPrivateMode(result)) {
+    detectSafariAndPrivateMode().then((result) => {
+        if (result.isSafari && result.isPrivateMode) {
             console.log("GA tracking Button not added: Safari is in private mode");
             return;
         }
@@ -269,15 +248,3 @@ updateSplashLogo();
 updateLocalizedImages();
 initGA();
 addGATrackingButton();
-
-if (isSafariTest()) {
-    safariPrivateTest().then((isPrivate) => {
-        if (isPrivate) {
-            console.log("Safari is in private mode");
-        } else {
-            console.log("Safari is not in private mode");
-        }
-    });
-} else {
-    console.log("Not Safari");
-}
