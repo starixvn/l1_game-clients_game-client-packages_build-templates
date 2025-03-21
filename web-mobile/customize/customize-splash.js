@@ -16,74 +16,6 @@ window.mobilecheck = function () {
 
 const userAgent = window.navigator.userAgent;
 
-function initGA() {
-    detectSafariAndPrivateMode().then((result) => {
-        if (result.isSafari && result.isPrivateMode) {
-            console.log("GA not initialized: Safari is in private mode");
-            return;
-        }
-
-        const gaCode = window.envConfig.systemType === "SG" ? "G-GJDD3FENTH" : "G-JHKMX35LM3";
-
-        loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
-            () => {
-                console.log("Init GA");
-                window.dataLayer = window.dataLayer || [];
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-                gtag("js", new Date());
-                gtag("config", gaCode);
-            },
-            (reason) => {
-                console.log("Init GA failed with" + reason);
-            }
-        );
-    });
-}
-
-function addGATrackingButton() {
-    detectSafariAndPrivateMode().then((result) => {
-        if (result.isSafari && result.isPrivateMode) {
-            console.log("GA tracking Button not added: Safari is in private mode");
-            return;
-        }
-
-        if (window.envConfig.env !== "PROD") {
-            return;
-        }
-
-        const gaCode = "G-W13X2FGNGN";
-        loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
-            () => {
-                console.log("Init GA");
-                window.dataLayer = window.dataLayer || [];
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-                gtag("js", new Date());
-                gtag("config", gaCode);
-                globalThis.gtag = gtag;
-            },
-            (reason) => {
-                console.log("Init GA failed with" + reason);
-            }
-        );
-    });
-}
-
-function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-        let script;
-        script = document.createElement("script");
-        script.src = src;
-        script.async = true;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-    });
-}
-
 function getLanguageURLparams(locale) {
     const dict = {
         "vi-VN": "vi",
@@ -246,5 +178,3 @@ function updateSplashByAppType() {
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
-initGA();
-addGATrackingButton();
