@@ -70,6 +70,20 @@ function loadScript(src) {
     });
 }
 
+function getDataFromURLParams(key) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has(key)) {
+        return urlParams.get(key);
+    }
+    if (urlParams.has("params")) {
+        const otherParams = new URLSearchParams(window.atob(urlParams.get("params")));
+        if (otherParams.has(key)) {
+            return otherParams.get(key);
+        }
+    }
+    return null;
+}
+
 function getLanguageURLparams(locale) {
     const dict = {
         "vi-VN": "vi",
@@ -91,17 +105,10 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("lang")) {
-        language = getLanguageURLparams(urlParams.get("lang"));
-    }
-
-    if (urlParams.has("params")) {
-        const otherParams = new URLSearchParams(window.atob(urlParams.get("params")));
-        if (otherParams.has("lang")) {
-            language = getLanguageURLparams(otherParams.get("lang"));
-        }
+    } catch (e) {}
+    const langKey = getDataFromURLParams("lang");
+    if (langKey) {
+        language = getLanguageURLparams(langKey);
     }
     return language;
 }
@@ -114,36 +121,18 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("op")) {
-        operator = urlParams.get("op");
-    }
-
-    if (urlParams.has("params")) {
-        const otherParams = new URLSearchParams(window.atob(urlParams.get("params")));
-        if (otherParams.has("op")) {
-            operator = otherParams.get("op");
-        }
-    }
-    return operator;
-}
-
-function decodeBase64Url(base64Url) {
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    while (base64.length % 4) {
-        base64 += '=';
-    }
-    return atob(base64);
-}
-function getQueryParam(queryString, paramName) {
-    let params = new URLSearchParams(queryString);
-    return params.get(paramName);
+    const operatorFromURL = getDataFromURLParams("op");
+    return operatorFromURL || operator;
 }
 
 function getAppType() {
-    let appType = 1;
+    const appTypeFromURL = getDataFromURLParams("appType");
+    if (appTypeFromURL) {
+        return +appTypeFromURL;
+    }
+    let appType = 0;
     try {
         const storagePrefixKey = window.crossConfig?.storagePrefixKey;
         const sessionKey = storagePrefixKey ? `${storagePrefixKey}_ss` : "ss";
@@ -151,13 +140,8 @@ function getAppType() {
             const sessionData = JSON.parse(localStorage.getItem(sessionKey));
             appType = +sessionData?.system;
         }
-    } catch (e) { }
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams) {
-        const params = urlParams.get('params');
-        const paramsDecode = decodeBase64Url(params);
-        appType = getQueryParam(paramsDecode, "appType");
-    }
+    } catch (e) {}
+
     return appType;
 }
 
@@ -231,9 +215,6 @@ function updateSplashLogo() {
     splash.className = `${className} ${classNameAppType}`;
 }
 
-
-
-
 function getCSSClassName(operator) {
     const operators = {
         SP: "_sabaplay",
@@ -256,10 +237,19 @@ function isInstant() {
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
-    } catch (e) { }
+    } catch (e) {}
     return false;
 }
 
+function updateSplashBackground() {
+    const appType = getAppType();
+    if (appType !== 0) {
+        const prefix = getAppTypePrefix();
+        document.body.style.setProperty("--background-url", `url("../splash-resources/game_background${prefix}.webp?v=1")`);
+    }
+}
+
+updateSplashBackground();
 updateSplashLogo();
 updateLocalizedImages();
 initGA();

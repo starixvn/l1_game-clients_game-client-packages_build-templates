@@ -8,8 +8,12 @@ function setLoadingDisplay() {
 
   cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
       gameCanvas.style.display = "block";
-      splash.style.display = "none";
+      splash.style.transition = "opacity 0.8s ease-in-out";
+      splash.style.opacity = 0;
       document.body.style.background = "#000";
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 800);
   });
 }
 
