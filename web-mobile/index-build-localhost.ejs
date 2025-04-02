@@ -41,7 +41,6 @@
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
     </head>
     <body>
-        <div id="Background"></div>
         <div id="GameDiv" cc_exact_fit_screen="true">
             <div id="Cocos3dGameContainer">
                 <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
@@ -49,9 +48,15 @@
         </div>
 
         <div id="splash" class="splash-container">
-            <div id="splash_bg_game" class="splash_bg_game"></div>
-            <div id="splash_logo"></div>
-            <div id="splash_text" class="splash_text"></div>
+            <div class="splash-logo-container">
+                <div id="splash_logo" class="logo"></div>
+                <div id="slogan" class="slogan"></div>
+                <div class="progress-bar-container">
+                    <img src="./images/loading-bar.gif" alt="loading" />
+                </div>
+            </div>
+            <div id="powered-by"></div>
+            <div id="waiting-message"></div>
         </div>
 
         <!-- Configs. -->
