@@ -188,7 +188,7 @@ class SplashManager {
 
         // Update powered by
         const poweredBy = document.getElementById("powered-by");
-        poweredBy.className = `powered-by-${operatorConfig.cssClass} ${this.language}`;
+        poweredBy.className = `powered-by-${operatorConfig.cssClass} ${this.language} ${appTypeClass}`;
 
         // Update waiting message
         this.randomWaitingMessage();
