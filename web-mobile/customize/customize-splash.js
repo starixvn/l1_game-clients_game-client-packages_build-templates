@@ -118,8 +118,9 @@ class SplashManager {
         return img;
     }
 
-    randomWaitingMessage() {
+    randomWaitingMessage(appTypeClass) {
         const waitingMessage = document.getElementById("waiting-message");
+        appTypeClass && waitingMessage.classList.add(appTypeClass);
         const messages = waitingMessages[this.language] || waitingMessages.en;
         let currentIndex = 0;
 
@@ -191,7 +192,7 @@ class SplashManager {
         poweredBy.className = `powered-by-${operatorConfig.cssClass} ${this.language} ${appTypeClass}`;
 
         // Update waiting message
-        this.randomWaitingMessage();
+        this.randomWaitingMessage(appTypeClass);
     }
 }
 
