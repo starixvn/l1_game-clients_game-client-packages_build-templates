@@ -101,42 +101,33 @@ function updateLocalizedImages() {
         TIP88: "tip88",
     };
 
-    let title, favicon, cssClass, logo;
+    let title, favicon;
     switch (OperatorAlias[operator]) {
         case OperatorAlias.SP:
             title = "Saba Play";
             favicon = "./images/favicon_sabaplay.ico?v=5";
-            cssClass = "sabaplay";
-            logo = "./images/logo_sabaplay.webp?v=3";
             break;
         case OperatorAlias.VG:
             title = "Vgaming";
             favicon = "./images/favicon_vgaming.ico?v=4";
-            cssClass = "vg";
-            logo = "./images/logo_vgaming.webp?v=3";
             break;
         case OperatorAlias.SG:
             title = language === "vi" ? "Cổng Game SABA" : "SABA.games";
             favicon = "./images/favicon.ico?v=4";
-            cssClass = "sg";
-            logo = "./images/logo_saba.webp?v=3";
             break;
         case OperatorAlias.TIP88:
             title = "SoiBet";
             favicon = "./images/favicon_tip88.ico";
-            cssClass = "tip88";
-            logo = "./images/logo_tip88.webp?v=3";
             break;
         default:
             title = "Default Title";
             favicon = "default_favicon.ico";
-            cssClass = "other";
-            logo = "default_logo.png";
             break;
     }
 
     setTitleAndFavicon(title, favicon);
     setSplashTextClass(language);
+    updatePoweredBy(language);
     const classNameBG = window.crossConfig?.backgroundLocalized ? `splash_bg_game_${language}` : "bg_no_translate";
     splashBgGame.className += ` ${classNameBG}`;
     const classNameGameName = `splash_game_name_${language}`;
@@ -162,11 +153,11 @@ function updateSplashLogo() {
     splash.className = `splash${suffix}`;
 }
 
-function updatePoweredBy() {
+function updatePoweredBy(language) {
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const poweredBy = document.getElementById("powered-by");
     const suffix = getCSSClassName(operator);
-    poweredBy.className = `powered-by-${suffix} ${this.language}`;
+    poweredBy.className = `powered-by${suffix} ${language}`;
 }
 
 function getCSSClassName(operator) {
@@ -207,4 +198,4 @@ function updateSplashByAppType() {
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
-updatePoweredBy();
+
