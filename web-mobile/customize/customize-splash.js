@@ -1,3 +1,15 @@
+const waitingMessages = {
+    en: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
+    vi: ["Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.", "Đang kiểm tra và tải gói cập nhật game mới nhất..."],
+    id: [
+        "Jika ini adalah kunjungan pertama Anda, pengunduhan mungkin memakan waktu cukup lama.",
+        "Memeriksa dan mengunduh paket pembaruan terbaru...",
+    ],
+    th: ["หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่", "กำลังตรวจสอบและกำลังดาวน์โหลดเกมของการอัพเดทล่าสุด"],
+    zh_cn: ["如果这是您第一次访问，下载可能需要一段时间。", "正在检查和下载最新的更新包..."],
+    zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
+};
+
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
@@ -89,27 +101,37 @@ function updateLocalizedImages() {
         TIP88: "tip88",
     };
 
-    let title, favicon;
+    let title, favicon, cssClass, logo;
     switch (OperatorAlias[operator]) {
         case OperatorAlias.SP:
             title = "Saba Play";
             favicon = "./images/favicon_sabaplay.ico?v=5";
+            cssClass = "sabaplay";
+            logo = "./images/logo_sabaplay.webp?v=3";
             break;
         case OperatorAlias.VG:
             title = "Vgaming";
             favicon = "./images/favicon_vgaming.ico?v=4";
+            cssClass = "vg";
+            logo = "./images/logo_vgaming.webp?v=3";
             break;
         case OperatorAlias.SG:
             title = language === "vi" ? "Cổng Game SABA" : "SABA.games";
             favicon = "./images/favicon.ico?v=4";
+            cssClass = "sg";
+            logo = "./images/logo_saba.webp?v=3";
             break;
         case OperatorAlias.TIP88:
             title = "SoiBet";
             favicon = "./images/favicon_tip88.ico";
+            cssClass = "tip88";
+            logo = "./images/logo_tip88.webp?v=3";
             break;
         default:
             title = "Default Title";
             favicon = "default_favicon.ico";
+            cssClass = "other";
+            logo = "default_logo.png";
             break;
     }
 
@@ -138,6 +160,13 @@ function updateSplashLogo() {
     const splash = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
     splash.className = `splash${suffix}`;
+}
+
+function updatePoweredBy() {
+    const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
+    const poweredBy = document.getElementById("powered-by");
+    const suffix = getCSSClassName(operator);
+    poweredBy.className = `powered-by-${suffix} ${this.language}`;
 }
 
 function getCSSClassName(operator) {
@@ -178,3 +207,4 @@ function updateSplashByAppType() {
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
+updatePoweredBy();

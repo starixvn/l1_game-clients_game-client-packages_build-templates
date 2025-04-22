@@ -54,7 +54,9 @@
             <div id="splash_logo"></div>
             <div id="splash_text" class="splash_text"></div>
             <div id="splash_game_name" class="splash_game_name"></div>
-            <img class="loading_icon" src="./images/loading.gif" alt="loading" />
+            <img class="loading_icon" src="./images/loading-bar.gif" alt="loading" />
+            <div id="powered-by"></div>
+            <div id="waiting-message"></div>
         </div>
         <div id="ios-instruction"></div>
         <div id="android-instruction"></div>
@@ -63,20 +65,21 @@
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/customize-splash.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/fullscreen.js?v=<%= Date.now() %>"></script>
+        <%- include(cocosTemplate, {}) %>
 
         <!-- Polyfills bundle. -->
-        <script src="<%= polyfillsBundleFile %>" charset="utf-8"></script>
+        <!--<script src="<%= polyfillsBundleFile %>" charset="utf-8"></script>-->
 
         <!-- SystemJS support. -->
-        <script src="<%= systemJsBundleFile %>" charset="utf-8"></script>
+        <!--<script src="<%= systemJsBundleFile %>" charset="utf-8"></script>-->
 
         <!-- Import map -->
-        <script src="./customize/import-map.json?v=3" type="systemjs-importmap" charset="utf-8"></script>
+        <!--<script src="./customize/import-map.json?v=3" type="systemjs-importmap" charset="utf-8"></script>-->
 
-        <script>
+        <!--<script>
             System.import("./<%= indexJsName %>").catch(function (err) {
                 console.error(err);
             });
-        </script>
+        </script>-->
     </body>
 </html>
