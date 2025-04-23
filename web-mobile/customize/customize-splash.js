@@ -197,11 +197,12 @@ function updateSplashByAppType() {
 
 class RandomWaitingMessage {
     constructor() {
-        this.language = getCurrentLanguage();
+        const language = getCurrentLanguage().replace(/['"]+/g, "");
         this.intervalId = null;
         const waitingMessage = document.getElementById("waiting-message");
         waitingMessage.classList.add("waiting-message");
-        const messages = waitingMessages[this.language] || waitingMessages.en;
+        const messages = waitingMessages[language] || waitingMessages.en;
+        console.log("messages", messages);
         let currentIndex = 0;
 
         const showMessage = () => {
