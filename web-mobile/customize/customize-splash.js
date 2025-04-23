@@ -195,7 +195,41 @@ function updateSplashByAppType() {
     }
 }
 
+class RandomWaitingMessage {
+    constructor() {
+        this.language = getCurrentLanguage();
+        this.intervalId = null;
+        const waitingMessage = document.getElementById("waiting-message");
+        waitingMessage.classList.add("waiting-message");
+        const messages = waitingMessages[this.language] || waitingMessages.en;
+        let currentIndex = 0;
+
+        const showMessage = () => {
+            waitingMessage.style.transition = "none";
+            waitingMessage.classList.remove("show", "fade-out");
+            waitingMessage.offsetHeight;
+            waitingMessage.style.transition = "all 1s ease";
+            waitingMessage.textContent = messages[currentIndex];
+            requestAnimationFrame(() => {
+                waitingMessage.classList.add("show");
+                setTimeout(() => {
+                    waitingMessage.classList.remove("show");
+                    waitingMessage.classList.add("fade-out");
+                }, 4000);
+            });
+        };
+
+        this.intervalId && clearInterval(this.intervalId);
+        this.intervalId = setInterval(() => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            showMessage();
+        }, 5000);
+
+        showMessage();
+    }
+}
+
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
-
+new RandomWaitingMessage();

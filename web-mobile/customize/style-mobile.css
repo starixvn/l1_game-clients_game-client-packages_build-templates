@@ -130,7 +130,7 @@ p.footer {
 
 .splash {
     position: absolute;
-    top: 5vh;
+    top: 38.7vh;
     background: url("./../images/logo_saba.webp?v=2") no-repeat top center;
     background-size: auto 8.92vh;
     width: 100%;
@@ -309,10 +309,10 @@ p.footer {
 
 #powered-by.powered-by {
     background: url("./../images/powered_by.webp?v=1") no-repeat top center;
-    background-size: contain;
+    background-size: auto 4vh;
     width: 100%;
-    height: 4vw;
-    bottom: 14.1vw;
+    height: 4vh;
+    bottom: 10.4vh;
 }
 
 #powered-by.powered-by-sg.portrait {
@@ -363,6 +363,31 @@ p.footer {
     background-size: contain;
 }
 
+.waiting-message {
+    font-family: "Noto Serif",Georgia,Times New Roman, serif;
+    position: absolute;
+    bottom: 4.9vh;
+    width: 100%;
+    font-size: 2.5vh;
+    opacity: 0;
+    color: #CCC7B4;
+    transition: all 1s ease;
+    transform: translateY(35px);
+    visibility: hidden;
+}
+
+.waiting-message.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.waiting-message.fade-out {
+    opacity: 0;
+    transform: translateY(-35px);
+    visibility: hidden;
+}
+
 .conner-container {
     position: fixed;
     top: 0;
@@ -397,7 +422,7 @@ p.footer {
 
 .loading_icon {
     position: absolute;
-    top: 60%;
+    bottom: 39vh;
     left: 50%;
     transform: translateX(-50%);
     background: no-repeat center;
