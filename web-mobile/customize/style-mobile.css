@@ -323,27 +323,27 @@ p.footer {
 
 
 #powered-by.powered-by_tip88.en {
-    background: url("./../images/powered_by_Vgaming_en.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_en.webp?v=1");
 }
 
 #powered-by.powered-by_tip88.vi {
-    background: url("./../images/powered_by_Vgaming_vi.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_vi.webp?v=1");
 }
 
 #powered-by.powered-by_tip88.th {
-    background: url("./../images/powered_by_Vgaming_th.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_th.webp?v=1");
 }
 
 #powered-by.powered-by_tip88.id {
-    background: url("./../images/powered_by_Vgaming_id.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_id.webp?v=1");
 }
 
 #powered-by.powered-by_tip88.zh_cn {
-    background: url("./../images/powered_by_Vgaming_zh_cn.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_zh_cn.webp?v=1");
 }
 
 #powered-by.powered-by_tip88.zh_tw {
-    background: url("./../images/powered_by_Vgaming_zh_tw.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_zh_tw.webp?v=1");
 }
 
 .waiting-message {
