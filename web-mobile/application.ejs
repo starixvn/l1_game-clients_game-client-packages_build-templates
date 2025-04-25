@@ -1,22 +1,22 @@
 let cc;
 
 function setLoadingDisplay() {
-  var splash = document.getElementById("splash");
-  var gameCanvas = document.getElementById("GameCanvas");
-  gameCanvas.style.display = "none";
-  splash.style.display = "block";
+    const splash = document.getElementById("splash");
+    const gameCanvas = document.getElementById("GameCanvas");
+    gameCanvas.style.display = "none";
+    splash.style.display = "block";
 
-  cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
-    gameCanvas.style.display = "block";
-    splash.style.transition = "opacity 0.8s ease-in-out";
-    splash.style.opacity = 0;
-    const progressBar = document.getElementById("progress-bar");
-    progressBar.style.display = "none";
-    splashManager?.clearInterval();
-    setTimeout(() => {
-        splash.style.display = "none";
-    }, 800);
-});
+    cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
+        gameCanvas.style.display = "block";
+        splash.style.transition = "opacity 0.8s ease-in-out";
+        splash.style.opacity = 0;
+        const progressBar = document.getElementById("progress-bar");
+        progressBar.style.display = "none";
+        splashManager?.clearInterval();
+        setTimeout(() => {
+            splash.style.display = "none";
+        }, 800);
+    });
 }
 
 export class Application {
