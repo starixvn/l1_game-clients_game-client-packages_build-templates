@@ -7,10 +7,16 @@ function setLoadingDisplay() {
   splash.style.display = "block";
 
   cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
-      splash.style.display = "none";
-      gameCanvas.style.display = "block";
-      document.body.style.background = "#000";
-  });
+    gameCanvas.style.display = "block";
+    splash.style.transition = "opacity 0.8s ease-in-out";
+    splash.style.opacity = 0;
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.display = "none";
+    splashManager?.clearInterval();
+    setTimeout(() => {
+        splash.style.display = "none";
+    }, 800);
+});
 }
 
 export class Application {
