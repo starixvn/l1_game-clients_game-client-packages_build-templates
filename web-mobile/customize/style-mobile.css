@@ -130,7 +130,7 @@ p.footer {
 
 .splash {
     position: absolute;
-    top: 37.78vh;
+    top: 37.9vh;
     background: url("./../images/logo_saba.webp?v=3") no-repeat top center;
     background-size: auto 11.95vh;
     width: 100%;
@@ -232,7 +232,7 @@ p.footer {
 
 .splash_sabaplay {
     position: relative;
-    top: 25.8vh;
+    top: 26vh;
     background: url("./../images/logo_sabaplay.webp?v=3") no-repeat center;
     background-size: auto 23.79vh;
     width: auto;
@@ -311,7 +311,7 @@ p.footer {
     background-size: auto 4.07vh;
     width: 100%;
     height: 4.07vh;
-    top: 85.35vh;
+    top: 84.35vh;
 }
 
 #powered-by.powered-by_tip88 {
@@ -468,29 +468,32 @@ p.footer {
     }
 
     .splash {
-        top: 2.3vh;
-        left: 0;
-        background-size: auto 4vh;
+        top: 37.9vw;
+        background-size: auto 11.95vw;
+        height: 11.95vw;
     }
 
     .splash_text {
-        top: 16vw;
-        background-size: auto 3.44vw;
+        top: 50.6vw;
+        background-size: auto 2.5vw;
+        height: 3.44vw;
     }
 
     .splash_Vgaming {
-        top: -2.2vh;
-        background-size: auto 13vw;
+        top: 31.67vw;
+        background-size: auto 18.32vw;
+        height: 18.32vw;
     }
 
     .splash_sabaplay {
-        top: -5vw;
-        background-size: auto 14vw;
+        top: 26vw;
+        background-size: auto 23.79vw;
+        height: 23.79vw;
     }
 
     .splash_tip88 {
-        top: -6.3vw;
-        background-size: auto 15vw;
+        top: 25.95vw;
+        background-size: auto 24.04vw;
     }
 
     #splash.instant-game .splash_Vgaming {
@@ -551,6 +554,24 @@ p.footer {
         top: 17.5vh;
         background-size: auto 3.66vh;
         height: 3.66vh;
+    }
+
+    .loading_icon {
+        top: 60.17vw;
+        background-size: auto 0.76vw;
+        height: 0.76vw;
+    }
+
+    #powered-by.powered-by {
+        background-size: auto 4.07vw;
+        height: 4.07vw;
+        top: 84.35vw;
+    }
+
+    #powered-by.powered-by_tip88 {
+        height: 4.8vw;
+        bottom: 10.8vw;
+        background-size: auto 4.8vw;
     }
 }
 

@@ -202,7 +202,6 @@ class RandomWaitingMessage {
         const waitingMessage = document.getElementById("waiting-message");
         waitingMessage.classList.add("waiting-message");
         const messages = waitingMessages[language] || waitingMessages.en;
-        console.log("messages", messages);
         let currentIndex = 0;
 
         const showMessage = () => {
