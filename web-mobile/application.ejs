@@ -1,20 +1,16 @@
 let cc;
 
 function setLoadingDisplay() {
-    const splash = document.getElementById("splash");
-    const gameCanvas = document.getElementById("GameCanvas");
-    gameCanvas.style.display = "none";
-    splash.style.display = "block";
+  var splash = document.getElementById("splash");
+  var gameCanvas = document.getElementById("GameCanvas");
+  gameCanvas.style.display = "none";
+  splash.style.display = "block";
 
-    cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
-        gameCanvas.style.display = "block";
-        splash.style.transition = "opacity 0.8s ease-in-out";
-        splash.style.opacity = 0;
-        splashManager?.clearInterval();
-        setTimeout(() => {
-            splash.style.display = "none";
-        }, 800);
-    });
+  cc.director.once(cc.Director.EVENT_AFTER_RENDER, function () {
+      splash.style.display = "none";
+      gameCanvas.style.display = "block";
+      document.body.style.background = "#000";
+  });
 }
 
 export class Application {
