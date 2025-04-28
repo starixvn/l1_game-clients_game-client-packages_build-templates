@@ -229,7 +229,7 @@ class RandomWaitingMessage {
     }
 
     clearInterval() {
-        clearInterval(this.intervalId);
+        this.intervalId && clearInterval(this.intervalId);
         this.intervalId = null;
     }
 }
