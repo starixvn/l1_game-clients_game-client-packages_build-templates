@@ -130,7 +130,7 @@ p.footer {
 
 .splash {
     position: absolute;
-    top: 37.9vh;
+    top: 38vh;
     background: url("./../images/logo_saba.webp?v=3") no-repeat top center;
     background-size: auto 11.95vh;
     width: 100%;
@@ -347,7 +347,7 @@ p.footer {
 }
 
 .waiting-message {
-    font-family: "Noto Serif",Georgia,Times New Roman, serif;
+    font-family: Times New Roman, serif;
     position: absolute;
     bottom: 4.9vh;
     width: 100%;

@@ -227,7 +227,13 @@ class RandomWaitingMessage {
 
         showMessage();
     }
+    
+    clearInterval() {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+    }
 }
+
 
 updateSplashByAppType();
 updateSplashLogo();
