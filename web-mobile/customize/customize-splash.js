@@ -227,7 +227,7 @@ class RandomWaitingMessage {
 
         showMessage();
     }
-    
+
     clearInterval() {
         clearInterval(this.intervalId);
         this.intervalId = null;
@@ -238,4 +238,4 @@ class RandomWaitingMessage {
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
-new RandomWaitingMessage();
+window.randomWaitingMessage = new RandomWaitingMessage();
