@@ -10,7 +10,19 @@ function setLoadingDisplay() {
         gameCanvas.style.display = "block";
         splash.style.transition = "opacity 0.8s ease-in-out";
         splash.style.opacity = 0;
-        splashManager?.clearInterval();
+        const progressBar = document.getElementById("loading_icon");
+        progressBar.style.display = "none";
+
+        const waitingMessage = document.getElementById("waiting-message");
+        if (waitingMessage) {
+            waitingMessage.style.display = "none";
+
+            const intervals = window.setInterval(() => {}, 0);
+            for (let i = 0; i <= intervals; i++) {
+                window.clearInterval(i);
+            }
+        }
+
         setTimeout(() => {
             splash.style.display = "none";
         }, 800);
