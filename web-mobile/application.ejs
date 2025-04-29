@@ -12,6 +12,8 @@ function setLoadingDisplay() {
         splash.style.opacity = 0;
         const progressBar = document.getElementById("loading_icon");
         progressBar.style.display = "none";
+        const waitingMessage = document.getElementById("waiting-message");
+        waitingMessage.style.display = "none";
         window.randomWaitingMessage?.clearInterval();
 
         setTimeout(() => {
