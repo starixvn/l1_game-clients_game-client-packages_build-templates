@@ -573,6 +573,11 @@ p.footer {
         bottom: 10.8vw;
         background-size: auto 4.8vw;
     }
+
+    .waiting-message {
+        bottom: 5.3vw;
+        font-size: 2.65vw;
+    }
 }
 
 @keyframes animate-stripes {
