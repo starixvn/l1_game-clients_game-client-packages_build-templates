@@ -1,133 +1,111 @@
-const FullScreenManager = (function () {
-    let timeoutDelayEnableScroll;
-    const IOSInstruction = document.getElementById("ios-instruction");
-    const userAgent = window.navigator.userAgent;
+class FullScreenManager {
+    timeoutDelayEnableScroll = null;
+    timeoutExtraResize = null;
+    constructor() {
+        this.IOSInstruction = document.getElementById("ios-instruction");
+        this.androidInstruction = document.getElementById("android-instruction");
+        this.iconFullScreen = document.getElementById("icon-fullscreen");
+        this.userAgent = window.navigator.userAgent;
+        this.isIOS = /(ipad|iphone|ipod)/i.test(this.userAgent);
+        this.isAndroid = /android/i.test(this.userAgent);
+        this.isIPad = /ipad/i.test(this.userAgent);
+        this.webview = /wv/i.test(this.userAgent);
+    }
 
-    // detect device type
-    const isIOS = () => /iphone|ipad|ipod/i.test(userAgent);
-    const isAndroid = () => /android/i.test(userAgent);
-    const isIPad = () => /ipad/i.test(userAgent);
-
-    function debounce(func, wait) {
+    debounce(func, wait) {
         let timeout;
-        return function executedFunction(...args) {
+        return (...args) => {
             clearTimeout(timeout);
             timeout = setTimeout(() => func.apply(this, args), wait);
         };
     }
 
-    // Private core functions
-    function showInstructionAndScroll(isShow = true) {
-        if (!IOSInstruction) {
-            console.warn("Instruction element not found");
-            return;
-        }
-
-        clearTimeout(timeoutDelayEnableScroll);
-        IOSInstruction.style.visibility = isShow ? "visible" : "hidden";
-
-        if (isShow) {
-            timeoutDelayEnableScroll = setTimeout(() => {
-                document.body.style.overflowY = "scroll";
-            }, 100);
-            IOSInstruction.onclick = () => {};
-        } else {
-            document.body.style.overflow = "hidden";
-            IOSInstruction.onclick = null;
-        }
+    isPortrait() {
+        return window.outerHeight > window.outerWidth;
     }
 
-    function scrollToTop() {
-        window.scroll({
-            top: 0,
-            behavior: "instant",
-        });
-    }
-
-    function updateViewport() {
-        const viewportUnit = "--vh";
-        if (isIOS()) {
-            const width = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
-            const vh = width * 0.01;
-            document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
-            document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
-        } else if (isAndroid()) {
-            const height = Math.min(window.innerHeight, window.innerWidth);
-            const vh = height * 0.01;
-            document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
-        } else {
-            document.documentElement.style.setProperty(viewportUnit, "1%");
-        }
-    }
-
-    function getMiniNavigationBarHeight() {
+    getMiniNavigationBarHeight() {
         let navBarHeight = 0;
-        const isLandscape = window.outerWidth > window.outerHeight;
-        if (isLandscape) {
-            navBarHeight = 20;
-
-            if (isIPad()) {
+        if (!this.isPortrait()) {
+            navBarHeight = 25;
+            if (this.isIPad) {
                 navBarHeight = 40;
             }
         }
         return navBarHeight;
     }
 
-    function showInstruction() {
-        IOSInstruction.style.display = "block";
-        const isPortrait = window.outerWidth < window.outerHeight;
-        if (isPortrait) {
-            scrollToTop();
-            updateViewport();
-            showInstructionAndScroll(false);
-            return;
-        }
-
-        const navBarHeight = getMiniNavigationBarHeight();
-        const deltaHeight = window.outerHeight - window.innerHeight;
-        const isShowAddressBar = deltaHeight > navBarHeight;
-        const isShowOnPrivateMode = window.outerHeight === window.innerHeight && window.scrollY <= 40; // safari IOS v17
-        if ((isShowAddressBar || isShowOnPrivateMode) && !window.skipFullscreen) {
-            showInstructionAndScroll();
-            scrollToTop();
-        } else {
-            showInstructionAndScroll(false);
-            updateViewport();
-        }
+    isShowAddressBar() {
+        const minNavigationBarHeight = this.getMiniNavigationBarHeight();
+        const outerHeight = Math.min(screen.width, screen.height);
+        const deltaHeight = outerHeight - window.innerHeight;
+        return deltaHeight > minNavigationBarHeight;
     }
 
-    function updateFullScreen() {
-        showInstruction();
-        const gameContainer = document.getElementById("Cocos3dGameContainer");
+    syncPositionForGameContainer() {
+        const gameContainer = document.getElementById("GameDiv");
         if (gameContainer) {
             gameContainer.style.top = window.scrollY + "px";
         }
+        document.documentElement.style.setProperty("--scrollY", `${window.scrollY}px`);
     }
 
-    function handleFullScreenForIOS() {
-        showInstruction();
-        updateViewport();
+    scrollToTop(top = 0) {
+        window.scrollTo({
+            top,
+            behavior: "instant",
+        });
+        this.syncPositionForGameContainer();
+    }
 
-        const canvas = document.getElementById("GameCanvas");
-        if (!canvas) {
-            console.warn("GameCanvas element not found");
+    updateViewport() {
+        const viewportUnit = "--vh";
+        if (this.isIOS || this.isAndroid) {
+            const height = Math.min(window.innerWidth, window.innerHeight);
+            const vh = height * 0.01;
+            document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
+        } else {
+            document.documentElement.style.setProperty(viewportUnit, `1%`);
+        }
+        document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
+    }
+
+    showIOSInstruction(isShow = true) {
+        clearTimeout(this.timeoutDelayEnableScroll);
+        this.IOSInstruction.style.display = "block";
+        this.IOSInstruction.style.visibility = isShow ? "visible" : "hidden";
+    }
+
+    updateFullScreen() {
+        if (this.isPortrait()) {
+            this.updateViewport();
+            this.scrollToTop(200);
+            this.showIOSInstruction(false);
             return;
         }
-
-        canvas.onfocus = showInstruction;
-        canvas.onblur = showInstruction;
-
-        const debouncedUpdate = debounce(updateFullScreen, 100);
-
-        window.addEventListener("orientationchange", () => {
-            scrollToTop();
-            debouncedUpdate();
-        });
-        window.addEventListener("resize", debouncedUpdate);
-        window.addEventListener("scroll", debouncedUpdate);
+        const isShowAddressBar = this.isShowAddressBar();
+        if (!isShowAddressBar) {
+            this.showIOSInstruction(false);
+        }
+        this.updateViewport();
+        this.syncPositionForGameContainer();
     }
 
-    function toggleFullScreen() {
+    registerEventFullScreenForIOS() {
+        const debouncedUpdateFullScreen = this.debounce(this.updateFullScreen, 100);
+
+        window.addEventListener("orientationchange", debouncedUpdateFullScreen);
+        window.addEventListener("resize", debouncedUpdateFullScreen);
+        window.addEventListener("scroll", debouncedUpdateFullScreen, true);
+    }
+
+    onClickFullScreenForIOS() {
+        this.showIOSInstruction(true);
+        this.scrollToTop();
+        this.updateViewport();
+    }
+
+    requestFullScreen() {
         const doc = window.document;
         const docEl = document.documentElement;
 
@@ -149,76 +127,87 @@ const FullScreenManager = (function () {
         }
     }
 
-    function handleFullScreenForAndroid() {
-        if (!userAgent.includes("wv")) {
-            // if browser is not web view
-            const androidInstruction = document.getElementById("android-instruction");
-            if (!androidInstruction) {
-                console.warn("Full screen button not found");
-                return;
-            }
+    isFullScreen() {
+        if (this.isIOS) {
+            return !this.isShowAddressBar();
+        }
+        if (this.isAndroid) {
+            return this.webview || screen.height - window.innerHeight < 10;
+        }
+        return true;
+    }
 
-            androidInstruction.style.display = "block";
+    registerEventFullScreenIcon(isShow = true) {
+        this.iconFullScreen.onclick = !isShow
+            ? null
+            : () => {
+                  if (this.isIPad) {
+                      this.requestFullScreen();
+                      return;
+                  }
+                  if (this.isIOS) {
+                      this.onClickFullScreenForIOS();
+                  }
+                  if (this.isAndroid) {
+                      const handleFullscreenForAndroid = this.webview ? this.updateViewport : this.requestFullScreen;
+                      handleFullscreenForAndroid();
+                  }
+              };
+    }
 
-            window.onresize = () => {
-                const isFullScreen = screen.height - window.innerHeight < 1;
-                androidInstruction.style.display = isFullScreen || window.skipFullscreen ? "none" : "block";
-                updateViewport();
-            };
-
-            window.addEventListener("orientationchange", () => {
-                setTimeout(() => {
-                    window.dispatchEvent(new Event("resize"));
-                }, 500);
-            });
-
-            androidInstruction.onclick = () => {
-                toggleFullScreen();
-                androidInstruction.style.display = "none";
-            };
+    updateIconFullScreen() {
+        if (this.isPortrait() || this.isFullScreen()) {
+            this.iconFullScreen.style.display = "none";
+            this.registerEventFullScreenIcon(false);
         } else {
-            updateViewport();
+            this.iconFullScreen.style.display = "block";
+            const topIcon = window.scrollY + 10;
+            this.iconFullScreen.style.top = (topIcon > 0 ? topIcon : 0) + "px";
+            this.registerEventFullScreenIcon(true);
         }
     }
 
-    function createImage(src) {
-        const img = document.createElement("img");
-        img.src = src;
-        return img;
+    initForIOS() {
+        document.body.style.overflow = "auto";
+        const gameContainer = document.getElementById("GameDiv");
+        gameContainer?.classList.add("game-container");
+
+        this.showIOSInstruction(false);
+        this.updateViewport();
+        this.syncPositionForGameContainer();
+        this.registerEventFullScreenForIOS();
+        if (this.isPortrait()) {
+            this.scrollToTop(200);
+        }
     }
 
-    function createIOSInstruction() {
-        const img = createImage("./images/fullscreen-drag.gif");
-        const instruction = document.getElementById("ios-instruction");
-        instruction.appendChild(img);
+    initForAndroid() {
+        this.updateViewport();
+        if (!this.webview) {
+            const debouncedUpdateViewport = this.debounce(this.updateViewport, 100);
+            window.addEventListener("resize", debouncedUpdateViewport);
+        }
     }
 
-    function createAndroidInstruction() {
-        const img = createImage("./images/fullscreen-click.gif");
-        const instruction = document.getElementById("android-instruction");
-        instruction.appendChild(img);
-    }
-
-    return {
-        init: function () {
-            try {
-                if (isIOS()) {
-                    createIOSInstruction();
-                    handleFullScreenForIOS();
-                }
-                if (isAndroid()) {
-                    createAndroidInstruction();
-                    handleFullScreenForAndroid();
-                }
-            } catch (error) {
-                console.error("Error initializing full screen handler:", error);
+    init() {
+        try {
+            if (this.isIOS || this.isAndroid) {
+                this.isIOS && this.initForIOS();
+                this.isAndroid && this.initForAndroid();
+                this.updateIconFullScreen();
+                const debouncedUpdateIconFullScreen = this.debounce(this.updateIconFullScreen, 100);
+                window.addEventListener("resize", debouncedUpdateIconFullScreen);
+                window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
+                this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
             }
-        },
-    };
-})();
+        } catch (error) {
+            console.error("Error initializing full screen handler:", error);
+        }
+    }
+}
 
-// Initialize only if not in iframe
 const isInIframe = window !== window.top;
 if (!isInIframe) {
-    FullScreenManager.init();
+    const fullScreenManager = new FullScreenManager();
+    fullScreenManager.init();
 }

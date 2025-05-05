@@ -42,7 +42,6 @@
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
     </head>
     <body>
-        <div id="Background"></div>
         <div id="GameDiv" cc_exact_fit_screen="true">
             <div id="Cocos3dGameContainer">
                 <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
@@ -58,8 +57,15 @@
             <div id="powered-by"></div>
             <div id="waiting-message"></div>
         </div>
-        <div id="ios-instruction"></div>
-        <div id="android-instruction"></div>
+        <div id="ios-instruction">
+            <div class="instruction-bg"></div>
+            <div class="indicator">
+                <div class="arrow"></div>
+                <div class="hand"></div>
+            </div>
+        </div>
+        <div id="icon-fullscreen"></div>
+
         <!-- Configs. -->
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
