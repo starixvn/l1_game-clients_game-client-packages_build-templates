@@ -234,7 +234,7 @@ class RandomWaitingMessage {
     }
 }
 
-
+console.time("Game Load Time");
 updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
