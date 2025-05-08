@@ -15,7 +15,6 @@ window.envConfig = {
         proxyPath: "rocketx",
         route: "rocketx",
     },
-    mainObserverNamespace: "RocketX",
     tolgeeUrl: "",
     backgroundLocalized: true,
 };
