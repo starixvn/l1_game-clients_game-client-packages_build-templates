@@ -64,8 +64,6 @@ class FullScreenManager {
             const height = Math.min(window.innerWidth, window.innerHeight);
             const vh = height * 0.01;
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
-        } else {
-            document.documentElement.style.setProperty(viewportUnit, `1%`);
         }
         document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
     }
@@ -168,6 +166,7 @@ class FullScreenManager {
     }
 
     initForIOS() {
+        document.body.style.height = "200%";
         document.body.style.overflow = "auto";
         const gameContainer = document.getElementById("GameDiv");
         gameContainer?.classList.add("game-container");
@@ -207,7 +206,12 @@ class FullScreenManager {
 }
 
 const isInIframe = window !== window.top;
+const fullScreenManager = new FullScreenManager();
 if (!isInIframe) {
-    const fullScreenManager = new FullScreenManager();
     fullScreenManager.init();
+}
+const urlParams = new URLSearchParams(window.location.search);
+if (!urlParams.has("params") && !urlParams.has("purl")) {
+    fullScreenManager.updateViewport();
+    window.addEventListener("resize", () => fullScreenManager.updateViewport());
 }
