@@ -55,6 +55,8 @@ export class Application {
                     showFPS: this.showFPS,
                 }
             }
-        }).then(() => cc.game.run());
+        })
+        .then(() => cc.game.run())
+        .catch(() => window.location.reload()); // If the engine fails to start, reload the page
     }
 }
