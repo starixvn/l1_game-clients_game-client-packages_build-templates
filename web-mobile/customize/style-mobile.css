@@ -189,27 +189,27 @@ p.footer {
 }
 
 .splash_text_vi {
-    background-image: url("./../images/splash_text_vi.webp?v=1");
+    background-image: url("./../images/splash_text_vi.webp?v=3");
 }
 
 .splash_text_en {
-    background-image: url("./../images/splash_text_en.webp?v=1");
+    background-image: url("./../images/splash_text_en.webp?v=3");
 }
 
 .splash_text_th {
-    background-image: url("./../images/splash_text_th.webp?v=1");
+    background-image: url("./../images/splash_text_th.webp?v=3");
 }
 
 .splash_text_id {
-    background-image: url("./../images/splash_text_id.webp?v=1");
+    background-image: url("./../images/splash_text_id.webp?v=3");
 }
 
 .splash_text_zh_cn {
-    background-image: url("./../images/splash_text_zh_cn.webp?v=1");
+    background-image: url("./../images/splash_text_zh_cn.webp?v=3");
 }
 
 .splash_text_zh_tw {
-    background-image: url("./../images/splash_text_zh_tw.webp?v=1");
+    background-image: url("./../images/splash_text_zh_tw.webp?v=3");
 }
 
 #splash.instant-game .splash_game_name {
@@ -246,7 +246,7 @@ p.footer {
 }
 
 #powered-by.powered-by {
-    background: url("./../images/powered_by.webp?v=1") no-repeat top center;
+    background: url("./../images/powered_by.webp?v=3") no-repeat top center;
     --powered-by-height: calc(var(--vh, 1vh) * 4.07);
     background-size: auto var(--powered-by-height);
     width: 100%;
@@ -264,27 +264,27 @@ p.footer {
 }
 
 #powered-by.powered-by_tip88.en {
-    background-image: url("./../images/powered_by_Vgaming_en.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_en.webp?v=3");
 }
 
 #powered-by.powered-by_tip88.vi {
-    background-image: url("./../images/powered_by_Vgaming_vi.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_vi.webp?v=3");
 }
 
 #powered-by.powered-by_tip88.th {
-    background-image: url("./../images/powered_by_Vgaming_th.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_th.webp?v=3");
 }
 
 #powered-by.powered-by_tip88.id {
-    background-image: url("./../images/powered_by_Vgaming_id.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_id.webp?v=3");
 }
 
 #powered-by.powered-by_tip88.zh_cn {
-    background-image: url("./../images/powered_by_Vgaming_zh_cn.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_zh_cn.webp?v=3");
 }
 
 #powered-by.powered-by_tip88.zh_tw {
-    background-image: url("./../images/powered_by_Vgaming_zh_tw.webp?v=1");
+    background-image: url("./../images/powered_by_Vgaming_zh_tw.webp?v=3");
 }
 
 .waiting-message {
