@@ -1,1 +1,3 @@
-window.crossConfig = { };
+window.crossConfig = { 
+    splashPath: "",
+};
