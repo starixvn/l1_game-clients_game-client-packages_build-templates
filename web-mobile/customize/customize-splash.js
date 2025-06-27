@@ -1,19 +1,20 @@
 function getSearchParams() {
     let params = "";
-
-    try {
-        const storagePrefixKey = window.crossConfig?.storagePrefixKey;
-        const paramsKey = storagePrefixKey ? `${storagePrefixKey}_current_params` : "current_params";
-        if (localStorage.getItem(paramsKey)) {
-            params = localStorage.getItem(paramsKey);
-        }
-    } catch (e) {}
+    const storagePrefixKey = window.crossConfig?.storagePrefixKey;
+    const paramsKey = storagePrefixKey ? `${storagePrefixKey}_current_params` : "current_params";
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("params")) {
         params = urlParams.get("params");
+        localStorage.setItem(paramsKey, params);
     }
-
+    else {
+        try {
+            if (localStorage.getItem(paramsKey)) {
+                params = localStorage.getItem(paramsKey);
+            }
+        } catch (e) {}
+    }
     return params;
 }
 
