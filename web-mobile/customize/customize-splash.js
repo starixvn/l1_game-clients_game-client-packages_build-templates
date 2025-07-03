@@ -189,6 +189,14 @@ function updateSplashByAppType() {
     }
 }
 
+function initGtag() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+}
+
 class RandomWaitingMessage {
     constructor() {
         const language = getCurrentLanguage().replace(/['"]+/g, "");
@@ -233,3 +241,4 @@ updateSplashByAppType();
 updateSplashLogo();
 updateLocalizedImages();
 window.randomWaitingMessage = new RandomWaitingMessage();
+initGtag();
