@@ -169,9 +169,63 @@ p.footer {
     width: 29.4vw;
 }
 
-.progress-bar-container img {
-    width: 27vw;
-    height: 1vw;
+.splash_text_zh_cn {
+    background-image: url("./../images/splash_text_zh_cn.webp?v=3");
+}
+
+.splash_text_zh_tw {
+    background-image: url("./../images/splash_text_zh_tw.webp?v=3");
+}
+
+.splash_text_sabaplay_vi {
+    background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
+}
+
+.splash_text_sabaplay_en {
+    background-image: url("./../images/splash_text_sabaplay_en.webp?v=1");
+}
+
+.splash_text_sabaplay_th {
+    background-image: url("./../images/splash_text_sabaplay_th.webp?v=1");
+}
+
+.splash_text_sabaplay_id {
+    background-image: url("./../images/splash_text_sabaplay_id.webp?v=1");
+}
+
+.splash_text_sabaplay_zh_cn {
+    background-image: url("./../images/splash_text_sabaplay_zh_cn.webp?v=1");
+}
+
+.splash_text_sabaplay_zh_tw {
+    background-image: url("./../images/splash_text_sabaplay_zh_tw.webp?v=1");
+}
+
+#splash.instant-game .splash_game_name {
+    display: none;
+}
+
+#splash.instant-game .splash {
+    top: 4vh;
+    background-size: auto 11.1vh;
+}
+
+#splash.instant-game .splash_bg_game {
+    top: 1.9vh;
+    background-image: url("./../splash-resources/landscape_game_background.webp?v=2");
+    background-size: auto;
+}
+
+#splash.instant-game .splash_tip88 {
+    top: 0.7vh;
+    background-size: auto 17.76vh;
+    height: 17.76vh;
+}
+
+#splash.instant-game .splash_sabaplay {
+    top: 0.7vh;
+    background-size: auto 16.96vh;
+    height: 16.96vh;
 }
 
 #powered-by {
