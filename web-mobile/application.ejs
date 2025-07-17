@@ -47,6 +47,7 @@ export class Application {
     }
 
     start () {
+        cc.view.setFrameSize(786, 1398)
         return cc.game.init({ // Run the engine with the required parameters
             debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
             settingsPath: this.settingsPath, // Pass in the settings.json path
