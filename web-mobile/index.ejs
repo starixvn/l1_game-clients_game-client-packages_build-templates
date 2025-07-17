@@ -42,9 +42,9 @@
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
     </head>
     <body>
-        <div id="GameDiv" cc_exact_fit_screen="true">
+        <div id="GameDiv" data-orientation="portrait">
             <div id="Cocos3dGameContainer">
-                <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
+                <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99" ></canvas>
             </div>
         </div>
 
@@ -84,5 +84,6 @@
                 console.error(err);
             });
         </script>
+         <script type="text/javascript" src="./customize/game.js?v=<%= Date.now() %>"></script>
     </body>
 </html>
