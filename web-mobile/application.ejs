@@ -50,7 +50,9 @@ export class Application {
         console.log("cc.sys.isMobile", cc.sys.isMobile);
         if (cc.sys.isMobile) {
             console.log(cc.sys.isMobile);
-            //cc.screen.windowSize = new cc.Size(cc.view.getFrameSize().height, cc.view.getFrameSize().width);
+            const ratioScale = cc.view.getFrameSize().width / 1398;
+            const width = ratioScale * cc.view.getFrameSize().height;
+            cc.screen.windowSize = new cc.Size(width, cc.view.getFrameSize().width);
         } else {
             const ratioScale = cc.view.getFrameSize().height / 1398;
             const width = ratioScale * 786;
