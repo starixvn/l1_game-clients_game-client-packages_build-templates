@@ -47,10 +47,12 @@ export class Application {
     }
 
     start () {
-        if(cc.sys.isBrowser) {
-            const ratioScale = cc.view.getFrameSize().height / 1398
+        if (cc.sys.isMobile) {
+            cc.screen.windowSize = new cc.Size(cc.view.getFrameSize().width, cc.view.getFrameSize().height);
+        } else {
+            const ratioScale = cc.view.getFrameSize().height / 1398;
             const width = ratioScale * 786;
-            cc.screen.windowSize = new cc.Size(width, cc.view.getFrameSize().height)
+            cc.screen.windowSize = new cc.Size(width, cc.view.getFrameSize().height);
         }
        
         return cc.game.init({ // Run the engine with the required parameters
