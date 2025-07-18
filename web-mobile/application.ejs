@@ -56,6 +56,8 @@ export class Application {
             const width = ratioScale * 786;
             cc.screen.windowSize = new cc.Size(width, cc.view.getFrameSize().height);
         }
+        console.log("cc.screen windowSize", cc.view.getCanvasSize());
+        console.log("cc.view.getFrameSize()", cc.view.getFrameSize());
        
         return cc.game.init({ // Run the engine with the required parameters
             debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
