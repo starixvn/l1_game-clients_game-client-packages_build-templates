@@ -43,7 +43,7 @@
     </head>
     <body>
 
-            <div id="GameDiv" data-orientation="portrait">
+            <div id="GameDiv">
                 <div id="Cocos3dGameContainer">
                     <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99" ></canvas>
                 </div>
@@ -80,7 +80,6 @@
 
         <!-- Import map -->
         <script src="./customize/import-map.json?v=3" type="systemjs-importmap" charset="utf-8"></script>
-        <script type="text/javascript" src="./customize/game.js?v=<%= Date.now() %>"></script>
         <script>
             System.import("./<%= indexJsName %>").catch(function (err) {
                 console.error(err);

@@ -75,6 +75,9 @@ body {
     top: 0;
 }
 
+#GameCanvas {
+    width: unset;
+}
 
 #Cocos3dGameContainer {
     position: absolute;
