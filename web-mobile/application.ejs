@@ -47,8 +47,10 @@ export class Application {
     }
 
     start () {
+        console.log("cc.sys.isMobile", cc.sys.isMobile);
         if (cc.sys.isMobile) {
-            cc.screen.windowSize = new cc.Size(cc.view.getFrameSize().height, cc.view.getFrameSize().width);
+            console.log(cc.sys.isMobile);
+            //cc.screen.windowSize = new cc.Size(cc.view.getFrameSize().height, cc.view.getFrameSize().width);
         } else {
             const ratioScale = cc.view.getFrameSize().height / 1398;
             const width = ratioScale * 786;
@@ -66,7 +68,7 @@ export class Application {
                 profiling: {
                     showFPS: this.showFPS,
                 },
-                screen: { 'exactFitScreen': false }
+                screen: { 'exactFitScreen': cc.sys.isMobile }
             }
         })
         .then(() => cc.game.run())
