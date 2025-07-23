@@ -39,7 +39,7 @@ function getLanguageURLparams(locale) {
         "zh-CN": "zh_cn",
         "zh-TW": "zh_tw",
         "ja-JP": "ja",
-        ...globalConfig?.localeMapping,
+        ...globalThis?.localeMapping,
     };
     return dict[locale] || "en";
 }
