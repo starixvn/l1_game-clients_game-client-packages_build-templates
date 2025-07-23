@@ -39,6 +39,7 @@ function getLanguageURLparams(locale) {
         "zh-CN": "zh_cn",
         "zh-TW": "zh_tw",
         "ja-JP": "ja",
+        ...globalConfig?.localeMapping,
     };
     return dict[locale] || "en";
 }
@@ -51,7 +52,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) {}
+    } catch (e) { }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -74,7 +75,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) {}
+    } catch (e) { }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -179,7 +180,7 @@ function isInstant() {
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
-    } catch (e) {}
+    } catch (e) { }
     return false;
 }
 
