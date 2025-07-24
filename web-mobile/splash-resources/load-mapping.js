@@ -41,9 +41,5 @@ async function getMapping(configPath) {
 
 (async function () {
   globalThis.localeMapping = await getMapping("localization/configs/locale-mapping.json");
-  const fontMapping = await getMapping("localization/configs/font-mapping.json");
-
-  globalThis.fontBoldMapping = fontMapping.bold || {};
-  globalThis.fontRegularMapping = fontMapping.regular || {};
-  globalThis.fontBoldSlotMapping = fontMapping.boldSlot || {};
+  globalThis.fontMapping = await getMapping("localization/configs/font-mapping.json");
 })();
