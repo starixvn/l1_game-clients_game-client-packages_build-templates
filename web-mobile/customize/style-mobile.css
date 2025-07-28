@@ -177,6 +177,10 @@ p.footer {
     background-image: url("./../images/splash_text_zh_tw.webp?v=3");
 }
 
+.splash_text_ja {
+    background-image: url("./../images/splash_text_ja.webp?v=3");
+}
+
 .splash_text_sabaplay_vi {
     background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
 }
@@ -199,6 +203,10 @@ p.footer {
 
 .splash_text_sabaplay_zh_tw {
     background-image: url("./../images/splash_text_sabaplay_zh_tw.webp?v=1");
+}
+
+.splash_text_sabaplay_ja {
+    background-image: url("./../images/splash_text_sabaplay_ja.webp?v=1");
 }
 
 #splash.instant-game .splash_game_name {
