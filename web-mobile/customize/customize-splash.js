@@ -32,14 +32,20 @@ const OPERATORS = {
     },
 };
 
-const LANGUAGE_MAP = {
-    "vi-VN": "vi",
-    "en-US": "en",
-    "th-TH": "th",
-    "id-ID": "id",
-    "zh-CN": "zh_cn",
-    "zh-TW": "zh_tw",
-};
+function getLanguageURLparams(locale) {
+    const dict = {
+        "vi-VN": "vi",
+        "en-US": "en",
+        "en-UK": "en",
+        "th-TH": "th",
+        "id-ID": "id",
+        "zh-CN": "zh_cn",
+        "zh-TW": "zh_tw",
+        "ja-JP": "ja",
+        ...globalThis?.localeMapping,
+    };
+    return dict[locale] || "en";
+}
 
 const waitingMessages = {
     en: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
@@ -51,6 +57,7 @@ const waitingMessages = {
     th: ["หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่", "กำลังตรวจสอบและกำลังดาวน์โหลดเกมของการอัพเดทล่าสุด"],
     zh_cn: ["如果这是您第一次访问，下载可能需要一段时间。", "正在检查和下载最新的更新包..."],
     zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
+    ja: ["初回アクセス時は、ダウンロードに時間がかかる場合があります。", "最新のアップデートパッケージを確認し、ダウンロードしています..."],
 };
 
 class SplashManager {
@@ -82,7 +89,7 @@ class SplashManager {
         } catch (e) {}
 
         const langKey = this.getDataFromURLParams("lang");
-        return langKey ? LANGUAGE_MAP[langKey] || "en" : language;
+        return getLanguageURLparams(langKey);
     }
 
     getCurrentOperator() {
