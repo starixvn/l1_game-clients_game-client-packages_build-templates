@@ -57,6 +57,7 @@ class SplashManager {
     constructor() {
         this.language = this.getCurrentLanguage().replace(/['"]+/g, "");
         this.operator = this.getCurrentOperator().replace(/['"]+/g, "");
+        console.log("operator-----------".this.operator);
         this.appType = this.getAppType();
         this.intervalId = null;
     }
@@ -184,7 +185,10 @@ class SplashManager {
 
         // Update slogan
         const slogan = document.getElementById("slogan");
-        const sloganImg = this.createImg(`./images/splash_text_${this.language}.webp?v=1`);
+
+        const sloganImg = this.createImg(
+            `./images/splash_text_${this.operator.toUpperCase() === "SP" ? "sabaplay" : ""}_${this.language}.webp?v=1`
+        );
         sloganImg && slogan.appendChild(sloganImg);
 
         // Update powered by
