@@ -64,7 +64,7 @@ class SplashManager {
     constructor() {
         this.language = this.getCurrentLanguage().replace(/['"]+/g, "");
         this.operator = this.getCurrentOperator().replace(/['"]+/g, "");
-        console.log("operator-----------".this.operator);
+        console.log("operator-----------", this.operator);
         this.appType = this.getAppType();
         this.intervalId = null;
     }
