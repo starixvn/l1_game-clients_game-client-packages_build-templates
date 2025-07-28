@@ -8,7 +8,7 @@ const waitingMessages = {
     th: ["หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่", "กำลังตรวจสอบและกำลังดาวน์โหลดเกมของการอัพเดทล่าสุด"],
     zh_cn: ["如果这是您第一次访问，下载可能需要一段时间。", "正在检查和下载最新的更新包..."],
     zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
-    ja: ["初回アクセス時は、ダウンロードに時間がかかる場合があります。", "最新のアップデートパッケージを確認し、ダウンロードしています..."],
+    ja: ["初回アクセス時はダウンロードに時間がかかる場合があります", "最新のアップデートを確認・ダウンロード中…"],
 };
 
 window.mobilecheck = function () {
@@ -52,7 +52,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
+    } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -75,7 +75,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -180,7 +180,7 @@ function isInstant() {
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
-    } catch (e) { }
+    } catch (e) {}
     return false;
 }
 
