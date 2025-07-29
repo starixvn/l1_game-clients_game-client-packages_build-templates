@@ -32,21 +32,6 @@ const OPERATORS = {
     },
 };
 
-// function getLanguageURLparams(locale) {
-//     const dict = {
-//         "vi-VN": "vi",
-//         "en-US": "en",
-//         "en-UK": "en",
-//         "th-TH": "th",
-//         "id-ID": "id",
-//         "zh-CN": "zh_cn",
-//         "zh-TW": "zh_tw",
-//         "ja-JP": "ja",
-//         ...globalThis?.localeMapping,
-//     };
-//     return dict[locale] || "en";
-// }
-
 const LANGUAGE_MAP = {
     "vi-VN": "vi",
     "en-US": "en",
@@ -75,7 +60,6 @@ class SplashManager {
     constructor() {
         this.language = this.getCurrentLanguage().replace(/['"]+/g, "");
         this.operator = this.getCurrentOperator().replace(/['"]+/g, "");
-        console.log("operator-----------", this.operator);
         this.appType = this.getAppType();
         this.intervalId = null;
     }
