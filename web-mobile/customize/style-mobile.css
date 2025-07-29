@@ -319,6 +319,10 @@ p.footer {
     background-image: url("./../images/powered_by_Vgaming_zh_tw.webp?v=3");
 }
 
+#powered-by.powered-by_tip88.ja {
+    background-image: url("./../images/powered_by_Vgaming_ja.webp?v=3");
+}
+
 .waiting-message {
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
