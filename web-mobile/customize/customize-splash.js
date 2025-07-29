@@ -189,7 +189,7 @@ class SplashManager {
         const slogan = document.getElementById("slogan");
 
         const sloganImg = this.createImg(
-            `./images/splash_text_${this.operator.toUpperCase() === "SP" ? "sabaplay" : ""}_${this.language}.webp?v=1`
+            `./images/splash_text${this.operator.toUpperCase() === "SP" ? "_sabaplay" : ""}_${this.language}.webp?v=1`
         );
         sloganImg && slogan.appendChild(sloganImg);
 
