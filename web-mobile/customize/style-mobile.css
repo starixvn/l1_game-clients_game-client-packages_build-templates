@@ -181,6 +181,10 @@ p.footer {
     background-image: url("./../images/splash_text_ja.webp?v=3");
 }
 
+.splash_text_es {
+    background-image: url("./../images/splash_text_es.webp?v=3");
+}
+
 .splash_text_sabaplay_vi {
     background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
 }
@@ -207,6 +211,10 @@ p.footer {
 
 .splash_text_sabaplay_ja {
     background-image: url("./../images/splash_text_sabaplay_ja.webp?v=1");
+}
+
+.splash_text_sabaplay_es {
+    background-image: url("./../images/splash_text_sabaplay_es.webp?v=1");
 }
 
 #splash.instant-game .splash_game_name {
@@ -296,6 +304,18 @@ p.footer {
 
 #powered-by.powered-by-tip88.zh_tw {
     background: url("./../images/powered_by_vg_zh_tw.webp?v=1") no-repeat top center;
+    width: 100%;
+    background-size: contain;
+}
+
+#powered-by.powered-by-tip88.ja {
+    background: url("./../images/powered_by_vg_ja.webp?v=1") no-repeat top center;
+    width: 100%;
+    background-size: contain;
+}
+
+#powered-by.powered-by-tip88.es {
+    background: url("./../images/powered_by_vg_es.webp?v=1") no-repeat top center;
     width: 100%;
     background-size: contain;
 }
