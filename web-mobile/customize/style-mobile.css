@@ -216,6 +216,10 @@ p.footer {
     background-image: url("./../images/splash_text_ja.webp?v=3");
 }
 
+.splash_text_es {
+    background-image: url("./../images/splash_text_es.webp?v=3");
+}
+
 .splash_text_sabaplay_vi {
     background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
 }
@@ -242,6 +246,10 @@ p.footer {
 
 .splash_text_sabaplay_ja {
     background-image: url("./../images/splash_text_sabaplay_ja.webp?v=1");
+}
+
+.splash_text_sabaplay_es {
+    background-image: url("./../images/splash_text_sabaplay_es.webp?v=1");
 }
 
 #splash.instant-game .splash_game_name {
@@ -321,6 +329,10 @@ p.footer {
 
 #powered-by.powered-by_tip88.ja {
     background-image: url("./../images/powered_by_Vgaming_ja.webp?v=3");
+}
+
+#powered-by.powered-by_tip88.es {
+    background-image: url("./../images/powered_by_Vgaming_es.webp?v=3");
 }
 
 .waiting-message {
