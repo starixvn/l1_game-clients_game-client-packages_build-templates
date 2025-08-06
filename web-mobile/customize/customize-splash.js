@@ -40,7 +40,7 @@ function getLanguageURLparams(locale) {
         "zh-CN": "zh_cn",
         "zh-TW": "zh_tw",
         "ja-JP": "ja",
-        ...globalThis?.localeMapping,
+        ...(globalThis.localeMapping || {}),
     };
     return dict[locale] || "en";
 }
@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) {}
+    } catch (e) { }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) {}
+    } catch (e) { }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -181,7 +181,7 @@ function isInstant() {
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
-    } catch (e) {}
+    } catch (e) { }
     return false;
 }
 
@@ -236,5 +236,27 @@ class RandomWaitingMessage {
 console.time("Game Load Time");
 updateSplashByAppType();
 updateSplashLogo();
-updateLocalizedImages();
-window.randomWaitingMessage = new RandomWaitingMessage();
+
+function initializeSplash() {
+    updateLocalizedImages();
+    window.randomWaitingMessage = new RandomWaitingMessage();
+}
+
+if (globalThis.localeMapping) {
+    initializeSplash();
+} else {
+    globalThis.addEventListener("localeMappingLoaded", () => {
+        initializeSplash();
+    }, {
+        once: true,
+    });
+
+
+    setTimeout(() => {
+        if (!globalThis.localeMapping) {
+            console.log("localeMapping not loaded within timeout, using default locale");
+            globalThis.dispatchEvent(new Event("localeMappingLoaded"));
+        }
+    }, 2000);
+}
+
