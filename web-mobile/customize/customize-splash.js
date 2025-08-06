@@ -40,7 +40,7 @@ const LANGUAGE_MAP = {
     "zh-CN": "zh_cn",
     "zh-TW": "zh_tw",
     "ja-JP": "ja",
-    ...globalThis?.localeMapping,
+    ...(globalThis?.localeMapping || {}),
 };
 
 const waitingMessages = {
