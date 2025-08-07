@@ -201,8 +201,31 @@ class SplashManager {
         // Update waiting message
         this.randomWaitingMessage(appTypeClass);
     }
+
+    initializeSplash() {
+        if (globalThis.localeMapping) {
+            this.updateInterface();
+        } else {
+            globalThis.addEventListener(
+                "localeMappingLoaded",
+                () => {
+                    this.updateInterface();
+                },
+                {
+                    once: true,
+                }
+            );
+
+            setTimeout(() => {
+                if (!globalThis.localeMapping) {
+                    console.log("localeMapping not loaded within timeout, using default locale");
+                    globalThis.dispatchEvent(new Event("localeMappingLoaded"));
+                }
+            }, 2000);
+        }
+    }
 }
 
 // Initialize and update splash screen
 const splashManager = new SplashManager();
-splashManager.updateInterface();
+splashManager.initializeSplash();
