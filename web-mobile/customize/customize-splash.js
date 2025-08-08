@@ -210,16 +210,19 @@ class SplashManager {
 function initializeSplashScreen() {
     const splashManager = new SplashManager();
     splashManager.updateInterface();
+
+    return splashManager;
 }
 
+let splashManager;
 
 if (globalThis.localeMapping) {
-    initializeSplashScreen();
+    splashManager = initializeSplashScreen();
 } else {
     globalThis.addEventListener(
         "localeMappingLoaded",
         () => {
-            initializeSplashScreen();
+            splashManager = initializeSplashScreen();
         },
         {
             once: true,
