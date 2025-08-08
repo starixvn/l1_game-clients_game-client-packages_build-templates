@@ -58,6 +58,30 @@ const waitingMessages = {
 
 class SplashManager {
     constructor() {
+        if (globalThis.localeMapping) {
+            this.initializeSplashScreen();
+        } else {
+            globalThis.addEventListener(
+                "localeMappingLoaded",
+                () => {
+                    this.initializeSplashScreen();
+                },
+                {
+                    once: true,
+                }
+            );
+
+            setTimeout(() => {
+                if (!globalThis.localeMapping) {
+                    console.log("localeMapping not loaded within timeout, using default locale");
+                    globalThis.dispatchEvent(new Event("localeMappingLoaded"));
+                }
+            }, 1000);
+        }
+
+    }
+
+    initializeSplashScreen() {
         this.language = this.getCurrentLanguage().replace(/['"]+/g, "");
         this.operator = this.getCurrentOperator().replace(/['"]+/g, "");
         this.appType = this.getAppType();
@@ -207,32 +231,7 @@ class SplashManager {
 
 }
 
-function initializeSplashScreen() {
-    const splashManager = new SplashManager();
-    splashManager.updateInterface();
+const splashManager = new SplashManager();
+splashManager.updateInterface();
 
-    return splashManager;
-}
 
-let splashManager;
-
-if (globalThis.localeMapping) {
-    splashManager = initializeSplashScreen();
-} else {
-    globalThis.addEventListener(
-        "localeMappingLoaded",
-        () => {
-            splashManager = initializeSplashScreen();
-        },
-        {
-            once: true,
-        }
-    );
-
-    setTimeout(() => {
-        if (!globalThis.localeMapping) {
-            console.log("localeMapping not loaded within timeout, using default locale");
-            globalThis.dispatchEvent(new Event("localeMappingLoaded"));
-        }
-    }, 2000);
-}
