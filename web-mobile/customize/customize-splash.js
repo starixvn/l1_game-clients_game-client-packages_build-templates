@@ -86,6 +86,7 @@ class SplashManager {
         this.operator = this.getCurrentOperator().replace(/['"]+/g, "");
         this.appType = this.getAppType();
         this.intervalId = null;
+        this.updateInterface();
     }
 
     getDataFromURLParams(key) {
@@ -232,6 +233,5 @@ class SplashManager {
 }
 
 const splashManager = new SplashManager();
-splashManager.updateInterface();
 
 
