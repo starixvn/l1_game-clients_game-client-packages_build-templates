@@ -40,7 +40,6 @@ const LANGUAGE_MAP = {
     "zh-CN": "zh_cn",
     "zh-TW": "zh_tw",
     "ja-JP": "ja",
-    ...(globalThis?.localeMapping || {}),
 };
 
 const waitingMessages = {
@@ -82,10 +81,14 @@ class SplashManager {
             const storagePrefixKey = window.crossConfig?.storagePrefixKey;
             const languageKey = storagePrefixKey ? `${storagePrefixKey}_current_language` : "current_language";
             language = localStorage.getItem(languageKey) || language;
-        } catch (e) {}
+        } catch (e) { }
 
         const langKey = this.getDataFromURLParams("lang");
-        return langKey ? LANGUAGE_MAP[langKey] || "en" : language;
+        const languageMap = {
+            ...LANGUAGE_MAP,
+            ...(globalThis.localeMapping || {})
+        }
+        return langKey ? languageMap[langKey] || "en" : language;
     }
 
     getCurrentOperator() {
@@ -202,30 +205,31 @@ class SplashManager {
         this.randomWaitingMessage(appTypeClass);
     }
 
-    initializeSplash() {
-        if (globalThis.localeMapping) {
-            this.updateInterface();
-        } else {
-            globalThis.addEventListener(
-                "localeMappingLoaded",
-                () => {
-                    this.updateInterface();
-                },
-                {
-                    once: true,
-                }
-            );
-
-            setTimeout(() => {
-                if (!globalThis.localeMapping) {
-                    console.log("localeMapping not loaded within timeout, using default locale");
-                    globalThis.dispatchEvent(new Event("localeMappingLoaded"));
-                }
-            }, 2000);
-        }
-    }
 }
 
-// Initialize and update splash screen
-const splashManager = new SplashManager();
-splashManager.initializeSplash();
+function initializeSplashScreen() {
+    const splashManager = new SplashManager();
+    splashManager.updateInterface();
+}
+
+
+if (globalThis.localeMapping) {
+    initializeSplashScreen();
+} else {
+    globalThis.addEventListener(
+        "localeMappingLoaded",
+        () => {
+            initializeSplashScreen();
+        },
+        {
+            once: true,
+        }
+    );
+
+    setTimeout(() => {
+        if (!globalThis.localeMapping) {
+            console.log("localeMapping not loaded within timeout, using default locale");
+            globalThis.dispatchEvent(new Event("localeMappingLoaded"));
+        }
+    }, 2000);
+}
