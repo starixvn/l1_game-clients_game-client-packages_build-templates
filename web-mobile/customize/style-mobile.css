@@ -414,11 +414,20 @@ p.footer {
         height: 100% !important;
     }
 
+    #microsite #GameCanvas {
+        height: unset;
+    }
+
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
     body {
         background-size: 100vh auto;
+    }
+
+    
+    #microsite #GameCanvas {
+        height: unset;
     }
 
      iframe#microsite {
