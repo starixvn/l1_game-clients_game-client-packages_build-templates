@@ -40,7 +40,13 @@ async function getMapping(configPath) {
 }
 
 (async function () {
-    globalThis.localeMapping = await getMapping("localization/configs/locale-mapping.json");
-    globalThis.fontMapping = await getMapping("localization/configs/font-mapping.json");
+    const remoteInfo = await getMapping(`localization/info.json?v=${Date.now().toString()}`);
+    globalThis.localeMapping = await getMapping(
+        `localization/configs/locale-mapping.json?v=${remoteInfo?.versionLocaleMapping ?? Date.now().toString()}`
+    );
+    globalThis.fontMapping = await getMapping(
+        `localization/configs/font-mapping.json?v=${remoteInfo?.versionFontMapping ?? Date.now().toString()}`
+    );
+
     globalThis.dispatchEvent(new Event("localeMappingLoaded"));
 })();
