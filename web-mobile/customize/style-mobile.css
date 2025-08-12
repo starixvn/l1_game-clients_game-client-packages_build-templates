@@ -29,6 +29,7 @@ iframe {
     overflow-x: hidden;
 }
 
+
 body {
     position: absolute;
     top: 0;
@@ -407,9 +408,31 @@ p.footer {
     height: var(--loading-icon-height);
 }
 
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+    iframe#microsite {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    #GameDiv, #Cocos3dGameContainer, #GameCanvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
 @media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
     body {
         background-size: 100vh auto;
+    }
+
+     iframe#microsite {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    #GameDiv, #Cocos3dGameContainer, #GameCanvas {
+        width: 100% !important;
+        height: 100% !important;
     }
 
     .splash-container {
