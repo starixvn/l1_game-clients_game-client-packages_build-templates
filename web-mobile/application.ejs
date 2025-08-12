@@ -47,7 +47,10 @@ export class Application {
     }
 
     start () {
-        
+        if(cc.sys.isMobile) {
+            cc.screen.windowSize = new cc.Size(cc.view.getFrameSize().height, cc.view.getFrameSize().width);
+        }
+        console.log(" cc.screen.windowSize", cc.view.getFrameSize());
        
         return cc.game.init({ // Run the engine with the required parameters
             debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
