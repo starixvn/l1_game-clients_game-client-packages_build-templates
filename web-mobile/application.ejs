@@ -47,10 +47,10 @@ export class Application {
     }
 
     start () {
-        const ratioScale = cc.view.getFrameSize().height / 1398;
+        const ratioScale = window.innerHeight / 1398;
         const width = ratioScale * 786;
-        console.log("height", cc.view.getFrameSize().height);
-        cc.screen.windowSize = new cc.Size(width, cc.view.getFrameSize().height);
+        console.log("height", window.innerHeight);
+        cc.screen.windowSize = new cc.Size(width, window.innerHeight);
         console.log("cc.screen.windowSize", cc.screen.windowSize);
        
         return cc.game.init({ // Run the engine with the required parameters
@@ -64,7 +64,7 @@ export class Application {
                 profiling: {
                     showFPS: this.showFPS,
                 },
-               screen: { 'exactFitScreen': cc.sys.isMobile }
+               screen: { 'exactFitScreen': false }
             }
         })
         .then(() => cc.game.run())
