@@ -76,9 +76,11 @@ body {
     top: 0;
 }
 
+#GameDiv {
+    margin: 0 auto;
+}
 
-
-#Cocos3dGameContainer {
+/* #Cocos3dGameContainer {
     position: absolute;
     margin: 0;
     left: 0px;
@@ -93,7 +95,7 @@ body {
     z-index: 1;
     height: 100vh !important;
     height: calc(var(--vh, 1vh) * 100) !important;
-}
+} */
 
 #Cocos3dGameContainer > div[style*="overflow-x"] {
     overflow-x: hidden !important;
@@ -408,18 +410,12 @@ p.footer {
     height: var(--loading-icon-height);
 }
 
-#GameCanvas {
-    height: unset;
-}
+
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
     iframe#microsite {
         width: 100% !important;
         height: 100% !important;
-    }
-
-    #microsite #GameCanvas {
-        height: unset;
     }
 
 }
@@ -428,16 +424,6 @@ p.footer {
     body {
         background-size: 100vh auto;
     }
-
-    
-
-
-     iframe#microsite {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-
 
     .splash-container {
         height: 100vw;
