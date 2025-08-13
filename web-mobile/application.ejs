@@ -52,7 +52,7 @@ export class Application {
         console.log("height", window.innerHeight);
         cc.screen.windowSize = new cc.Size(width, window.innerHeight);
         console.log("cc.screen.windowSize", cc.screen.windowSize);
-       
+        cc.view.resizeWithBrowserSize(true);
         return cc.game.init({ // Run the engine with the required parameters
             debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
             settingsPath: this.settingsPath, // Pass in the settings.json path
@@ -64,7 +64,7 @@ export class Application {
                 profiling: {
                     showFPS: this.showFPS,
                 },
-               screen: { 'exactFitScreen': false }
+               screen: { 'exactFitScreen': cc.sys.isMobile }
             }
         })
         .then(() => cc.game.run())
