@@ -78,6 +78,7 @@ body {
 
 #GameDiv {
     margin: 0 auto;
+    height: calc(var(--vh, 1vh) * 100) !important;
 }
 
 /* #Cocos3dGameContainer {
