@@ -61,18 +61,11 @@ class FullScreenManager {
     updateViewport() {
         const viewportUnit = "--vh";
         if (this.isIOS || this.isAndroid) {
-            const height = Math.max(window.innerWidth, window.innerHeight);
+            const height = Math.min(window.innerWidth, window.innerHeight);
             const vh = height * 0.01;
-            console.log("viewport height", vh);
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
         }
         document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
-        if (window === window.top) {
-            const gameContainer = document.getElementById("GameDiv");
-            const ratio = 786 / 1398;
-            gameContainer.style.height = window.innerHeight;
-            gameContainer.style.width = window.innerWidth * ratio;
-        }
     }
 
     showIOSInstruction(isShow = true) {
