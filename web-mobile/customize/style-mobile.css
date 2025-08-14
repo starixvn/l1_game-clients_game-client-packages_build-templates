@@ -79,9 +79,10 @@ body {
 #GameDiv {
     margin: 0 auto;
     height: calc(var(--vh, 1vh) * 100) !important;
+    aspect-ratio: 786 / 1398;
 }
 
-/* #Cocos3dGameContainer {
+/*#Cocos3dGameContainer {
     position: absolute;
     margin: 0;
     left: 0px;
