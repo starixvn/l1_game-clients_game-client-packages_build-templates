@@ -185,6 +185,23 @@ p.footer {
     background-image: url("./../images/splash_text_es.webp?v=3");
 }
 
+.splash_text_ko {
+    background-image: url("./../images/splash_text_ko.webp?v=3");
+}
+
+.splash_text_tr {
+    background-image: url("./../images/splash_text_tr.webp?v=3");
+}
+
+.splash_text_pt_br {
+    background-image: url("./../images/splash_text_pt_br.webp?v=3");
+}
+
+.splash_text_fil_ph {
+    background-image: url("./../images/splash_text_fil_ph.webp?v=3");
+}
+
+
 .splash_text_sabaplay_vi {
     background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
 }
@@ -215,6 +232,22 @@ p.footer {
 
 .splash_text_sabaplay_es {
     background-image: url("./../images/splash_text_sabaplay_es.webp?v=1");
+}
+
+.splash_text_sabaplay_ko {
+    background-image: url("./../images/splash_text_sabaplay_ko.webp?v=1");
+}
+
+.splash_text_sabaplay_tr {
+    background-image: url("./../images/splash_text_sabaplay_tr.webp?v=1");
+}
+
+.splash_text_sabaplay_pt_br {
+    background-image: url("./../images/splash_text_sabaplay_pt_br.webp?v=1");
+}
+
+.splash_text_sabaplay_fil_ph {
+    background-image: url("./../images/splash_text_sabaplay_fil_ph.webp?v=1");
 }
 
 #splash.instant-game .splash_game_name {

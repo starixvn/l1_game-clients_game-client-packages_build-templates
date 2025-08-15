@@ -40,6 +40,11 @@ const LANGUAGE_MAP = {
     "zh-CN": "zh_cn",
     "zh-TW": "zh_tw",
     "ja-JP": "ja",
+    "es-ES": "es",
+    "ko-KR": "ko",
+    "tr-TR": "tr",
+    "pt-BR": "pt_br",
+    "fil-PH": "fil_ph",
 };
 
 const waitingMessages = {
@@ -54,6 +59,10 @@ const waitingMessages = {
     zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
     ja: ["初回アクセス時は、ダウンロードに時間がかかる場合があります。", "最新のアップデートパッケージを確認し、ダウンロードしています..."],
     es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
+    ko: ["처음 방문하시는 경우, 다운로드에 시간이 다소 소요될 수 있습니다.", "최신 업데이트 패키지를 확인하고 다운로드 중입니다..."],
+    tr: ["Bu ilk ziyaretinizse, indirme biraz zaman alabilir.", "En son güncelleme paketleri kontrol ediliyor ve indiriliyor..."],
+    pt_br: ["Se esta é sua primeira visita, o download pode demorar um pouco.", "Verificando e baixando os pacotes de atualização mais recentes..."],
+    fil_ph: ["Kung ito ang inyong unang pagbisita, maaaring magtagal nang kaunti ang pag-download.", "Chini-check at dina-download ang pinakabagong mga packages ng update..."],
 };
 
 class SplashManager {
