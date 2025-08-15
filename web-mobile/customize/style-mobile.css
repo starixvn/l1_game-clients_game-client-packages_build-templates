@@ -150,7 +150,7 @@ p.footer {
 }
 
 .slogan img {
-    width: 70vw;
+    width: 84vw;
 }
 
 .splash-logo-container.portrait .progress-bar-container {
@@ -170,84 +170,84 @@ p.footer {
 }
 
 .splash_text_zh_cn {
-    background-image: url("./../images/splash_text_zh_cn.webp?v=3");
+    background-image: url("./../images/splash_text_zh_cn.webp?v=4");
 }
 
 .splash_text_zh_tw {
-    background-image: url("./../images/splash_text_zh_tw.webp?v=3");
+    background-image: url("./../images/splash_text_zh_tw.webp?v=4");
 }
 
 .splash_text_ja {
-    background-image: url("./../images/splash_text_ja.webp?v=3");
+    background-image: url("./../images/splash_text_ja.webp?v=4");
 }
 
 .splash_text_es {
-    background-image: url("./../images/splash_text_es.webp?v=3");
+    background-image: url("./../images/splash_text_es.webp?v=4");
 }
 
 .splash_text_ko {
-    background-image: url("./../images/splash_text_ko.webp?v=3");
+    background-image: url("./../images/splash_text_ko.webp?v=4");
 }
 
 .splash_text_tr {
-    background-image: url("./../images/splash_text_tr.webp?v=3");
+    background-image: url("./../images/splash_text_tr.webp?v=4");
 }
 
 .splash_text_pt_br {
-    background-image: url("./../images/splash_text_pt_br.webp?v=3");
+    background-image: url("./../images/splash_text_pt_br.webp?v=4");
 }
 
 .splash_text_fil_ph {
-    background-image: url("./../images/splash_text_fil_ph.webp?v=3");
+    background-image: url("./../images/splash_text_fil_ph.webp?v=4");
 }
 
 
 .splash_text_sabaplay_vi {
-    background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_vi.webp?v=2");
 }
 
 .splash_text_sabaplay_en {
-    background-image: url("./../images/splash_text_sabaplay_en.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_en.webp?v=2");
 }
 
 .splash_text_sabaplay_th {
-    background-image: url("./../images/splash_text_sabaplay_th.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_th.webp?v=2");
 }
 
 .splash_text_sabaplay_id {
-    background-image: url("./../images/splash_text_sabaplay_id.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_id.webp?v=2");
 }
 
 .splash_text_sabaplay_zh_cn {
-    background-image: url("./../images/splash_text_sabaplay_zh_cn.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_zh_cn.webp?v=2");
 }
 
 .splash_text_sabaplay_zh_tw {
-    background-image: url("./../images/splash_text_sabaplay_zh_tw.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_zh_tw.webp?v=2");
 }
 
 .splash_text_sabaplay_ja {
-    background-image: url("./../images/splash_text_sabaplay_ja.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_ja.webp?v=2");
 }
 
 .splash_text_sabaplay_es {
-    background-image: url("./../images/splash_text_sabaplay_es.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_es.webp?v=2");
 }
 
 .splash_text_sabaplay_ko {
-    background-image: url("./../images/splash_text_sabaplay_ko.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_ko.webp?v=2");
 }
 
 .splash_text_sabaplay_tr {
-    background-image: url("./../images/splash_text_sabaplay_tr.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_tr.webp?v=2");
 }
 
 .splash_text_sabaplay_pt_br {
-    background-image: url("./../images/splash_text_sabaplay_pt_br.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_pt_br.webp?v=2");
 }
 
 .splash_text_sabaplay_fil_ph {
-    background-image: url("./../images/splash_text_sabaplay_fil_ph.webp?v=1");
+    background-image: url("./../images/splash_text_sabaplay_fil_ph.webp?v=2");
 }
 
 #splash.instant-game .splash_game_name {
@@ -349,6 +349,32 @@ p.footer {
 
 #powered-by.powered-by-tip88.es {
     background: url("./../images/powered_by_vg_es.webp?v=1") no-repeat top center;
+    width: 100%;
+    background-size: contain;
+}
+
+#powered-by.powered-by-tip88.ko {
+    background: url("./../images/powered_by_vg_ko.webp?v=1") no-repeat top center;
+    width: 100%;
+    background-size: contain;
+}
+
+
+#powered-by.powered-by-tip88.tr {
+    background: url("./../images/powered_by_vg_tr.webp?v=1") no-repeat top center;
+    width: 100%;
+    background-size: contain;
+}
+
+
+#powered-by.powered-by-tip88.pt_br {
+    background: url("./../images/powered_by_vg_pt_br.webp?v=1") no-repeat top center;
+    width: 100%;
+    background-size: contain;
+}
+
+#powered-by.powered-by-tip88.fil_ph {
+    background: url("./../images/powered_by_vg_fil_ph.webp?v=1") no-repeat top center;
     width: 100%;
     background-size: contain;
 }
