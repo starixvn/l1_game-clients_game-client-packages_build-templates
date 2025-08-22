@@ -58,7 +58,7 @@ export class Application {
                 profiling: {
                     showFPS: this.showFPS,
                 },
-               screen: { 'exactFitScreen': cc.sys.isMobile }
+               screen: { 'exactFitScreen': false }
             }
         })
         .then(() => cc.game.run())
