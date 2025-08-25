@@ -166,8 +166,8 @@ class FullScreenManager {
     }
 
     initForIOS() {
-        document.body.style.height = "200%";
-        document.body.style.overflow = "auto";
+        // document.body.style.height = "200%";
+        // document.body.style.overflow = "auto";
         const gameContainer = document.getElementById("GameDiv");
         gameContainer?.classList.add("game-container");
 
