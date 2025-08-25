@@ -80,6 +80,11 @@ body {
     margin: 0 auto;
 }
 
+#Cocos3dGameContainer, #GameDiv {
+    width: unset !important;
+    height: unset !important;
+}
+
 /*#Cocos3dGameContainer {
     position: absolute;
     margin: 0;
