@@ -44,6 +44,8 @@ const LANGUAGE_MAP = {
     "ko-KR": "ko",
     "tr-TR": "tr",
     "fil-PH": "fil_ph",
+    "hi-IN": "hi_in",
+    "bn-BD": "bn_bd",
 };
 
 const waitingMessages = {
@@ -59,8 +61,14 @@ const waitingMessages = {
     ja: ["初回アクセス時は、ダウンロードに時間がかかる場合があります。", "最新のアップデートパッケージを確認し、ダウンロードしています..."],
     es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
     ko: ["처음 방문하시는 경우, 다운로드에 시간이 다소 소요될 수 있습니다.", "최신 업데이트 패키지를 확인하고 다운로드 중입니다..."],
+    // ko: ["첫 방문이시라면, 다운로드에 시간이 걸릴 수 있습니다.", "최신 업데이트 패키지를 확인하고 다운로드 중입니다..."],
     tr: ["Bu ilk ziyaretinizse, indirme biraz zaman alabilir.", "En son güncelleme paketleri kontrol ediliyor ve indiriliyor..."],
-    fil_ph: ["Kung ito ang inyong unang pagbisita, maaaring magtagal nang kaunti ang pag-download.", "Chini-check at dina-download ang pinakabagong mga packages ng update..."],
+    fil_ph: [
+        "Kung ito ang inyong unang pagbisita, maaaring magtagal nang kaunti ang pag-download.",
+        "Chini-check at dina-download ang pinakabagong mga packages ng update...",
+    ],
+    hi_in: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
+    bn_bd: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
 };
 
 class SplashManager {
@@ -85,7 +93,6 @@ class SplashManager {
                 }
             }, 1000);
         }
-
     }
 
     initializeSplashScreen() {
@@ -113,13 +120,13 @@ class SplashManager {
             const storagePrefixKey = window.crossConfig?.storagePrefixKey;
             const languageKey = storagePrefixKey ? `${storagePrefixKey}_current_language` : "current_language";
             language = localStorage.getItem(languageKey) || language;
-        } catch (e) { }
+        } catch (e) {}
 
         const langKey = this.getDataFromURLParams("lang");
         const languageMap = {
             ...LANGUAGE_MAP,
-            ...(globalThis.localeMapping || {})
-        }
+            ...(globalThis.localeMapping || {}),
+        };
         return langKey ? languageMap[langKey] || "en" : language;
     }
 
@@ -236,9 +243,6 @@ class SplashManager {
         // Update waiting message
         this.randomWaitingMessage(appTypeClass);
     }
-
 }
 
 const splashManager = new SplashManager();
-
-
