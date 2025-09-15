@@ -67,8 +67,14 @@ const waitingMessages = {
         "Kung ito ang inyong unang pagbisita, maaaring magtagal nang kaunti ang pag-download.",
         "Chini-check at dina-download ang pinakabagong mga packages ng update...",
     ],
-    hi_in: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
-    bn_bd: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
+    hi_in: [
+        "यदि यह आपकी पहली यात्रा है, तो डाउनलोड करने में कुछ समय लग सकता है",
+        "नवीनतम अपडेट पैकेजों की जाँच और डाउनलोड किया जा रहा है...",
+    ],
+    bn_bd: [
+        "যদি এটি আপনার প্রথম ভিজিট হয়, তবে ডাউনলোড করতে কিছুটা সময় লাগতে পারে",
+        "সর্বশেষ আপডেট প্যাকেজগুলি পরীক্ষা করা এবং ডাউনলোড করা হচ্ছে...",
+    ],
 };
 
 class SplashManager {
