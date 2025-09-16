@@ -61,7 +61,10 @@ class FullScreenManager {
     updateViewport() {
         const viewportUnit = "--vh";
         if (this.isIOS || this.isAndroid) {
-            const height = Math.min(window.innerWidth, window.innerHeight);
+            const designedPortrait = true;
+            const height = designedPortrait
+                ? Math.max(window.innerWidth, window.innerHeight)
+                : Math.min(window.innerWidth, window.innerHeight);
             const vh = height * 0.01;
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
         }
