@@ -72,6 +72,9 @@ class FullScreenManager {
     }
 
     showIOSInstruction(isShow = true) {
+        if (!this.IOSInstruction) {
+            return;
+        }
         clearTimeout(this.timeoutDelayEnableScroll);
         this.IOSInstruction.style.display = "block";
         this.IOSInstruction.style.visibility = isShow ? "visible" : "hidden";
@@ -139,6 +142,9 @@ class FullScreenManager {
     }
 
     registerEventFullScreenIcon(isShow = true) {
+        if (!this.iconFullScreen) {
+            return;
+        }
         this.iconFullScreen.onclick = !isShow
             ? null
             : () => {
@@ -157,6 +163,9 @@ class FullScreenManager {
     }
 
     updateIconFullScreen() {
+        if (!this.iconFullScreen) {
+            return;
+        }
         if (this.isPortrait() || this.isFullScreen()) {
             this.iconFullScreen.style.display = "none";
             this.registerEventFullScreenIcon(false);
