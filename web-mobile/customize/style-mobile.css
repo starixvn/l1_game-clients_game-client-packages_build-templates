@@ -425,11 +425,6 @@ p.footer {
         background-size: 100vh auto;
     }
 
-    #GameDiv {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
     .splash-container {
         height: 100vw;
         width: 100vh;
