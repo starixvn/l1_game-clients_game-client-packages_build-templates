@@ -167,12 +167,10 @@ class FullScreenManager {
     }
 
     updateLandscapeMode() {
-        console.log("isPortrait", this.isPortrait());
-        console.log("isAndroid", this.isAndroid);
-        console.log("isIOS", this.isIOS);
         if (!this.isPortrait() && (this.isAndroid || this.isIOS)) {
-            console.log("updateLandscapeMode");
             this.landscapeMode.style.display = "flex";
+            const isInIframe = window !== window.top;
+            this.landscapeMode.style.transform = isInIframe ? "rotate(180deg)" : "none";
         } else {
             this.landscapeMode.style.display = "none";
         }
@@ -224,6 +222,7 @@ const fullScreenManager = new FullScreenManager();
 fullScreenManager.updateLandscapeMode();
 const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
 window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
+
 if (!isInIframe) {
     fullScreenManager.init();
 }
