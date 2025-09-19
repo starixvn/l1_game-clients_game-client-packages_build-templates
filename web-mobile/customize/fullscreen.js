@@ -10,6 +10,7 @@ class FullScreenManager {
         this.isAndroid = /android/i.test(this.userAgent);
         this.isIPad = /ipad/i.test(this.userAgent);
         this.webview = /wv/i.test(this.userAgent);
+        this.landscapeMode = document.getElementById("landscapse-mode");
     }
 
     debounce(func, wait) {
@@ -165,6 +166,14 @@ class FullScreenManager {
         }
     }
 
+    updateLandscapeMode() {
+        if (!this.isPortrait() && (this.isAndroid || this.isIOS)) {
+            this.landscapeMode.style.display = "flex";
+        } else {
+            this.landscapeMode.style.display = "none";
+        }
+    }
+
     initForIOS() {
         // document.body.style.height = "200%";
         // document.body.style.overflow = "auto";
@@ -194,10 +203,13 @@ class FullScreenManager {
                 this.isIOS && this.initForIOS();
                 this.isAndroid && this.initForAndroid();
                 this.updateIconFullScreen();
+                this.updateLandscapeMode();
                 const debouncedUpdateIconFullScreen = this.debounce(this.updateIconFullScreen, 100);
+                const debouncedUpdateLandscapeMode = this.debounce(this.updateLandscapeMode, 100);
                 window.addEventListener("resize", debouncedUpdateIconFullScreen);
                 window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
                 this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
+                window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
             }
         } catch (error) {
             console.error("Error initializing full screen handler:", error);

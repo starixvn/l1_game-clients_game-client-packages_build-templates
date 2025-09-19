@@ -410,12 +410,30 @@ p.footer {
     height: var(--loading-icon-height);
 }
 
+#landscapse-mode { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #112442 0%, #1f3c69 100%);
+    z-index: 1000;
+
+}
+
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
     #GameDiv {        
         width: calc(var(--vh, 1vh) * 100) !important;
     } 
 }
+
+
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
     body {
