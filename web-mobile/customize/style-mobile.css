@@ -427,7 +427,7 @@ p.footer {
 }
 
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (pointer: coarse) {
     #GameDiv {        
         width: calc(var(--vh, 1vh) * 100) !important;
     } 
