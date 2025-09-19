@@ -168,8 +168,8 @@ class FullScreenManager {
 
     updateLandscapeMode() {
         console.log("isPortrait", this.isPortrait());
-        console.log("isAndroid", this.isAndroid());
-        console.log("isIOS", this.isIOS());
+        console.log("isAndroid", this.isAndroid);
+        console.log("isIOS", this.isIOS);
         if (!this.isPortrait() && (this.isAndroid || this.isIOS)) {
             console.log("updateLandscapeMode");
             this.landscapeMode.style.display = "flex";
@@ -207,13 +207,11 @@ class FullScreenManager {
                 this.isIOS && this.initForIOS();
                 this.isAndroid && this.initForAndroid();
                 this.updateIconFullScreen();
-                this.updateLandscapeMode();
                 const debouncedUpdateIconFullScreen = this.debounce(this.updateIconFullScreen, 100);
-                const debouncedUpdateLandscapeMode = this.debounce(this.updateLandscapeMode, 100);
+
                 window.addEventListener("resize", debouncedUpdateIconFullScreen);
                 window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
                 this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
-                window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
             }
         } catch (error) {
             console.error("Error initializing full screen handler:", error);
@@ -223,6 +221,9 @@ class FullScreenManager {
 
 const isInIframe = window !== window.top;
 const fullScreenManager = new FullScreenManager();
+fullScreenManager.updateLandscapeMode();
+const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
+window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
 if (!isInIframe) {
     fullScreenManager.init();
 }
