@@ -167,7 +167,11 @@ class FullScreenManager {
     }
 
     updateLandscapeMode() {
+        console.log("isPortrait", this.isPortrait());
+        console.log("isAndroid", this.isAndroid());
+        console.log("isIOS", this.isIOS());
         if (!this.isPortrait() && (this.isAndroid || this.isIOS)) {
+            console.log("updateLandscapeMode");
             this.landscapeMode.style.display = "flex";
         } else {
             this.landscapeMode.style.display = "none";
