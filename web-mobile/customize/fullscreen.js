@@ -22,7 +22,7 @@ class FullScreenManager {
     }
 
     isPortrait() {
-        return window.outerHeight > window.outerWidth;
+        return window.innerHeight > window.innerWidth;
     }
 
     getMiniNavigationBarHeight() {
