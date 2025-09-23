@@ -54,8 +54,8 @@ body {
     /* overflow cannot be applied in Cocos2dGameContainer,
   otherwise child elements will be hidden when Cocos2dGameContainer rotated 90 deg */
     overflow: hidden;
-    background-image: url("./../splash-resources/bg-game-blur.webp?v=2");
-    background-size: auto;
+    background-image: url("./../splash-resources/bg-game-blur.webp?v=2") !important;
+    background-size: cover;
 }
 
 .container-themes {
@@ -80,6 +80,7 @@ body {
 
 #GameDiv {
     margin: 0 auto;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 /*#Cocos3dGameContainer {
@@ -432,6 +433,7 @@ p.footer {
 @media only screen and (max-width: 1024px) and (pointer: coarse) {
     #GameDiv {        
         width: calc(var(--vh, 1vh) * 100) !important;
+        box-shadow: none;
     } 
 }
 
