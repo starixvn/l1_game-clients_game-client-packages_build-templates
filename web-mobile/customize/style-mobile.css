@@ -54,8 +54,8 @@ body {
     /* overflow cannot be applied in Cocos2dGameContainer,
   otherwise child elements will be hidden when Cocos2dGameContainer rotated 90 deg */
     overflow: hidden;
-    background-image: url("./../splash-resources/bg-game-blur.webp?v=2") !important;
-    background-size: cover;
+    background: url("./../splash-resources/bg-game-blur.webp?v=2") center center no-repeat !important;
+    background-size: cover !important;
 }
 
 .container-themes {
