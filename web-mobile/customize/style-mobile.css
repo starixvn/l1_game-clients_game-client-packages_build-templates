@@ -188,6 +188,16 @@ p.footer {
     height: var(--logo-height);
 }
 
+.splash_12c {
+    position: relative;
+    top: calc(var(--vh, 1vh) * 26.1);
+    --logo-height: calc(var(--vh, 1vh) * 23.79);
+    background: url("./../images/logo_12c.webp?v=3") no-repeat center;
+    background-size: auto var(--logo-height);
+    width: auto;
+    height: var(--logo-height);
+}
+
 .splash_text_vi {
     background-image: url("./../images/splash_text_vi.webp?v=3");
 }

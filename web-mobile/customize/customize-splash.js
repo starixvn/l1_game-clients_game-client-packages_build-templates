@@ -101,6 +101,7 @@ function updateLocalizedImages() {
         VG: "VG",
         SG: "SG",
         TIP88: "tip88",
+        "12C": "12C",
     };
 
     let title, favicon;
@@ -165,6 +166,7 @@ function getCSSClassName(operator) {
         VG: "_Vgaming",
         SG: "",
         TIP88: "_tip88",
+        "12C": "_12c",
     };
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
