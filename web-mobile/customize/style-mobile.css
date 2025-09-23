@@ -338,20 +338,20 @@ p.footer {
 .waiting-message {
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
-    bottom: calc(var(--vh, 1vh) * 5.3);
+    bottom: calc(var(--vh, 1vh) * 13.86);
     width: 100%;
-    font-size: calc(var(--vh, 1vh) * 2.65);
+    font-size: calc(var(--vh, 1vh) * 2.5);
     opacity: 0;
     color: #ccc7b4;
     letter-spacing: -0.2px;
     transition: all 1s ease;
-    transform: translateY(20px);
+    /* transform: translateY(20px); */
     visibility: hidden;
 }
 
 .waiting-message.show {
     opacity: 1;
-    transform: translateY(0);
+    /* transform: translateY(0); */
     visibility: visible;
 }
 
@@ -404,6 +404,20 @@ p.footer {
     width: 100%;
     height: var(--loading-icon-height);
 }
+
+.splash_original_logo {
+    position: absolute;
+    top: calc(var(--vh, 1vh) * 59.03);
+    --logo-height: calc(var(--vh, 1vh) * 12.21);
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("./../images/logo_nova88.png") no-repeat top center;
+    background-size: auto var(--logo-height);
+    width: 100%;
+    height: var(--logo-height);
+}
+
+
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
     body {

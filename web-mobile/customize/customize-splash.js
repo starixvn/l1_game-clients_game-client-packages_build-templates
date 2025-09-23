@@ -10,6 +10,10 @@ const waitingMessages = {
     zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
     ja: ["初回アクセス時はダウンロードに時間がかかる場合があります", "最新のアップデートを確認・ダウンロード中…"],
     es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
+    bn_bd: ["যদি এটি আপনার প্রথম ভিজিট হয়, তবে ডাউনলোড করতে কিছুটা সময় লাগতে পারে", "সর্বশেষ আপডেট প্যাকেজগুলি পরীক্ষা করা এবং ডাউনলোড করা হচ্ছে..."],
+    hi_in: ["यदि यह आपकी पहली यात्रा है, तो डाउनलोड करने में कुछ समय लग सकता है", "नवीनतम अपडेट पैकेजों की जाँच और डाउनलोड किया जा रहा है..."],
+    ko: ["첫 방문이시라면, 다운로드에 시간이 걸릴 수 있습니다.", "최신 업데이트 패키지를 확인하고 다운로드 중입니다..."],
+    ms_my: ["Jika ini adalah lawatan pertama anda, muat turun mungkin mengambil masa yang lama", "Memeriksa dan memuat turun pakej kemas kini terkini..."],
 };
 
 window.mobilecheck = function () {
@@ -40,6 +44,10 @@ function getLanguageURLparams(locale) {
         "zh-CN": "zh_cn",
         "zh-TW": "zh_tw",
         "ja-JP": "ja",
+        "bn-BD": "bn_bd",
+        "hi-IN": "hi_in",
+        "ko-KR": "ko",
+        "ms-MY": "ms_my",
         ...(globalThis.localeMapping || {}),
     };
     return dict[locale] || "en";
@@ -234,11 +242,9 @@ class RandomWaitingMessage {
 }
 
 console.time("Game Load Time");
-updateSplashByAppType();
-updateSplashLogo();
+
 
 function initializeSplash() {
-    updateLocalizedImages();
     window.randomWaitingMessage = new RandomWaitingMessage();
 }
 
