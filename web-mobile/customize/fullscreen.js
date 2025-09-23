@@ -182,13 +182,13 @@ class FullScreenManager {
         const gameContainer = document.getElementById("GameDiv");
         gameContainer?.classList.add("game-container");
 
-        this.showIOSInstruction(false);
+        //this.showIOSInstruction(false);
         this.updateViewport();
-        this.syncPositionForGameContainer();
-        this.registerEventFullScreenForIOS();
-        if (this.isPortrait()) {
-            this.scrollToTop(200);
-        }
+        // this.syncPositionForGameContainer();
+        //this.registerEventFullScreenForIOS();
+        // if (this.isPortrait()) {
+        //     this.scrollToTop(200);
+        // }
     }
 
     initForAndroid() {
@@ -204,12 +204,12 @@ class FullScreenManager {
             if (this.isIOS || this.isAndroid) {
                 this.isIOS && this.initForIOS();
                 this.isAndroid && this.initForAndroid();
-                this.updateIconFullScreen();
-                const debouncedUpdateIconFullScreen = this.debounce(this.updateIconFullScreen, 100);
+                // this.updateIconFullScreen();
+                // const debouncedUpdateIconFullScreen = this.debounce(this.updateIconFullScreen, 100);
 
-                window.addEventListener("resize", debouncedUpdateIconFullScreen);
-                window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
-                this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
+                // window.addEventListener("resize", debouncedUpdateIconFullScreen);
+                // window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
+                // this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
             }
         } catch (error) {
             console.error("Error initializing full screen handler:", error);
