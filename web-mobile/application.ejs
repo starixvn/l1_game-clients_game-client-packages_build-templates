@@ -10,8 +10,6 @@ function setLoadingDisplay() {
         gameCanvas.style.display = "block";
         splash.style.transition = "opacity 0.2s ease-in-out";
         splash.style.opacity = 0;
-        const progressBar = document.getElementById("loading_icon");
-        progressBar.style.display = "none";
         const waitingMessage = document.getElementById("waiting-message");
         waitingMessage.style.display = "none";
         window.randomWaitingMessage?.clearInterval();
