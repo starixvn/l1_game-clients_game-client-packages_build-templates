@@ -46,6 +46,8 @@ const LANGUAGE_MAP = {
     "fil-PH": "fil_ph",
     "hi-IN": "hi_in",
     "bn-BD": "bn_bd",
+    "ms-MY": "ms_my",
+    "pt-BR": "pt_br",
 };
 
 const waitingMessages = {
@@ -73,6 +75,14 @@ const waitingMessages = {
     bn_bd: [
         "যদি এটি আপনার প্রথম ভিজিট হয়, তবে ডাউনলোড করতে কিছুটা সময় লাগতে পারে",
         "সর্বশেষ আপডেট প্যাকেজগুলি পরীক্ষা করা এবং ডাউনলোড করা হচ্ছে...",
+    ],
+    ms_my: [
+        "Jika ini adalah lawatan pertama anda, muat turun mungkin mengambil sedikit masa.",
+        "Memeriksa dan memuat turun pakej kemas kini terkini...",
+    ],
+    pt_br: [
+        "Se esta é sua primeira visita, o download pode demorar um pouco.",
+        "Verificando e baixando os pacotes de atualização mais recentes...",
     ],
 };
 
@@ -227,23 +237,6 @@ class SplashManager {
         // Update splash log container
         const splashContainer = document.getElementById("splash-logo-container");
         splashContainer.className = `splash-logo-container ${appTypeClass}`;
-
-        // Update splash logo
-        const splashLogo = document.getElementById("splash_logo");
-        const logo = this.createImg(operatorConfig.logo);
-        logo && splashLogo.appendChild(logo);
-
-        // Update slogan
-        const slogan = document.getElementById("slogan");
-
-        const sloganImg = this.createImg(
-            `./images/splash_text${this.operator.toUpperCase() === "SP" ? "_sabaplay" : ""}_${this.language}.webp?v=1`
-        );
-        sloganImg && slogan.appendChild(sloganImg);
-
-        // Update powered by
-        const poweredBy = document.getElementById("powered-by");
-        poweredBy.className = `powered-by-${operatorConfig.cssClass} ${this.language} ${appTypeClass}`;
 
         // Update waiting message
         this.randomWaitingMessage(appTypeClass);
