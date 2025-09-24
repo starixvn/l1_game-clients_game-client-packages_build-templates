@@ -77,11 +77,16 @@ export class Application {
                 },
                 screen: { 
                     'exactFitScreen': cc.sys.isMobile,
-                    'windowSize': this.calculateWindowSize()
+                   
                 }
             }
         })
-        .then(() => cc.game.run())
+        .then(() => {
+            console.log('before run engine', cc.screen.windowSize);
+            cc.game.run();
+            this.calculateWindowSize();
+            console.log('after run engine', cc.screen.windowSize);
+        })
         .catch(() => window.location.reload()); // If the engine fails to start, reload the page
     }
 }
