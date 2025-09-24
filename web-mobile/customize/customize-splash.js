@@ -234,10 +234,6 @@ class SplashManager {
         document.title = title;
         document.getElementById("favicon").href = operatorConfig.favicon;
 
-        // Update splash log container
-        const splashContainer = document.getElementById("splash-logo-container");
-        splashContainer.className = `splash-logo-container ${appTypeClass}`;
-
         // Update waiting message
         this.randomWaitingMessage(appTypeClass);
     }
