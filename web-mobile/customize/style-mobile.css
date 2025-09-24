@@ -119,7 +119,7 @@ p.footer {
 .splash-logo-container {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 39%;
     height: 48.5vw;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -131,7 +131,7 @@ p.footer {
 
 .logo {
     position: absolute;
-    top: 5px;
+    top: -3px;
     left: 50%;
     -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
@@ -142,7 +142,7 @@ p.footer {
 }
 
 .logo img {
-    width: 58.2vw;
+    width: 104vw;
 }
 
 .slogan {
@@ -390,13 +390,12 @@ p.footer {
 #waiting-message {
     font-family: Helvetica, Verdana, Arial, sans-serif, system-ui;
     position: absolute;
-    bottom: 6.2vw;
+    bottom: 189vw;
     width: 100%;
     font-size: 3.15vw;
     opacity: 0;
-    color: #d0c9c9;
+    color: #989898;
     transition: all 1s ease;
-    transform: translateY(35px);
     visibility: hidden;
 }
 #waiting-message.portrait {
@@ -406,12 +405,10 @@ p.footer {
 }
 #waiting-message.show {
     opacity: 1;
-    transform: translateY(0);
     visibility: visible;
 }
 
 #waiting-message.fade-out {
     opacity: 0;
-    transform: translateY(-35px);
     visibility: hidden;
 }

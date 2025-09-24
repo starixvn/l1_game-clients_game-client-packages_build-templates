@@ -11,7 +11,6 @@ function setLoadingDisplay() {
         splash.style.transition = "opacity 0.8s ease-in-out";
         splash.style.opacity = 0;
         const progressBar = document.getElementById("progress-bar");
-        progressBar.style.display = "none";
         splashManager?.clearInterval();
         setTimeout(() => {
             splash.style.display = "none";
