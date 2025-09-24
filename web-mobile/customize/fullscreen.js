@@ -22,26 +22,12 @@ class FullScreenManager {
     }
 
     isPortrait() {
-        // Sử dụng screen.orientation API để xác định orientation thực tế của thiết bị
         if (screen.orientation) {
             return screen.orientation.type.includes("portrait");
         }
 
         // Fallback cuối cùng dựa vào kích thước màn hình thực tế
         return screen.height > screen.width;
-    }
-
-    getOrientationInfo() {
-        // Phương thức helper để debug orientation
-        const info = {
-            screenOrientation: screen.orientation ? screen.orientation.type : "not supported",
-            windowOrientation: window.orientation !== undefined ? window.orientation : "not supported",
-            screenSize: `${screen.width}x${screen.height}`,
-            windowSize: `${window.innerWidth}x${window.innerHeight}`,
-            isPortrait: this.isPortrait(),
-        };
-        console.log("Orientation Info:", info);
-        return info;
     }
 
     getMiniNavigationBarHeight() {
