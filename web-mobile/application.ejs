@@ -47,6 +47,12 @@ export class Application {
     }
 
     start () {
+        const ratioScale = window.innerHeight / 1398;
+        const newWidth = ratioScale * 786;
+
+        const dpr = cc.screen.devicePixelRatio || 1;
+
+        cc.screen.windowSize = new cc.Size(Math.round(newWidth * dpr), Math.round(window.innerHeight * dpr));
         return cc.game.init({ // Run the engine with the required parameters
             debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
             settingsPath: this.settingsPath, // Pass in the settings.json path
