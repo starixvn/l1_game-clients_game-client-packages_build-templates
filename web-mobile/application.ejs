@@ -46,21 +46,6 @@ export class Application {
         // Implement some custom logic
     }
 
-    calculateWindowSize() {
-        const baseWidth = 786;
-        const baseHeight = 1398;
-        const dpr = window.devicePixelRatio || 1;
-        
-        // Detect device type
-        const isMobile = cc.sys.isMobile;
-        const windowHeight = window.innerHeight;
-        
-        if (!isMobile) {
-            const ratioScale = windowHeight / baseHeight;
-            const newWidth = ratioScale * baseWidth;
-            return new cc.Size(Math.round(newWidth * dpr), Math.round(windowHeight * dpr));
-        } 
-    }
 
 
     start () {

@@ -153,6 +153,7 @@ p.footer {
     width: 100%;
     height: var(--ih, 100vh);
     z-index: 999;
+    background: #000;
 }
 
 .splash {
