@@ -156,6 +156,11 @@ p.footer {
     background: #000;
 }
 
+
+.splash_text, .loading_icon, #powered-by, #waiting-message {
+    display: none;
+}
+
 .splash {
     position: absolute;
     top: calc(var(--vh, 1vh) * 38);
