@@ -14,6 +14,7 @@ const waitingMessages = {
     hi_in: ["यदि यह आपकी पहली यात्रा है, तो डाउनलोड करने में कुछ समय लग सकता है", "नवीनतम अपडेट पैकेजों की जाँच और डाउनलोड किया जा रहा है..."],
     ko: ["첫 방문이시라면, 다운로드에 시간이 걸릴 수 있습니다.", "최신 업데이트 패키지를 확인하고 다운로드 중입니다..."],
     ms_my: ["Jika ini adalah lawatan pertama anda, muat turun mungkin mengambil masa yang lama", "Memeriksa dan memuat turun pakej kemas kini terkini..."],
+    pt_br:["Se esta for sua primeira visita, o download pode levar um tempo","Memeriksa dan memuat turun pakej kemas kini terkini..."]
 };
 
 window.mobilecheck = function () {
@@ -48,6 +49,7 @@ function getLanguageURLparams(locale) {
         "hi-IN": "hi_in",
         "ko-KR": "ko",
         "ms-MY": "ms_my",
+        "pt-BR":"pt_br",
         ...(globalThis.localeMapping || {}),
     };
     return dict[locale] || "en";
