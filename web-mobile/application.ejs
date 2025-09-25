@@ -82,10 +82,7 @@ export class Application {
             }
         })
         .then(() => {
-            console.log('before run engine', cc.screen.windowSize);
             cc.game.run();
-            this.calculateWindowSize();
-            console.log('after run engine', cc.screen.windowSize);
         })
         .catch(() => window.location.reload()); // If the engine fails to start, reload the page
     }
