@@ -120,7 +120,7 @@ p.footer {
     --logo-height: calc(var(--vh, 1vh) * 12.5);
     left: 50%;
     transform: translateX(-50%);
-    background: url("./../images/logo-nova88.png") no-repeat top center;
+    background: url("./../images/logo-nova88.png?v=2") no-repeat top center;
     background-size: auto var(--logo-height);
     width: 100%;
     height: var(--logo-height);
