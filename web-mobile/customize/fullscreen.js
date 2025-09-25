@@ -178,7 +178,7 @@ class FullScreenManager {
     }
 
     initForIOS() {
-        document.body.style.height = "200%";
+        //document.body.style.height = "200%";
         document.body.style.overflow = "auto";
         const gameContainer = document.getElementById("GameDiv");
         gameContainer?.classList.add("game-container");
@@ -187,9 +187,9 @@ class FullScreenManager {
         this.updateViewport();
         this.syncPositionForGameContainer();
         this.registerEventFullScreenForIOS();
-        if (this.isPortrait()) {
-            this.scrollToTop(200);
-        }
+        // if (this.isPortrait()) {
+        //     this.scrollToTop(200);
+        // }
     }
 
     initForAndroid() {
