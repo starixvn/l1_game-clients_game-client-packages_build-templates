@@ -260,7 +260,7 @@ p.footer {
         width: calc(var(--vh, 1vh) * 100) !important;
         box-shadow: none;
     } 
-    #splash-logo {
+    #splash_logo {
         transform: rotate(90deg);
     }
 }
