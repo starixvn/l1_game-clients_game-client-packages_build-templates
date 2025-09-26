@@ -197,6 +197,13 @@ function getCSSClassName(operator) {
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
 
+function updateSplashTagline() {
+    const language = getCurrentLanguage().replace(/['"]+/g, "");
+    const taglineMessage = document.getElementById("splash_original_tagline");
+    const messages = taglineMessages[language] || taglineMessages.en;
+    taglineMessage.textContent = messages;
+}
+
 function isInstant() {
     const instantKey = "instant";
     const urlParams = new URLSearchParams(window.location.search);
