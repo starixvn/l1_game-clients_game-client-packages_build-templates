@@ -144,7 +144,7 @@ function updateSplashLogo() {
     if (window.mobilecheck()) {
         const isInIframe = window !== window.top;
         if (!isInIframe) {
-            splash.style.transform = "rotate(180deg)";
+            splash.style.transform = "rotate(-90deg)";
         } else {
             splash.style.transform = "rotate(90deg)";
         }
