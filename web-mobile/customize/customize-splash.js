@@ -272,6 +272,7 @@ console.time("Game Load Time");
 
 
 function initializeSplash() {
+    updateSplashTagline();
     window.randomWaitingMessage = new RandomWaitingMessage();
 }
 
