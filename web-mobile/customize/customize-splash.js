@@ -141,6 +141,14 @@ function updateSplashLogo() {
     const splash = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
     splash.className = `splash${suffix}`;
+    if (window.mobilecheck()) {
+        const isInIframe = window !== window.top;
+        if (!isInIframe) {
+            splash.style.transform = "rotate(180deg)";
+        } else {
+            splash.style.transform = "rotate(90deg)";
+        }
+    }
 }
 
 function getCSSClassName(operator) {
