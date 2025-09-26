@@ -190,7 +190,7 @@ p.footer {
 
 .splash_12c {
     position: relative;
-    top: calc(var(--vh, 1vh) * 25.7);
+    top: calc(var(--vh, 1vh) * 25.95);
     --logo-height: calc(var(--vh, 1vh) * 24.04);
     background: url("./../images/logo_12c.webp?v=3") no-repeat center;
     background-size: auto var(--logo-height);
@@ -495,7 +495,7 @@ p.footer {
     }
 
     .splash_12c {
-        top: 25.7vw;
+        top: 25.95vw;
         --logo-height: 24.04vw;
     }
 
