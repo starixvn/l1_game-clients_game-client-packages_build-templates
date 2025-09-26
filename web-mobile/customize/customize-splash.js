@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
+    } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -128,8 +128,6 @@ function updateLocalizedImages() {
     }
 
     setTitleAndFavicon(title, favicon);
-    setSplashTextClass(language);
-    updatePoweredBy(language);
 }
 
 function setTitleAndFavicon(title, favicon) {
@@ -138,25 +136,11 @@ function setTitleAndFavicon(title, favicon) {
     rel.href = favicon;
 }
 
-function setSplashTextClass(language) {
-    const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
-    const splashText = document.getElementById("splash_text");
-    const className = operator === "SP" ? `splash_text_sabaplay_${language}` : `splash_text_${language}`;
-    splashText.className += ` ${className}`;
-}
-
 function updateSplashLogo() {
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splash = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
     splash.className = `splash${suffix}`;
-}
-
-function updatePoweredBy(language) {
-    const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
-    const poweredBy = document.getElementById("powered-by");
-    const suffix = getCSSClassName(operator);
-    poweredBy.className = `powered-by${suffix} ${language}`;
 }
 
 function getCSSClassName(operator) {
@@ -169,88 +153,25 @@ function getCSSClassName(operator) {
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
 
-function isInstant() {
-    const instantKey = "instant";
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has(instantKey)) {
-        return !!urlParams.get(instantKey);
-    }
-    try {
-        const storagePrefixKey = window.crossConfig?.storagePrefixKey;
-        const sessionStorageKey = storagePrefixKey ? `${storagePrefixKey}_ss` : "ss";
-        if (localStorage.getItem(sessionStorageKey)) {
-            return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
-        }
-    } catch (e) { }
-    return false;
-}
-
-function updateSplashByAppType() {
-    if (isInstant()) {
-        const className = "instant-game";
-        const splash = document.getElementById("splash");
-        splash.classList.add(className);
-        document.body.classList.add(className);
-    }
-}
-
-class RandomWaitingMessage {
-    constructor() {
-        const language = getCurrentLanguage().replace(/['"]+/g, "");
-        this.intervalId = null;
-        const waitingMessage = document.getElementById("waiting-message");
-        waitingMessage.classList.add("waiting-message");
-        const messages = waitingMessages[language] || waitingMessages.en;
-        let currentIndex = 0;
-
-        const showMessage = () => {
-            waitingMessage.style.transition = "none";
-            waitingMessage.classList.remove("show", "fade-out");
-            waitingMessage.offsetHeight;
-            waitingMessage.style.transition = "all 1s ease";
-            waitingMessage.textContent = messages[currentIndex];
-            requestAnimationFrame(() => {
-                waitingMessage.classList.add("show");
-                setTimeout(() => {
-                    waitingMessage.classList.remove("show");
-                    waitingMessage.classList.add("fade-out");
-                }, 4000);
-            });
-        };
-
-        this.intervalId && clearInterval(this.intervalId);
-        this.intervalId = setInterval(() => {
-            currentIndex = (currentIndex + 1) % messages.length;
-            showMessage();
-        }, 5000);
-
-        showMessage();
-    }
-
-    clearInterval() {
-        this.intervalId && clearInterval(this.intervalId);
-        this.intervalId = null;
-    }
-}
-
 console.time("Game Load Time");
-updateSplashByAppType();
 updateSplashLogo();
 
 function initializeSplash() {
     updateLocalizedImages();
-    window.randomWaitingMessage = new RandomWaitingMessage();
 }
 
 if (globalThis.localeMapping) {
     initializeSplash();
 } else {
-    globalThis.addEventListener("localeMappingLoaded", () => {
-        initializeSplash();
-    }, {
-        once: true,
-    });
-
+    globalThis.addEventListener(
+        "localeMappingLoaded",
+        () => {
+            initializeSplash();
+        },
+        {
+            once: true,
+        }
+    );
 
     setTimeout(() => {
         if (!globalThis.localeMapping) {
@@ -259,4 +180,3 @@ if (globalThis.localeMapping) {
         }
     }, 2000);
 }
-

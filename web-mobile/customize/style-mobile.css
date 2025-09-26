@@ -170,7 +170,13 @@ p.footer {
     width: 100%;
     height: var(--logo-height);
 }
-
+.wrapper-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 .splash_text {
     position: absolute;
     top: calc(var(--vh, 1vh) * 50.6);
@@ -178,12 +184,6 @@ p.footer {
     background-size: auto calc(var(--vh, 1vh) * 2.5);
     width: 100%;
     height: calc(var(--vh, 1vh) * 3.44);
-}
-
-#splash.instant-game .splash_Vgaming {
-    top: 1vh;
-    background-size: auto 16.5vh;
-    height: 16.5vh;
 }
 
 .splash_Vgaming {
@@ -216,186 +216,6 @@ p.footer {
     height: var(--logo-height);
 }
 
-.splash_text_vi {
-    background-image: url("./../images/splash_text_vi.webp?v=3");
-}
-
-.splash_text_en {
-    background-image: url("./../images/splash_text_en.webp?v=3");
-}
-
-.splash_text_th {
-    background-image: url("./../images/splash_text_th.webp?v=3");
-}
-
-.splash_text_id {
-    background-image: url("./../images/splash_text_id.webp?v=3");
-}
-
-.splash_text_zh_cn {
-    background-image: url("./../images/splash_text_zh_cn.webp?v=3");
-}
-
-.splash_text_zh_tw {
-    background-image: url("./../images/splash_text_zh_tw.webp?v=3");
-}
-
-.splash_text_ja {
-    background-image: url("./../images/splash_text_ja.webp?v=3");
-}
-
-.splash_text_es {
-    background-image: url("./../images/splash_text_es.webp?v=3");
-}
-
-.splash_text_sabaplay_vi {
-    background-image: url("./../images/splash_text_sabaplay_vi.webp?v=1");
-}
-
-.splash_text_sabaplay_en {
-    background-image: url("./../images/splash_text_sabaplay_en.webp?v=1");
-}
-
-.splash_text_sabaplay_th {
-    background-image: url("./../images/splash_text_sabaplay_th.webp?v=1");
-}
-
-.splash_text_sabaplay_id {
-    background-image: url("./../images/splash_text_sabaplay_id.webp?v=1");
-}
-
-.splash_text_sabaplay_zh_cn {
-    background-image: url("./../images/splash_text_sabaplay_zh_cn.webp?v=1");
-}
-
-.splash_text_sabaplay_zh_tw {
-    background-image: url("./../images/splash_text_sabaplay_zh_tw.webp?v=1");
-}
-
-.splash_text_sabaplay_ja {
-    background-image: url("./../images/splash_text_sabaplay_ja.webp?v=1");
-}
-
-.splash_text_sabaplay_es {
-    background-image: url("./../images/splash_text_sabaplay_es.webp?v=1");
-}
-
-#splash.instant-game .splash_game_name {
-    display: none;
-}
-
-#splash.instant-game .splash {
-    top: 4vh;
-    background-size: auto 11.1vh;
-}
-
-#splash.instant-game .splash_bg_game {
-    top: 1.9vh;
-    background-image: url("./../splash-resources/landscape_game_background.webp?v=2");
-    background-size: auto;
-}
-
-#splash.instant-game .splash_tip88 {
-    top: 0.7vh;
-    background-size: auto 17.76vh;
-    height: 17.76vh;
-}
-
-#splash.instant-game .splash_sabaplay {
-    top: 0.7vh;
-    background-size: auto 16.96vh;
-    height: 16.96vh;
-}
-
-#powered-by {
-    position: absolute;
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-}
-
-#powered-by.powered-by {
-    background: url("./../images/powered_by.webp?v=3") no-repeat top center;
-    --powered-by-height: calc(var(--vh, 1vh) * 4.07);
-    background-size: auto var(--powered-by-height);
-    width: 100%;
-    height: var(--powered-by-height);
-    top: calc(var(--vh, 1vh) * 84.35);
-}
-
-#powered-by.powered-by_tip88 {
-    width: 100%;
-    --powered-by-height: calc(var(--vh, 1vh) * 4.8);
-    height: var(--powered-by-height);
-    bottom: calc(var(--vh, 1vh) * 10.8);
-    background: no-repeat center;
-    background-size: auto var(--powered-by-height);
-}
-
-#powered-by.powered-by_tip88.en {
-    background-image: url("./../images/powered_by_Vgaming_en.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.vi {
-    background-image: url("./../images/powered_by_Vgaming_vi.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.th {
-    background-image: url("./../images/powered_by_Vgaming_th.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.id {
-    background-image: url("./../images/powered_by_Vgaming_id.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.zh_cn {
-    background-image: url("./../images/powered_by_Vgaming_zh_cn.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.zh_tw {
-    background-image: url("./../images/powered_by_Vgaming_zh_tw.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.ja {
-    background-image: url("./../images/powered_by_Vgaming_ja.webp?v=3");
-}
-
-#powered-by.powered-by_tip88.es {
-    background-image: url("./../images/powered_by_Vgaming_es.webp?v=3");
-}
-
-.waiting-message {
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    bottom: calc(var(--vh, 1vh) * 5.3);
-    width: 100%;
-    font-size: calc(var(--vh, 1vh) * 2.65);
-    opacity: 0;
-    color: #ccc7b4;
-    letter-spacing: -0.2px;
-    transition: all 1s ease;
-    transform: translateY(20px);
-    visibility: hidden;
-}
-
-.waiting-message.show {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-}
-
-.waiting-message.fade-out {
-    opacity: 0;
-    transform: translateY(-20px);
-    visibility: hidden;
-}
-
-.conner-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
 
 .centered-image {
     position: absolute;
@@ -405,11 +225,7 @@ p.footer {
     max-width: 100%;
 }
 
-#splash.instant-game .splash_text {
-    top: 19.6vh;
-    background-size: auto 4.28vh;
-    height: 4.28vh;
-}
+
 
 .text {
     margin-bottom: 36px;
@@ -421,17 +237,6 @@ p.footer {
     font-family: Arial;
 }
 
-.loading_icon {
-    position: absolute;
-    top: calc(var(--vh, 1vh) * 60.17);
-    --loading-icon-height: calc(var(--vh, 1vh) * 0.76);
-    left: 50%;
-    transform: translateX(-50%);
-    background: url("./../images/loading-bar.gif?v=1") no-repeat center;
-    background-size: auto var(--loading-icon-height);
-    width: 100%;
-    height: var(--loading-icon-height);
-}
 
 #landscapse-mode { 
     position: fixed;
@@ -483,21 +288,6 @@ p.footer {
         transform-origin: 50vw;
     }
 
-    .container-themes {
-        position: fixed;
-        height: calc(89.56vw - 70px);
-        -ms-transform: translateY(-89.56vw) rotate(90deg);
-        -o-transform: translateY(-89.56vw) rotate(90deg);
-        -ms-transform: translateY(-89.56vw) rotate(90deg);
-        -o-transform: translateY(-89.56vw) rotate(90deg);
-        transform: translateY(-89.56vw) rotate(90deg);
-        -webkit-transform-origin: left bottom;
-        -moz-transform-origin: left bottom;
-        top: unset;
-        bottom: unset;
-        right: unset;
-        left: 5.22vw;
-    }
 
     .img-themes {
         background-size: auto 50.36vh;
@@ -549,83 +339,11 @@ p.footer {
         background-size: auto 24.04vw;
     }
 
-    #splash.instant-game .splash_Vgaming {
-        top: 0vh;
-        left: 0px;
-        background-size: auto 14.1vh;
-    }
-
-    .centered-image {
-        top: 50vh;
-    }
-
     .splash_bg_game {
         background-size: auto 25vh;
     }
 
-    body.instant-game {
-        background-size: auto 100vh;
-    }
 
-    #splash.instant-game {
-        transform: rotate(0deg);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 999;
-    }
-
-    #splash.instant-game .splash {
-        top: 4vh;
-        background-size: auto 9.5vh;
-    }
-
-    #splash.instant-game .splash_bg_game {
-        top: -1vh;
-        background-image: url("./../splash-resources/portrait_game_background.webp?v=2");
-    }
-
-    #splash.instant-game .splash_sabaplay {
-        top: 0vh;
-        background-size: auto 14.5vh;
-    }
-
-    #splash.instant-game .splash_tip88 {
-        top: 0.7vh;
-        background-size: auto 15.18vh;
-        height: 15.18vh;
-    }
-
-    #splash.instant-game .splash_text {
-        top: 17.5vh;
-        background-size: auto 3.66vh;
-        height: 3.66vh;
-    }
-
-    .loading_icon {
-        top: 60.17vw;
-        background-size: auto 0.76vw;
-        height: 0.76vw;
-    }
-
-    #powered-by.powered-by {
-        background-size: auto 4.07vw;
-        height: 4.07vw;
-        top: 84.35vw;
-    }
-
-    #powered-by.powered-by_tip88 {
-        height: 4.8vw;
-        bottom: 10.8vw;
-        background-size: auto 4.8vw;
-    }
-
-    .waiting-message {
-        bottom: 5.3vw;
-        font-size: 2.65vw;
-    }
 }
 
 @keyframes animate-stripes {
