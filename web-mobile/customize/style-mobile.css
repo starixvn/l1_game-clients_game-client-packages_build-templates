@@ -190,8 +190,8 @@ p.footer {
 
 .splash_12c {
     position: relative;
-    top: calc(var(--vh, 1vh) * 26.1);
-    --logo-height: calc(var(--vh, 1vh) * 23.79);
+    top: calc(var(--vh, 1vh) * 25.7);
+    --logo-height: calc(var(--vh, 1vh) * 24.04);
     background: url("./../images/logo_12c.webp?v=3") no-repeat center;
     background-size: auto var(--logo-height);
     width: auto;
@@ -492,6 +492,11 @@ p.footer {
     .splash_tip88 {
         top: 25.95vw;
         background-size: auto 24.04vw;
+    }
+
+    .splash_12c {
+        top: 25.7vw;
+        --logo-height: 24.04vw;
     }
 
     #splash.instant-game .splash_Vgaming {
