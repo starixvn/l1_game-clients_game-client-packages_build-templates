@@ -17,6 +17,24 @@ const waitingMessages = {
     pt_br:["Se esta for sua primeira visita, o download pode levar um tempo","Memeriksa dan memuat turun pakej kemas kini terkini..."]
 };
 
+const taglineMessages = {
+    en: "Play Fresh, Win Best",
+    vi: "Chơi Mới Mẻ, Thắng Lớn Nhất",
+    id: "Main Segar, Menang Terbaik",
+    th: "เล่นสดใหม่ ชนะเลิศ",
+    zh_cn: "畅玩新体验，赢取最高奖励",
+    zh_tw: "暢玩新體驗，贏取最高獎勵",
+    ja: "新鮮にプレイして、最高の勝利を",
+    es: "Juega Fresco, Gana Mejor",
+    ko: "신선하게 플레이하고 최고로 승리하세요",
+    tr: "Tazelikle Oyna, En İyisini Kazan",
+    fil_ph: "Maglaro nang Bago, Manalo nang Pinakamahusay",
+    hi_in: "ताज़ा खेलें, सर्वश्रेष्ठ जीतें",
+    bn_bd: "সতেজ খেলুন, সেরা জিতুন",
+    ms_my: "Main Segar, Menang Terbaik",
+    pt_br: "Jogue Fresco, Ganhe o Melhor",
+};
+
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
