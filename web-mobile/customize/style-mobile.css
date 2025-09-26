@@ -162,13 +162,9 @@ p.footer {
 }
 
 .splash {
-    position: absolute;
-    top: calc(var(--vh, 1vh) * 38);
-    --logo-height: calc(var(--vh, 1vh) * 11.95);
     background: url("./../images/logo_saba.webp?v=3") no-repeat top center;
-    background-size: auto var(--logo-height);
-    width: 100%;
-    height: var(--logo-height);
+    width: 320px;
+    height: 94px;
 }
 .wrapper-logo {
     display: flex;
@@ -308,7 +304,7 @@ p.footer {
         height: 8.79vw;
     }
 
-    .splash {
+    /* .splash {
         top: 37.9vw;
         background-size: auto 11.95vw;
         height: 11.95vw;
@@ -335,7 +331,7 @@ p.footer {
     .splash_tip88 {
         top: 25.95vw;
         background-size: auto 24.04vw;
-    }
+    } */
 
     .splash_bg_game {
         background-size: auto 25vh;
