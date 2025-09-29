@@ -152,6 +152,11 @@ p.footer {
     width: 320px;
     height: 94px;
 }
+
+#splash_logo {
+    opacity: 0;
+}
+
 .wrapper-logo {
     display: flex;
     justify-content: center;
@@ -159,14 +164,7 @@ p.footer {
     width: 100%;
     height: 100%;
 }
-/* .splash_text {
-    position: absolute;
-    top: calc(var(--vh, 1vh) * 50.6);
-    background: no-repeat center;
-    background-size: auto calc(var(--vh, 1vh) * 2.5);
-    width: 100%;
-    height: calc(var(--vh, 1vh) * 3.44);
-} */
+
 
 .splash_Vgaming {
     position: relative;
@@ -197,17 +195,6 @@ p.footer {
     width: auto;
     height: var(--logo-height);
 }
-
-
-/* .text {
-    margin-bottom: 36px;
-    text-transform: capitalize;
-    background: linear-gradient(to bottom, #ffe28e 0%, #f9a71a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8em;
-    font-family: Arial;
-} */
 
 
 #landscapse-mode { 

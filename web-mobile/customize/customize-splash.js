@@ -137,18 +137,26 @@ function setTitleAndFavicon(title, favicon) {
 }
 
 function updateSplashLogo() {
+    const isAndroid = /android/i.test(this.userAgent);
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
     const splash = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
     splash.className = `splash${suffix}`;
+    let delayDisplayLogo = 0;
     if (window.mobilecheck()) {
         const isInIframe = window !== window.top;
         if (!isInIframe) {
             splash.style.transform = "rotate(-90deg)";
         } else {
             splash.style.transform = "rotate(90deg)";
+            if (isAndroid) {
+                delayDisplayLogo = 200;
+            }
         }
     }
+    setTimeout(() => {
+        splash.style.opacity = "255";
+    }, delayDisplayLogo);
 }
 
 function getCSSClassName(operator) {
