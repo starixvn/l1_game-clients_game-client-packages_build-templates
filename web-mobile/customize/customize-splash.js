@@ -141,9 +141,9 @@ function updateSplashLogo() {
         }
     }
     console.log("delayDisplayLogo", delayDisplayLogo);
-    // setTimeout(() => {
-    //     splash.style.opacity = "255";
-    // }, delayDisplayLogo);
+    setTimeout(() => {
+        splash.style.opacity = "255";
+    }, delayDisplayLogo);
 }
 
 function getCSSClassName(operator) {

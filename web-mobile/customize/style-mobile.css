@@ -148,9 +148,13 @@ p.footer {
 }
 
 .splash {
+    position: absolute;
+    top: calc(var(--vh, 1vh) * 38);
+    --logo-height: calc(var(--vh, 1vh) * 11.95);
     background: url("./../images/logo_saba.webp?v=3") no-repeat top center;
-    width: 320px;
-    height: 94px;
+    background-size: auto var(--logo-height);
+    width: 100%;
+    height: var(--logo-height);
 }
 
 #splash_logo {
