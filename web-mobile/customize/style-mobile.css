@@ -143,7 +143,7 @@ p.footer {
 }
 
 
-.splash_text, .loading_icon, #powered-by, #waiting-message {
+.splash_text, .loading_icon, #powered-by, #waiting-message, #ios-instruction {
     display: none;
 }
 
@@ -232,52 +232,5 @@ p.footer {
 
 
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
-    /* body {
-        background-size: 100vh auto;
-    }
-
-    .splash-container {
-        height: 100vw;
-        width: 100vh;
-        width: var(--ih, 100vh);
-        transform: rotate(90deg);
-        transform-origin: 50vw;
-    } */
-
-
-    /* .splash {
-        top: 37.9vw;
-        background-size: auto 11.95vw;
-        height: 11.95vw;
-    }
-
-    .splash_text {
-        top: 50.6vw;
-        background-size: auto 2.5vw;
-        height: 3.44vw;
-    }
-
-    .splash_Vgaming {
-        top: 31.67vw;
-        background-size: auto 18.32vw;
-        height: 18.32vw;
-    }
-
-    .splash_sabaplay {
-        top: 26.1vw;
-        background-size: auto 23.79vw;
-        height: 23.79vw;
-    }
-
-    .splash_tip88 {
-        top: 25.95vw;
-        background-size: auto 24.04vw;
-    } */
-
-
-
-
-}
 
 

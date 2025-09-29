@@ -1,17 +1,3 @@
-const waitingMessages = {
-    en: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
-    vi: ["Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.", "Đang kiểm tra và tải gói cập nhật game mới nhất..."],
-    id: [
-        "Jika ini adalah kunjungan pertama Anda, pengunduhan mungkin memakan waktu cukup lama.",
-        "Memeriksa dan mengunduh paket pembaruan terbaru...",
-    ],
-    th: ["หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่", "กำลังตรวจสอบและกำลังดาวน์โหลดเกมของการอัพเดทล่าสุด"],
-    zh_cn: ["如果这是您第一次访问，下载可能需要一段时间。", "正在检查和下载最新的更新包..."],
-    zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
-    ja: ["初回アクセス時はダウンロードに時間がかかる場合があります", "最新のアップデートを確認・ダウンロード中…"],
-    es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
-};
-
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
@@ -146,7 +132,7 @@ function updateSplashLogo() {
     if (window.mobilecheck()) {
         const isInIframe = window !== window.top;
         if (!isInIframe) {
-            splash.style.transform = "rotate(-90deg)";
+            splash.style.transform = "rotate(0deg)";
         } else {
             splash.style.transform = "rotate(90deg)";
             if (isAndroid) {
@@ -154,9 +140,10 @@ function updateSplashLogo() {
             }
         }
     }
-    setTimeout(() => {
-        splash.style.opacity = "255";
-    }, delayDisplayLogo);
+    console.log("delayDisplayLogo", delayDisplayLogo);
+    // setTimeout(() => {
+    //     splash.style.opacity = "255";
+    // }, delayDisplayLogo);
 }
 
 function getCSSClassName(operator) {
