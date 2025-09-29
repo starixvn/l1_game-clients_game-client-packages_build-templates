@@ -72,20 +72,6 @@ body {
     z-index: -1;
 }
 
-.container-themes {
-    position: relative;
-    top: 5.22vh;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img-themes {
-    background-size: auto 89.56vh;
-    width: auto;
-    height: 89.56vh;
-}
 
 .game-container {
     position: absolute;
@@ -148,10 +134,10 @@ p.footer {
 
 .splash-container {
     position: absolute;
-    top: var(--scrollY, 0px);
+    top: 0;
     left: 0;
     width: 100%;
-    height: var(--ih, 100vh);
+    height: 100%;
     z-index: 999;
     background: #000;
 }
@@ -173,14 +159,14 @@ p.footer {
     width: 100%;
     height: 100%;
 }
-.splash_text {
+/* .splash_text {
     position: absolute;
     top: calc(var(--vh, 1vh) * 50.6);
     background: no-repeat center;
     background-size: auto calc(var(--vh, 1vh) * 2.5);
     width: 100%;
     height: calc(var(--vh, 1vh) * 3.44);
-}
+} */
 
 .splash_Vgaming {
     position: relative;
@@ -213,17 +199,7 @@ p.footer {
 }
 
 
-.centered-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-}
-
-
-
-.text {
+/* .text {
     margin-bottom: 36px;
     text-transform: capitalize;
     background: linear-gradient(to bottom, #ffe28e 0%, #f9a71a 100%);
@@ -231,7 +207,7 @@ p.footer {
     -webkit-text-fill-color: transparent;
     font-size: 1.8em;
     font-family: Arial;
-}
+} */
 
 
 #landscapse-mode { 
@@ -270,7 +246,7 @@ p.footer {
 
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
-    body {
+    /* body {
         background-size: 100vh auto;
     }
 
@@ -280,29 +256,8 @@ p.footer {
         width: var(--ih, 100vh);
         transform: rotate(90deg);
         transform-origin: 50vw;
-    }
+    } */
 
-
-    .img-themes {
-        background-size: auto 50.36vh;
-        width: auto;
-        height: 50.36vh;
-    }
-
-    #Background {
-        background-size: 100vh 100vw;
-        transform: rotate(90deg);
-        transform-origin: bottom left;
-        width: 100vh;
-        height: 100vw;
-        top: -100vw;
-    }
-
-    .light {
-        background-size: 31.47vw 8.79vw;
-        width: 31.47vw;
-        height: 8.79vw;
-    }
 
     /* .splash {
         top: 37.9vw;
@@ -333,19 +288,9 @@ p.footer {
         background-size: auto 24.04vw;
     } */
 
-    .splash_bg_game {
-        background-size: auto 25vh;
-    }
+
 
 
 }
 
-@keyframes animate-stripes {
-    0% {
-        background-position: 0 0;
-    }
 
-    100% {
-        background-position: 60px 0;
-    }
-}
