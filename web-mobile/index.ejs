@@ -45,9 +45,14 @@
             <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99" ></canvas>
             <div class="background-game"></div>
             <div id="splash" class="splash-container">
-                <div class="wrapper-logo">
-                    <div id="splash_logo"></div> 
-                </div>        
+                <!-- <div class="wrapper-logo">
+                    <div id="splash_logo"></div>
+                </div> -->
+                <div id="splash_logo"></div>
+                <div id="splash_text" class="splash_text"></div>
+                <div class="loading_icon" id="loading_icon"></div>
+                <div id="powered-by"></div>
+                <div id="waiting-message"></div>
             </div>
             <div id="ios-instruction">
                 <div class="instruction-bg"></div>
@@ -60,27 +65,29 @@
             <div id="landscapse-mode">
                 <div>Vui lòng xoay thiết bị</div>
             </div>
-       
+
 
         <!-- Configs. -->
         <script type="text/javascript" src="./splash-resources/cross-config.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./c/c.js?v=<%= Date.now() %>"></script>
-        <script type="text/javascript" src="./splash-resources/load-mapping.js?v=<%= Date.now() %>"></script>        
+        <script type="text/javascript" src="./splash-resources/load-mapping.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/fullscreen.js?v=<%= Date.now() %>"></script>
         <script type="text/javascript" src="./customize/customize-splash.js?v=<%= Date.now() %>"></script>
+
+        <%- include(cocosTemplate, {}) %>
         <!-- Polyfills bundle. -->
-        <script src="<%= polyfillsBundleFile %>" charset="utf-8"></script>
+        <!-- <script src="<%= polyfillsBundleFile %>" charset="utf-8"></script> -->
 
         <!-- SystemJS support. -->
-        <script src="<%= systemJsBundleFile %>" charset="utf-8"></script>
+        <!-- <script src="<%= systemJsBundleFile %>" charset="utf-8"></script> -->
 
         <!-- Import map -->
-        <script src="./customize/import-map.json?v=3" type="systemjs-importmap" charset="utf-8"></script>
-        <script>
+        <!-- <script src="./customize/import-map.json?v=3" type="systemjs-importmap" charset="utf-8"></script> -->
+        <!-- <script>
             System.import("./<%= indexJsName %>").catch(function (err) {
                 console.error(err);
             });
-        </script>
-        
+        </script> -->
+
     </body>
 </html>

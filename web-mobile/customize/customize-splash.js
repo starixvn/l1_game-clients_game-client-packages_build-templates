@@ -1,3 +1,17 @@
+const waitingMessages = {
+    en: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
+    vi: ["Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.", "Đang kiểm tra và tải gói cập nhật game mới nhất..."],
+    id: [
+        "Jika ini adalah kunjungan pertama Anda, pengunduhan mungkin memakan waktu cukup lama.",
+        "Memeriksa dan mengunduh paket pembaruan terbaru...",
+    ],
+    th: ["หากคุณเข้าชมครั้งแรก อาจใช้เวลาในการดาวน์โหลดสักครู่", "กำลังตรวจสอบและกำลังดาวน์โหลดเกมของการอัพเดทล่าสุด"],
+    zh_cn: ["如果这是您第一次访问，下载可能需要一段时间。", "正在检查和下载最新的更新包..."],
+    zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
+    ja: ["初回アクセス時はダウンロードに時間がかかる場合があります", "最新のアップデートを確認・ダウンロード中…"],
+    es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
+};
+
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
@@ -114,6 +128,8 @@ function updateLocalizedImages() {
     }
 
     setTitleAndFavicon(title, favicon);
+    setSplashTextClass(language);
+    updatePoweredBy(language);
 }
 
 function setTitleAndFavicon(title, favicon) {
@@ -125,25 +141,33 @@ function setTitleAndFavicon(title, favicon) {
 function updateSplashLogo() {
     const isAndroid = /android/i.test(this.userAgent);
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
-    const splash = document.getElementById("splash_logo");
+    const splash = document.getElementById("splash");
+    const splashLogo = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
-    splash.className = `splash${suffix}`;
-    let delayDisplayLogo = 0;
+    splashLogo.className = `splash${suffix}`;
     if (window.mobilecheck()) {
         const isInIframe = window !== window.top;
         if (!isInIframe) {
-            splash.style.transform = "rotate(0deg)";
+            splash.style.transform = "rotate(0deg)"; //direct
         } else {
-            splash.style.transform = "rotate(90deg)";
-            if (isAndroid) {
-                delayDisplayLogo = 200;
-            }
+            splash.style.transform = "rotate(90deg)"; //lobby
+
         }
     }
-    console.log("delayDisplayLogo", delayDisplayLogo);
-    setTimeout(() => {
-        splash.style.opacity = "255";
-    }, delayDisplayLogo);
+}
+
+function setSplashTextClass(language) {
+    const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
+    const splashText = document.getElementById("splash_text");
+    const className = operator === "SP" ? `splash_text_sabaplay_${language}` : `splash_text_${language}`;
+    splashText.className += ` ${className}`;
+}
+
+function updatePoweredBy(language) {
+    const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
+    const poweredBy = document.getElementById("powered-by");
+    const suffix = getCSSClassName(operator);
+    poweredBy.className = `powered-by${suffix} ${language}`;
 }
 
 function getCSSClassName(operator) {
@@ -156,11 +180,51 @@ function getCSSClassName(operator) {
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
 
+class RandomWaitingMessage {
+    constructor() {
+        const language = getCurrentLanguage().replace(/['"]+/g, "");
+        this.intervalId = null;
+        const waitingMessage = document.getElementById("waiting-message");
+        waitingMessage.classList.add("waiting-message");
+        const messages = waitingMessages[language] || waitingMessages.en;
+        let currentIndex = 0;
+
+        const showMessage = () => {
+            waitingMessage.style.transition = "none";
+            waitingMessage.classList.remove("show", "fade-out");
+            waitingMessage.offsetHeight;
+            waitingMessage.style.transition = "all 1s ease";
+            waitingMessage.textContent = messages[currentIndex];
+            requestAnimationFrame(() => {
+                waitingMessage.classList.add("show");
+                setTimeout(() => {
+                    waitingMessage.classList.remove("show");
+                    waitingMessage.classList.add("fade-out");
+                }, 4000);
+            });
+        };
+
+        this.intervalId && clearInterval(this.intervalId);
+        this.intervalId = setInterval(() => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            showMessage();
+        }, 5000);
+
+        showMessage();
+    }
+
+    clearInterval() {
+        this.intervalId && clearInterval(this.intervalId);
+        this.intervalId = null;
+    }
+}
+
 console.time("Game Load Time");
 updateSplashLogo();
 
 function initializeSplash() {
     updateLocalizedImages();
+    window.randomWaitingMessage = new RandomWaitingMessage();
 }
 
 if (globalThis.localeMapping) {
