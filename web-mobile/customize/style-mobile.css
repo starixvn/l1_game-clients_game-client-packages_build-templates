@@ -401,7 +401,66 @@ p.footer {
     }
 }
 
+@media only screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
+    .splash-container {
+        height: 100vw;
+        width: 100vh;
+        width: var(--ih, 100vh);
+        transform: rotate(90deg);
+        transform-origin: 50vw;
+    }
 
+    #powered-by.powered-by {
+        background-size: auto 4.07vw;
+        height: 4.07vw;
+        top: 84.35vw;
+    }
+
+    #powered-by.powered-by_tip88 {
+        height: 4.8vw;
+        bottom: 10.8vw;
+        background-size: auto 4.8vw;
+    }
+
+    .loading_icon {
+        top: 60.17vw;
+        background-size: auto 0.76vw;
+        height: 0.76vw;
+    }
+
+    .splash_text {
+        top: 50.6vw;
+        background-size: auto 2.5vw;
+        height: 3.44vw;
+    }
+
+    .splash {
+        top: 37.9vw;
+        background-size: auto 11.95vw;
+        height: 11.95vw;
+    }
+
+    .splash_sabaplay {
+        top: 26.1vw;
+        background-size: auto 23.79vw;
+        height: 23.79vw;
+    }
+
+    .splash_tip88 {
+        top: 25.95vw;
+        background-size: auto 24.04vw;
+    }
+
+    .splash_12c {
+        top: 25.95vw;
+        --logo-height: 24.04vw;
+    }
+
+    .waiting-message {
+        bottom: 5.3vw;
+        font-size: 2.65vw;
+    }
+}
 
 
 
