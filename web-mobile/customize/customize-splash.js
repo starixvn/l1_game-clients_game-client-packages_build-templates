@@ -145,15 +145,6 @@ function updateSplashLogo() {
     const splashLogo = document.getElementById("splash_logo");
     const suffix = getCSSClassName(operator);
     splashLogo.className = `splash${suffix}`;
-    if (window.mobilecheck()) {
-        const isInIframe = window !== window.top;
-        if (!isInIframe) {
-            splash.style.transform = "rotate(0deg)"; //direct
-        } else {
-            splash.style.transform = "rotate(90deg)"; //lobby
-
-        }
-    }
 }
 
 function setSplashTextClass(language) {
