@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) {}
+    } catch (e) { }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) {}
+    } catch (e) { }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -198,7 +198,7 @@ function loadBgGame() {
         const version = Date.now();
         const backgroundGameElement = document.createElement("div");
         backgroundGameElement.className = "background-game";
-        backgroundGameElement.style.background = `url("./../splash-resources/bg-game-blur.webp?v=${version}") no-repeat`;
+        backgroundGameElement.style.background = `url("./splash-resources/bg-game-blur.webp?v=${version}")`;
         document.body.appendChild(backgroundGameElement);
         return backgroundGameElement;
     } catch (error) {
