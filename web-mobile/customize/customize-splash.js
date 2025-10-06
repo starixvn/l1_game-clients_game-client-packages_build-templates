@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) {}
+    } catch (e) { }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) {}
+    } catch (e) { }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -180,6 +180,25 @@ function getCSSClassName(operator) {
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
 
+
+function loadBgGame() {
+    try {
+        const existingElement = document.querySelector('.background-game');
+        if (existingElement) {
+            return existingElement;
+        }
+        const version = Date.now();
+        const backgroundGameElement = document.createElement('div');
+        backgroundGameElement.className = 'background-game';
+        backgroundGameElement.style.background = `url("./../splash-resources/bg-game-blur.webp?v=${version}") no-repeat`;
+        return backgroundGameElement;
+
+    } catch (error) {
+        console.error('Error loading background game:', error);
+        return null;
+    }
+}
+
 class RandomWaitingMessage {
     constructor() {
         const language = getCurrentLanguage().replace(/['"]+/g, "");
@@ -221,7 +240,7 @@ class RandomWaitingMessage {
 
 console.time("Game Load Time");
 updateSplashLogo();
-
+loadBgGame();
 function initializeSplash() {
     updateLocalizedImages();
     window.randomWaitingMessage = new RandomWaitingMessage();

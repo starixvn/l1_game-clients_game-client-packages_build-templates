@@ -67,7 +67,7 @@ body {
     border: 0;
     margin: 0;
     background-size: auto 100vh;
-    background: url("./../splash-resources/bg-game-blur.webp?v=2") no-repeat ;
+    /* background: url("./../splash-resources/bg-game-blur.webp?v=2") no-repeat ; */
     background-size: cover;
     z-index: -1;
 }
@@ -100,7 +100,7 @@ body {
     height: calc(var(--vh, 1vh) * 100) !important;
 } */
 
-#Cocos3dGameContainer > div[style*="overflow-x"] {
+#Cocos3dGameContainer>div[style*="overflow-x"] {
     overflow-x: hidden !important;
 }
 
@@ -402,11 +402,11 @@ p.footer {
     }
 
     .splash-container {
-       width: calc(var(--vh, 1vh) * 100) !important;
-       height: 100vw !important;
-       transform-origin: 0px 0px 0px;
-       top: unset;
-       left: 100%;
+        width: calc(var(--vh, 1vh) * 100) !important;
+        height: 100vw !important;
+        transform-origin: 0px 0px 0px;
+        top: unset;
+        left: 100%;
     }
 
     .waiting-message {
@@ -459,7 +459,9 @@ p.footer {
 
 /* For desktop devices */
 @media only screen and (min-width: 1024px) and (pointer: fine) {
-    #GameDiv, .splash-container {
+
+    #GameDiv,
+    .splash-container {
         width: calc(var(--ih, 100vh) / 1398 * 786) !important;
         height: var(--ih, 100vh) !important;
     }
