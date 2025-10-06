@@ -66,9 +66,6 @@ body {
     padding: 0;
     border: 0;
     margin: 0;
-    background-size: auto 100vh;
-    /* background: url("./../splash-resources/bg-game-blur.webp?v=2") no-repeat ; */
-    background-size: cover;
     z-index: -1;
 }
 
