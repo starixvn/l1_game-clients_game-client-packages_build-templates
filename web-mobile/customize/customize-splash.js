@@ -150,10 +150,8 @@ function updateSplashLogo() {
         const isInIframe = window !== window.top;
         if (!isInIframe) {
             splash.style.transform = "rotate(0deg)"; //direct
-            splash.classList.add("splash_direct_mode isMobile");
         } else {
             splash.style.transform = "rotate(90deg)"; //lobby
-            splash.classList.add("splash_lobby_mode isMobile");
         }
     }
 }

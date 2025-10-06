@@ -403,7 +403,8 @@ p.footer {
 
     .splash-container {
        width: calc(var(--vh, 1vh) * 100) !important;
-       height: var(--ih);
+       height: 100vw;
+       transform-origin: 0px 0px 0px;
     }
 
     .waiting-message {
