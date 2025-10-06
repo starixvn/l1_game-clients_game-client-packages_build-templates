@@ -139,12 +139,7 @@ function setTitleAndFavicon(title, favicon) {
 }
 
 function isPortrait() {
-    if (screen.orientation) {
-        return screen.orientation.type.includes("portrait");
-    }
-
-    // Fallback cuối cùng dựa vào kích thước màn hình thực tế
-    return screen.height > screen.width;
+    return window.innerHeight > window.innerWidth;
 }
 
 function updateSplashLogo() {
