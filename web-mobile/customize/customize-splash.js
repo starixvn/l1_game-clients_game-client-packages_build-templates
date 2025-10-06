@@ -190,22 +190,12 @@ function getCSSClassName(operator) {
 }
 
 function loadBgGame() {
-    try {
-        const existingElement = document.querySelector(".background-game");
-        if (existingElement) {
-            return existingElement;
-        }
+    const existingElement = document.querySelector(".background-game");
+    if (existingElement) {
         const version = Date.now();
-        const backgroundGameElement = document.createElement("div");
-        backgroundGameElement.className = "background-game";
-        backgroundGameElement.style.background = `url("./splash-resources/bg-game-blur.webp?v=${version}")`;
-        backgroundGameElement.style.backgroundRepeat = "no-repeat";
-        backgroundGameElement.style.backgroundSize = "cover";
-        document.body.appendChild(backgroundGameElement);
-        return backgroundGameElement;
-    } catch (error) {
-        console.error("Error loading background game:", error);
-        return null;
+        existingElement.style.background = `url("./splash-resources/bg-game-blur.webp?v=${version}")`;
+        existingElement.style.backgroundRepeat = "no-repeat";
+        existingElement.style.backgroundSize = "cover";
     }
 }
 
