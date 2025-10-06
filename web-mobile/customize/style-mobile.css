@@ -403,8 +403,10 @@ p.footer {
 
     .splash-container {
        width: calc(var(--vh, 1vh) * 100) !important;
-       height: 100vw;
+       height: 100vw !important;
        transform-origin: 0px 0px 0px;
+       top: unset;
+       left: 100%;
     }
 
     .waiting-message {
@@ -412,7 +414,7 @@ p.footer {
     }
 
     #powered-by.powered-by {
-        bottom: 10vh;
+        bottom: calc(var(--vh, 1vh) * 10);
         top: unset;
         --powered-by-height: calc(var(--vh, 1vh) * 7.07);
     }
