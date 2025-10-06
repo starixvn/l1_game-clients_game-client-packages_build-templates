@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
+    } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -155,14 +155,14 @@ function updateSplashLogo() {
     const suffix = getCSSClassName(operator);
     splashLogo.className = `splash${suffix}`;
 
-    if (window.mobilecheck()) {
-        const portrait = isPortrait();
-        if (portrait) {
-            splash.style.transform = "rotate(0deg)";
-        } else {
-            splash.style.transform = "rotate(90deg)";
-        }
-    }
+    // if (window.mobilecheck()) {
+    //     const portrait = isPortrait();
+    //     if (portrait) {
+    //         splash.style.transform = "rotate(0deg)";
+    //     } else {
+    //         splash.style.transform = "rotate(90deg)";
+    //     }
+    // }
 }
 
 function setSplashTextClass(language) {
