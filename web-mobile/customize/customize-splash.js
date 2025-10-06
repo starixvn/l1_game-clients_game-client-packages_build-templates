@@ -199,6 +199,7 @@ function loadBgGame() {
         const backgroundGameElement = document.createElement("div");
         backgroundGameElement.className = "background-game";
         backgroundGameElement.style.background = `url("./../splash-resources/bg-game-blur.webp?v=${version}") no-repeat`;
+        document.body.appendChild(backgroundGameElement);
         return backgroundGameElement;
     } catch (error) {
         console.error("Error loading background game:", error);
