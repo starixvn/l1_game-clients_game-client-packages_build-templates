@@ -411,10 +411,11 @@ p.footer {
 
     .waiting-message {
         font-size: calc(var(--vh, 1vh) * 4.65);
+        bottom: 5.3vw;
     }
 
     #powered-by.powered-by {
-        bottom: calc(var(--vh, 1vh) * 10);
+        bottom: 12vw;
         top: unset;
         --powered-by-height: calc(var(--vh, 1vh) * 7.07);
     }
