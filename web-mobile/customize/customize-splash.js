@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
+    } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -138,6 +138,15 @@ function setTitleAndFavicon(title, favicon) {
     rel.href = favicon;
 }
 
+function isPortrait() {
+    if (screen.orientation) {
+        return screen.orientation.type.includes("portrait");
+    }
+
+    // Fallback cuối cùng dựa vào kích thước màn hình thực tế
+    return screen.height > screen.width;
+}
+
 function updateSplashLogo() {
     const isAndroid = /android/i.test(this.userAgent);
     const operator = getCurrentOperator().replace(/['"]+/g, "").toUpperCase();
@@ -147,11 +156,11 @@ function updateSplashLogo() {
     splashLogo.className = `splash${suffix}`;
 
     if (window.mobilecheck()) {
-        const isInIframe = window !== window.top;
-        if (!isInIframe) {
-            splash.style.transform = "rotate(0deg)"; //direct
+        const portrait = isPortrait();
+        if (portrait) {
+            splash.style.transform = "rotate(0deg)";
         } else {
-            splash.style.transform = "rotate(90deg)"; //lobby
+            splash.style.transform = "rotate(90deg)";
         }
     }
 }
@@ -180,21 +189,19 @@ function getCSSClassName(operator) {
     return operators.hasOwnProperty(operator) ? operators[operator] : "_other";
 }
 
-
 function loadBgGame() {
     try {
-        const existingElement = document.querySelector('.background-game');
+        const existingElement = document.querySelector(".background-game");
         if (existingElement) {
             return existingElement;
         }
         const version = Date.now();
-        const backgroundGameElement = document.createElement('div');
-        backgroundGameElement.className = 'background-game';
+        const backgroundGameElement = document.createElement("div");
+        backgroundGameElement.className = "background-game";
         backgroundGameElement.style.background = `url("./../splash-resources/bg-game-blur.webp?v=${version}") no-repeat`;
         return backgroundGameElement;
-
     } catch (error) {
-        console.error('Error loading background game:', error);
+        console.error("Error loading background game:", error);
         return null;
     }
 }
