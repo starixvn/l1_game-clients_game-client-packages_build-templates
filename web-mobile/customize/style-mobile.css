@@ -310,7 +310,7 @@ p.footer {
     background-size: auto var(--powered-by-height);
     width: 100%;
     height: var(--powered-by-height);
-    top: calc(var(--vh, 1vh) * 84.35);
+    bottom: calc(var(--vh, 1vh) * 12);
 }
 
 #powered-by.powered-by_tip88 {
@@ -392,66 +392,7 @@ p.footer {
     height: var(--loading-icon-height);
 }
 
-@media only screen and (orientation: landscape) {
-    .splash-container {
-        margin-top: -50vw;
-        margin-left: -50vh;
-        width: var(--ih, 100vh) !important;
-        height: var(--ih, 100vw) !important;
-        transform: rotate(90deg);
-    }
 
-    #powered-by.powered-by {
-        background-size: auto 4.07vw;
-        height: 4.07vw;
-        top: 84.35vw;
-    }
-
-    #powered-by.powered-by_tip88 {
-        height: 4.8vw;
-        bottom: 10.8vw;
-        background-size: auto 4.8vw;
-    }
-
-    .loading_icon {
-        top: 60.17vw;
-        background-size: auto 0.76vw;
-        height: 0.76vw;
-    }
-
-    .splash_text {
-        top: 50.6vw;
-        background-size: auto 2.5vw;
-        height: 3.44vw;
-    }
-
-    .splash {
-        top: 37.9vw;
-        background-size: auto 11.95vw;
-        height: 11.95vw;
-    }
-
-    .splash_sabaplay {
-        top: 26.1vw;
-        background-size: auto 23.79vw;
-        height: 23.79vw;
-    }
-
-    .splash_tip88 {
-        top: 25.95vw;
-        background-size: auto 24.04vw;
-    }
-
-    .splash_12c {
-        top: 25.95vw;
-        --logo-height: 24.04vw;
-    }
-
-    .waiting-message {
-        bottom: 5.3vw;
-        font-size: 2.65vw;
-    }
-}
 
 /* For mobile devices */
 @media only screen and (max-width: 1024px) and (pointer: coarse) {
