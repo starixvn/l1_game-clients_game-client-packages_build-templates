@@ -53,7 +53,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
+    } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -76,7 +76,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -159,8 +159,12 @@ function updateSplashLogo() {
         const portrait = isPortrait();
         if (portrait) {
             splash.style.transform = "rotate(0deg)";
+            splash.style["-webkit-transform"] = "rotate(0deg)";
+            splash.classList.add("rotate0");
         } else {
             splash.style.transform = "rotate(90deg)";
+            splash.style["-webkit-transform"] = "rotate(90deg)";
+            splash.classList.add("rotate90");
         }
     }
 }
