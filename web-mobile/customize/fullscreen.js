@@ -10,7 +10,7 @@ class FullScreenManager {
         this.isAndroid = /android/i.test(this.userAgent);
         this.isIPad = /ipad/i.test(this.userAgent);
         this.webview = /wv/i.test(this.userAgent);
-        this.landscapeMode = document.getElementById("landscapse-mode");
+        // this.landscapeMode = document.getElementById("landscapse-mode");
     }
 
     debounce(func, wait) {
@@ -224,9 +224,9 @@ class FullScreenManager {
 
 const isInIframe = window !== window.top;
 const fullScreenManager = new FullScreenManager();
-fullScreenManager.updateLandscapeMode();
-const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
-window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
+// fullScreenManager.updateLandscapeMode();
+// const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
+// window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
 
 if (!isInIframe) {
     fullScreenManager.init();
