@@ -405,7 +405,7 @@ p.footer {
         top: 0%;
 
         &.rotate0 {
-            height: 100vh !important;
+            height: 100% !important;
             left: 0% !important;
         }
 
