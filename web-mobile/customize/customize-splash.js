@@ -12,6 +12,17 @@ const waitingMessages = {
     es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
 };
 
+const rotateInstructions = {
+    en: "Please rotate your screen to portrait mode to play",
+    vi: "Vui lòng xoay màn hình sang chiều dọc để chơi",
+    id: "Silakan putar layar ke mode potret untuk bermain.",
+    th: "กรุณาหมุนหน้าจอเป็นแนวตั้งเพื่อเล่น",
+    zh_cn: "请将屏幕旋转为竖屏模式以进行游戏。",
+    zh_tw: "請將螢幕旋轉為直式模式以進行遊戲。",
+    ja: "画面を縦向きに回してプレイしてください。",
+    es: "Gira la pantalla a modo vertical para jugar.",
+};
+
 window.mobilecheck = function () {
     let check = false;
     (function (a) {
@@ -198,6 +209,13 @@ function loadBgGame() {
     }
 }
 
+function updateRotateInstruction() {
+    const language = getCurrentLanguage().replace(/['"]+/g, "");
+    const rotateInstruction = document.getElementById("rotate-instruction");
+    const messages = rotateInstructions[language] || rotateInstructions.en;
+    rotateInstruction.textContent = messages;
+}
+
 class RandomWaitingMessage {
     constructor() {
         const language = getCurrentLanguage().replace(/['"]+/g, "");
@@ -239,7 +257,9 @@ class RandomWaitingMessage {
 
 console.time("Game Load Time");
 updateSplashLogo();
+updateRotateInstruction();
 loadBgGame();
+
 function initializeSplash() {
     updateLocalizedImages();
     window.randomWaitingMessage = new RandomWaitingMessage();

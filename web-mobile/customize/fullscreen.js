@@ -1,19 +1,7 @@
-const rotateInstructions = {
-    en: "Please rotate your screen to portrait mode to play",
-    vi: "Vui lòng xoay màn hình sang chiều dọc để chơi",
-    id: "Silakan putar layar ke mode potret untuk bermain.",
-    th: "กรุณาหมุนหน้าจอเป็นแนวตั้งเพื่อเล่น",
-    zh_cn: "请将屏幕旋转为竖屏模式以进行游戏。",
-    zh_tw: "請將螢幕旋轉為直式模式以進行遊戲。",
-    ja: "画面を縦向きに回してプレイしてください。",
-    es: "Gira la pantalla a modo vertical para jugar.",
-};
-
 class FullScreenManager {
     timeoutDelayEnableScroll = null;
     timeoutExtraResize = null;
     constructor() {
-        const language = getCurrentLanguage().replace(/['"]+/g, "");
         this.IOSInstruction = document.getElementById("ios-instruction");
         this.androidInstruction = document.getElementById("android-instruction");
         this.iconFullScreen = document.getElementById("icon-fullscreen");
@@ -23,9 +11,6 @@ class FullScreenManager {
         this.isIPad = /ipad/i.test(this.userAgent);
         this.webview = /wv/i.test(this.userAgent);
         this.landscapeMode = document.getElementById("landscapse-mode");
-        this.rotateInstruction = document.getElementById("rotate-instruction");
-        const message = rotateInstructions[language] || rotateInstructions.en;
-        this.rotateInstruction.textContent = message;
     }
 
     debounce(func, wait) {

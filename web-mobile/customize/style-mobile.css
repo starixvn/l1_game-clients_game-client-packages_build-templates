@@ -216,14 +216,13 @@ p.footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #000;
+    background: rgba(0,0,0,0.9);
     z-index: 1000;
-    opacity: 0.9;
-
 }
 
 #rotate-instruction {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    font-weight: bold;
 }
 
 .rotate-icon {
@@ -413,7 +412,7 @@ p.footer {
         transform-origin: 0px 0px 0px;
         top: 0%;
 
-        
+
     }
 
     .splash-container.rotate0 {
