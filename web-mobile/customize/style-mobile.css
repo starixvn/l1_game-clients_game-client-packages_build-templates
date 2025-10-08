@@ -413,15 +413,17 @@ p.footer {
         transform-origin: 0px 0px 0px;
         top: 0%;
 
-        &.rotate0 {
-            height: 100% !important;
-            left: 0% !important;
-        }
+        
+    }
 
-        &.rotate90 {
-            height: 100vw !important;
-            left: 100% !important;
-        }
+    .splash-container.rotate0 {
+        height: 100% !important;
+        left: 0% !important;
+    }
+
+    .splash-container.rotate90 {
+        height: 100vw !important;
+        left: 100% !important;
     }
 
     .waiting-message {
