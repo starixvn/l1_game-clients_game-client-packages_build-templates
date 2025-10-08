@@ -216,9 +216,18 @@ p.footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #112442 0%, #1f3c69 100%);
+    background: #000;
     z-index: 1000;
+    opacity: 0.9;
 
+}
+
+#rotate-instruction {
+    font-size: 1.6rem;
+}
+
+.rotate-icon {
+    margin-bottom: 2rem;
 }
 
 .splash_text {
