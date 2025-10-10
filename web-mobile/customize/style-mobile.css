@@ -408,7 +408,7 @@ p.footer {
     }
 
     .splash-container {
-        width: 100% !important;
+        width: calc(var(--vh, 1vw) * 100) !important;
         height: 100vw !important;
         transform-origin: 0px 0px 0px;
         top: 0%;
