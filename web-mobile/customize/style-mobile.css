@@ -29,7 +29,6 @@ iframe {
     overflow-x: hidden;
 }
 
-
 body {
     position: absolute;
     top: 0;
@@ -54,7 +53,6 @@ body {
     /* overflow cannot be applied in Cocos2dGameContainer,
   otherwise child elements will be hidden when Cocos2dGameContainer rotated 90 deg */
     overflow: hidden;
-
 }
 
 .background-game {
@@ -68,7 +66,6 @@ body {
     margin: 0;
     z-index: -1;
 }
-
 
 .game-container {
     position: absolute;
@@ -97,7 +94,7 @@ body {
     height: calc(var(--vh, 1vh) * 100) !important;
 } */
 
-#Cocos3dGameContainer>div[style*="overflow-x"] {
+#Cocos3dGameContainer > div[style*="overflow-x"] {
     overflow-x: hidden !important;
 }
 
@@ -142,10 +139,9 @@ p.footer {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: calc(var(--ih, 100vh) / 1398 * 786) !important;
+    width: calc(var(--ih, 100vh) / 1334 * 750) !important;
     height: var(--ih, 100vh) !important;
 }
-
 
 #ios-instruction {
     display: none;
@@ -172,7 +168,6 @@ p.footer {
     width: 100%;
     height: 100%;
 }
-
 
 .splash_Vgaming {
     position: absolute;
@@ -204,7 +199,6 @@ p.footer {
     height: var(--logo-height);
 }
 
-
 #landscapse-mode {
     position: fixed;
     top: 0;
@@ -216,7 +210,7 @@ p.footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
 }
 
@@ -301,7 +295,6 @@ p.footer {
 .splash_text_sabaplay_es {
     background-image: url("./../images/splash_text_sabaplay_es.webp?v=1");
 }
-
 
 #powered-by {
     position: absolute;
@@ -398,8 +391,6 @@ p.footer {
     height: var(--loading-icon-height);
 }
 
-
-
 /* For mobile devices */
 @media only screen and (pointer: coarse) {
     #GameDiv {
@@ -476,17 +467,13 @@ p.footer {
 @media only screen and (pointer: fine) {
     #GameDiv,
     .splash-container {
-        width: calc(var(--ih, 100vh) / 1398 * 786) !important;
+        width: calc(var(--ih, 100vh) / 1334 * 750) !important;
         height: var(--ih, 100vh) !important;
     }
 }
 
 /* For iPad */
-@media only screen
-  and (min-device-width: 768px)
-  and (max-device-width: 1366px)
-  and (hover: none)
-  and (pointer: coarse) {
+@media only screen and (min-device-width: 750px) and (max-device-width: 1334px) and (hover: none) and (pointer: coarse) {
     .splash {
         top: calc(var(--vh, 1vh) * 26);
     }
