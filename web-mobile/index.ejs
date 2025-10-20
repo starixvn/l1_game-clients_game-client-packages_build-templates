@@ -47,7 +47,11 @@
                 <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
             </div>
         </div>
-        <iframe id="splash-iframe" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 1; border: 0;" title="splash iframe">
+        <iframe
+            id="splash-iframe"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; border: 0"
+            title="splash iframe"
+        >
         </iframe>
 
         <div id="ios-instruction">
@@ -72,7 +76,7 @@
         <script src="<%= systemJsBundleFile %>" charset="utf-8"></script>
 
         <!-- Import map -->
-        <script src="./customize/import-map.json?v=<%= Date.now() %>" type="systemjs-importmap" charset="utf-8"></script>
+        <script src="../shared-resources/cocos-engine/<%= CocosEngine %>/import-map" type="systemjs-importmap" charset="utf-8"></script>
 
         <script>
             System.import("./<%= indexJsName %>").catch(function (err) {
