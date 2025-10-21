@@ -401,7 +401,7 @@ p.footer {
 
 
 /* For mobile devices */
-@media only screen and (pointer: coarse) {
+@media only screen and (max-width: 767px) and (pointer: coarse) {
     #GameDiv {
         width: calc(var(--vh, 1vh) * 100) !important;
         box-shadow: none;
@@ -473,8 +473,9 @@ p.footer {
 }
 
 /* For desktop devices */
-@media only screen and (pointer: fine) {
+@media only screen {
     #GameDiv,
+    #GameCanvas,
     .splash-container {
         width: calc(var(--ih, 100vh) / 1398 * 786) !important;
         height: var(--ih, 100vh) !important;

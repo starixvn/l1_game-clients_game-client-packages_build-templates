@@ -172,7 +172,7 @@ class FullScreenManager {
     }
 
     updateLandscapeMode() {
-        if (!this.isPortrait() && (this.isAndroid || this.isIOS)) {
+        if (!this.isPortrait() && (this.isAndroid || (this.isIOS && !this.isIPad))) {
             this.landscapeMode.style.display = "flex";
             const isInIframe = window !== window.top;
             this.landscapeMode.style.transform = isInIframe ? "rotate(180deg)" : "none";

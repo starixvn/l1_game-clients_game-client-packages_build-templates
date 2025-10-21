@@ -44,6 +44,8 @@ export class Application {
 
 
     start () {
+        const ua = window.navigator.userAgent.toLowerCase();
+        const isIpad = /ipad/i.test(ua);
         return cc.game.init({ // Run the engine with the required parameters
             debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
             settingsPath: this.settingsPath, // Pass in the settings.json path
@@ -56,8 +58,7 @@ export class Application {
                     showFPS: this.showFPS,
                 },
                 screen: { 
-                    'exactFitScreen': cc.sys.isMobile,
-                   
+                    'exactFitScreen': cc.sys.isMobile && !isIpad,
                 }
             }
         })
