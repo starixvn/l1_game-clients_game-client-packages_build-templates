@@ -473,9 +473,8 @@ p.footer {
 }
 
 /* For desktop devices */
-@media only screen {
+@media only screen and (pointer: fine) {
     #GameDiv,
-    #GameCanvas,
     .splash-container {
         width: calc(var(--ih, 100vh) / 1398 * 786) !important;
         height: var(--ih, 100vh) !important;
@@ -488,6 +487,15 @@ p.footer {
   and (max-device-width: 1366px)
   and (hover: none)
   and (pointer: coarse) {
+
+    /* same as desktop */
+    #GameDiv,
+    .splash-container {
+        width: calc(var(--ih, 100vh) / 1398 * 786) !important;
+        height: var(--ih, 100vh) !important;
+    }
+    /* end same as desktop */
+
     .splash {
         top: calc(var(--vh, 1vh) * 26);
     }
