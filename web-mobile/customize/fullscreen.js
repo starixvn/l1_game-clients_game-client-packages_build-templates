@@ -72,6 +72,12 @@ class FullScreenManager {
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
         }
         document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
+
+        let gameHeight = window.innerHeight;
+        if ((this.isIOS && !this.isIPad) || this.isAndroid) {
+            gameHeight = Math.max(window.innerWidth, window.innerHeight);
+        }
+        document.documentElement.style.setProperty("--gh", `${gameHeight * 0.01}px`);
     }
 
     showIOSInstruction(isShow = true) {
