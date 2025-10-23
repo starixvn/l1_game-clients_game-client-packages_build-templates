@@ -72,6 +72,12 @@ class FullScreenManager {
             document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
         }
         document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
+
+        let gameHeight = window.innerHeight;
+        if ((this.isIOS && !this.isIPad) || this.isAndroid) {
+            gameHeight = Math.max(window.innerWidth, window.innerHeight);
+        }
+        document.documentElement.style.setProperty("--gh", `${gameHeight * 0.01}px`);
     }
 
     showIOSInstruction(isShow = true) {
@@ -172,7 +178,7 @@ class FullScreenManager {
     }
 
     updateLandscapeMode() {
-        if (!this.isPortrait() && (this.isAndroid || this.isIOS)) {
+        if (!this.isPortrait() && (this.isAndroid || (this.isIOS && !this.isIPad))) {
             this.landscapeMode.style.display = "flex";
             const isInIframe = window !== window.top;
             this.landscapeMode.style.transform = isInIframe ? "rotate(180deg)" : "none";
