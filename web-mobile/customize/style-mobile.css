@@ -398,8 +398,6 @@ p.footer {
     height: var(--loading-icon-height);
 }
 
-
-
 /* For mobile devices */
 @media only screen and (pointer: coarse) {
     #GameDiv {
@@ -493,35 +491,8 @@ p.footer {
     .splash-container {
         width: calc(var(--ih, 100vh) / 1398 * 786) !important;
         height: var(--ih, 100vh) !important;
+        top: 50% !important;
     }
     /* end same as desktop */
-
-    .splash {
-        top: calc(var(--vh, 1vh) * 26);
-    }
-
-    .splash_Vgaming {
-        top: calc(var(--vh, 1vh) * 18.7);
-    }
-
-    .splash_sabaplay {
-        top: calc(var(--vh, 1vh) * 10.1);
-    }
-
-    .splash_tip88 {
-        top: calc(var(--vh, 1vh) * 10.1);
-    }
-
-    .splash_text {
-        background-size: auto calc(var(--vh, 1vh) * 3.5);
-        top: calc(var(--vh, 1vh) * 51.6);
-    }
-
-    .loading_icon {
-        top: calc(var(--vh, 1vh) * 66.17);
-    }
-
-    #powered-by.powered-by {
-        bottom: 15vw;
-    }
+    
 }
