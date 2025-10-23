@@ -401,7 +401,7 @@ p.footer {
 
 
 /* For mobile devices */
-@media only screen and (max-width: 767px) and (pointer: coarse) {
+@media only screen and (pointer: coarse) {
     #GameDiv {
         width: calc(var(--vh, 1vh) * 100) !important;
         box-shadow: none;
