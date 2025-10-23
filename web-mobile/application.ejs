@@ -59,6 +59,7 @@ export class Application {
                 },
                 screen: { 
                     'exactFitScreen': cc.sys.isMobile && !isIpad,
+                    'orientation': isIpad ? cc.macro.ORIENTATION_AUTO : cc.macro.ORIENTATION_PORTRAIT,
                 }
             }
         })
