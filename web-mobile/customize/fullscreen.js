@@ -221,6 +221,9 @@ class FullScreenManager {
                 // window.addEventListener("resize", debouncedUpdateIconFullScreen);
                 // window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
                 // this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
+            } else {
+                fullScreenManager.updateViewport();
+                window.addEventListener("resize", () => fullScreenManager.updateViewport());
             }
         } catch (error) {
             console.error("Error initializing full screen handler:", error);
@@ -234,11 +237,4 @@ fullScreenManager.updateLandscapeMode();
 const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
 window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
 
-if (!isInIframe) {
-    fullScreenManager.init();
-} else {
-    setTimeout(() => {
-        fullScreenManager.updateViewport();
-        window.addEventListener("resize", () => fullScreenManager.updateViewport());
-    }, 10);
-}
+fullScreenManager.init();
