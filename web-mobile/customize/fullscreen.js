@@ -237,6 +237,8 @@ window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
 if (!isInIframe) {
     fullScreenManager.init();
 } else {
-    fullScreenManager.updateViewport();
-    window.addEventListener("resize", () => fullScreenManager.updateViewport());
+    setTimeout(() => {
+        fullScreenManager.updateViewport();
+        window.addEventListener("resize", () => fullScreenManager.updateViewport());
+    }, 10);
 }
