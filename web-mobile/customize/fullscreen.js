@@ -238,8 +238,5 @@ if (!isInIframe) {
     fullScreenManager.init();
 } else {
     fullScreenManager.updateViewport();
-}
-const urlParams = new URLSearchParams(window.location.search);
-if (!urlParams.has("params") && !urlParams.has("purl")) {
     window.addEventListener("resize", () => fullScreenManager.updateViewport());
 }
