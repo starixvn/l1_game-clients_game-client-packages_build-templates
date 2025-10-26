@@ -65,12 +65,7 @@ class FullScreenManager {
     }
 
     updateViewport() {
-        const viewportUnit = "--vh";
-        if (this.isIOS || this.isAndroid) {
-            const height = Math.min(window.innerWidth, window.innerHeight);
-            const vh = height * 0.01;
-            document.documentElement.style.setProperty(viewportUnit, `${vh}px`);
-        }
+        console.log("updateViewport --------");
         document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
 
         let gameHeight = window.innerHeight;
@@ -188,18 +183,10 @@ class FullScreenManager {
     }
 
     initForIOS() {
-        // document.body.style.height = "200%";
-        // document.body.style.overflow = "auto";
         const gameContainer = document.getElementById("GameDiv");
         gameContainer?.classList.add("game-container");
 
-        //this.showIOSInstruction(false);
         this.updateViewport();
-        // this.syncPositionForGameContainer();
-        //this.registerEventFullScreenForIOS();
-        // if (this.isPortrait()) {
-        //     this.scrollToTop(200);
-        // }
     }
 
     initForAndroid() {
