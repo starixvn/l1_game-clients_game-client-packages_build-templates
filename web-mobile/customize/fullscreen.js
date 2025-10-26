@@ -14,11 +14,10 @@ class FullScreenManager {
         this.landscapeMode = document.getElementById("landscapse-mode");
     }
 
-    debounce(func, wait) {
-        let timeout;
+    debounce(timeout, func, wait) {
         return (...args) => {
-            this.timeout && clearTimeout(this.timeout);
-            this.timeout = setTimeout(() => func.apply(this, args), wait);
+            timeout && clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
         };
     }
 
@@ -80,35 +79,6 @@ class FullScreenManager {
         clearTimeout(this.timeoutDelayEnableScroll);
         this.IOSInstruction.style.display = "block";
         this.IOSInstruction.style.visibility = isShow ? "visible" : "hidden";
-    }
-
-    /**
-     * Unused Update full screen
-     */
-    updateFullScreen() {
-        if (this.isPortrait()) {
-            this.updateViewport();
-            this.scrollToTop(200);
-            this.showIOSInstruction(false);
-            return;
-        }
-        const isShowAddressBar = this.isShowAddressBar();
-        if (!isShowAddressBar) {
-            this.showIOSInstruction(false);
-        }
-        this.updateViewport();
-        this.syncPositionForGameContainer();
-    }
-
-    /**
-     * Unused Register event for full screen for iOS
-     */
-    registerEventFullScreenForIOS() {
-        const debouncedUpdateFullScreen = this.debounce(this.updateFullScreen, 100);
-
-        window.addEventListener("orientationchange", debouncedUpdateFullScreen);
-        window.addEventListener("resize", debouncedUpdateFullScreen);
-        window.addEventListener("scroll", debouncedUpdateFullScreen, true);
     }
 
     onClickFullScreenForIOS() {
@@ -189,6 +159,13 @@ class FullScreenManager {
         }
     }
 
+    initDebounceUpdateLandscapeMode() {
+        this.updateLandscapeMode();
+        let timeout = -1;
+        const debouncedUpdateLandscapeMode = this.debounce(timeout, this.updateLandscapeMode, 100);
+        window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
+    }
+
     initForIOS() {
         const gameContainer = document.getElementById("GameDiv");
         gameContainer?.classList.add("game-container");
@@ -205,7 +182,8 @@ class FullScreenManager {
     }
 
     initDebounceUpdateViewport() {
-        const debouncedUpdateViewport = this.debounce(this.updateViewport, 100);
+        let timeout = -1;
+        const debouncedUpdateViewport = this.debounce(timeout, this.updateViewport, 100);
         window.addEventListener("resize", debouncedUpdateViewport);
     }
 
@@ -250,7 +228,8 @@ class FullScreenManager {
     initDebounceUpdateSplashRotation() {
         this.updateSplashRotation();
 
-        const debouncedUpdateSplashRotation = this.debounce(this.updateSplashRotation, 100);
+        let timeout = -1;
+        const debouncedUpdateSplashRotation = this.debounce(timeout, this.updateSplashRotation, 100);
         window.addEventListener("resize", debouncedUpdateSplashRotation);
     }
 
@@ -260,9 +239,11 @@ class FullScreenManager {
                 this.isIOS && this.initForIOS();
                 this.isAndroid && this.initForAndroid();
                 this.initDebounceUpdateSplashRotation();
+                this.initDebounceUpdateLandscapeMode();
             } else {
                 this.updateViewport();
                 this.initDebounceUpdateViewport();
+                this.initDebounceUpdateLandscapeMode();
             }
         } catch (error) {
             console.error("Error initializing full screen handler:", error);
@@ -272,8 +253,5 @@ class FullScreenManager {
 
 const isInIframe = window !== window.top;
 const fullScreenManager = new FullScreenManager();
-fullScreenManager.updateLandscapeMode();
-const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
-window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
 
 fullScreenManager.init();
