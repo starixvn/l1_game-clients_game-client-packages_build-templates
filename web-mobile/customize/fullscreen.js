@@ -194,6 +194,7 @@ class FullScreenManager {
         gameContainer?.classList.add("game-container");
 
         this.updateViewport();
+        this.initDebounceUpdateViewport();
     }
 
     initForAndroid() {
