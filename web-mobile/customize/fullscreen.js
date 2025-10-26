@@ -1,6 +1,7 @@
 class FullScreenManager {
     timeoutDelayEnableScroll = null;
     timeoutExtraResize = null;
+    timeout = -1;
     constructor() {
         this.IOSInstruction = document.getElementById("ios-instruction");
         this.androidInstruction = document.getElementById("android-instruction");
@@ -16,8 +17,8 @@ class FullScreenManager {
     debounce(func, wait) {
         let timeout;
         return (...args) => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), wait);
+            this.timeout && clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => func.apply(this, args), wait);
         };
     }
 
@@ -81,6 +82,9 @@ class FullScreenManager {
         this.IOSInstruction.style.visibility = isShow ? "visible" : "hidden";
     }
 
+    /**
+     * Unused Update full screen
+     */
     updateFullScreen() {
         if (this.isPortrait()) {
             this.updateViewport();
@@ -96,6 +100,9 @@ class FullScreenManager {
         this.syncPositionForGameContainer();
     }
 
+    /**
+     * Unused Register event for full screen for iOS
+     */
     registerEventFullScreenForIOS() {
         const debouncedUpdateFullScreen = this.debounce(this.updateFullScreen, 100);
 
@@ -192,9 +199,13 @@ class FullScreenManager {
     initForAndroid() {
         this.updateViewport();
         if (!this.webview) {
-            const debouncedUpdateViewport = this.debounce(this.updateViewport, 100);
-            window.addEventListener("resize", debouncedUpdateViewport);
+            this.initDebounceUpdateViewport();
         }
+    }
+
+    initDebounceUpdateViewport() {
+        const debouncedUpdateViewport = this.debounce(this.updateViewport, 100);
+        window.addEventListener("resize", debouncedUpdateViewport);
     }
 
     init() {
@@ -202,12 +213,9 @@ class FullScreenManager {
             if (this.isIOS || this.isAndroid) {
                 this.isIOS && this.initForIOS();
                 this.isAndroid && this.initForAndroid();
-                // this.updateIconFullScreen();
-                // const debouncedUpdateIconFullScreen = this.debounce(this.updateIconFullScreen, 100);
-
-                // window.addEventListener("resize", debouncedUpdateIconFullScreen);
-                // window.addEventListener("orientationchange", debouncedUpdateIconFullScreen);
-                // this.isIOS && window.addEventListener("scroll", debouncedUpdateIconFullScreen);
+            } else {
+                this.updateViewport();
+                this.initDebounceUpdateViewport();
             }
         } catch (error) {
             console.error("Error initializing full screen handler:", error);
@@ -221,11 +229,4 @@ fullScreenManager.updateLandscapeMode();
 const debouncedUpdateLandscapeMode = fullScreenManager.debounce(fullScreenManager.updateLandscapeMode, 100);
 window.addEventListener("orientationchange", debouncedUpdateLandscapeMode);
 
-if (!isInIframe) {
-    fullScreenManager.init();
-}
-const urlParams = new URLSearchParams(window.location.search);
-if (!urlParams.has("params") && !urlParams.has("purl")) {
-    fullScreenManager.updateViewport();
-    window.addEventListener("resize", () => fullScreenManager.updateViewport());
-}
+fullScreenManager.init();
