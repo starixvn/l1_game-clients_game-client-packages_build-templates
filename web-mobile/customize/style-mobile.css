@@ -121,9 +121,6 @@ p.footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    width: calc(var(--ih, 100vh) / 1398 * 786) !important;
-    height: var(--ih, 100vh) !important;
 }
 
 #ios-instruction {
@@ -404,8 +401,8 @@ p.footer {
 @media only screen and (pointer: fine) {
     #GameDiv,
     .splash-container {
-        width: calc(var(--ih, 100vh) / 1398 * 786) !important;
-        height: var(--ih, 100vh) !important;
+        width: calc(var(--gh, 1vh) * 100 / 1398 * 786) !important;
+        height: calc(var(--gh, 1vh) * 100) !important;
     }
 }
 
@@ -414,8 +411,8 @@ p.footer {
     /* same as desktop */
     #GameDiv,
     .splash-container {
-        width: calc(var(--ih, 100vh) / 1398 * 786) !important;
-        height: var(--ih, 100vh) !important;
+        width: calc(var(--gh, 1vh) * 100 / 1398 * 786) !important;
+        height: calc(var(--gh, 1vh) * 100) !important;
         top: 50% !important;
     }
     /* end same as desktop */
