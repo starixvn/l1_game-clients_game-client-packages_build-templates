@@ -379,23 +379,22 @@ p.footer {
 /* For mobile devices */
 @media only screen and (pointer: coarse) {
     #GameDiv {
-        width: calc(var(--gh, 1vh) * 100) !important;
         box-shadow: none;
     }
 
     .splash-container {
-        width: calc(var(--gh, 1vh) * 100) !important;
-        height: 100vw !important;
         transform-origin: 0px 0px 0px;
         top: 0%;
     }
 
     .splash-container.rotate0 {
+        width: 100vh !important;
         height: 100% !important;
         left: 0% !important;
     }
 
     .splash-container.rotate90 {
+        width: 100vh !important;
         height: 100vw !important;
         left: 100% !important;
     }
