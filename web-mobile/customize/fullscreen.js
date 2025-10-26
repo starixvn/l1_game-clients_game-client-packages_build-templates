@@ -236,16 +236,20 @@ class FullScreenManager {
             if (portrait) {
                 splash.style.transform = "rotate(0deg)";
                 splash.style["-webkit-transform"] = "rotate(0deg)";
+                splash.classList.remove("rotate90");
                 splash.classList.add("rotate0");
             } else {
                 splash.style.transform = "rotate(90deg)";
                 splash.style["-webkit-transform"] = "rotate(90deg)";
+                splash.classList.remove("rotate0");
                 splash.classList.add("rotate90");
             }
         }
     }
 
     initDebounceUpdateSplashRotation() {
+        this.updateSplashRotation();
+
         const debouncedUpdateSplashRotation = this.debounce(this.updateSplashRotation, 100);
         window.addEventListener("resize", debouncedUpdateSplashRotation);
     }

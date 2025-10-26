@@ -121,6 +121,9 @@ p.footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    width: calc(var(--gh, 1vh) * 100 / 1398 * 786) !important;
+    height: calc(var(--gh, 1vh) * 100) !important;
 }
 
 #ios-instruction {
