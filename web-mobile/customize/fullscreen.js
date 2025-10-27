@@ -65,7 +65,6 @@ class FullScreenManager {
     }
 
     updateViewport() {
-        console.log("updateViewport --------");
         document.documentElement.style.setProperty("--ih", `${window.innerHeight}px`);
 
         let gameHeight = window.innerHeight;
