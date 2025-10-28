@@ -28,9 +28,9 @@ function startWorker() {
         stopWorker();
         isWorkerTimeout = true;
     }, durationTimeout);
-    worker.onmessage = function (data) {
+    worker.onmessage = function (event) {
         try {
-            const time = data.time;
+            const time = event.data.time;
             console.log('duration ', time - startTime);
             if (cc?.game) {
                 cc.game?.step();
