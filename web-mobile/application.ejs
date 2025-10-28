@@ -1,5 +1,66 @@
 let cc;
 
+let worker = null;
+let timeOutStopWorker = null;
+let isWorkerTimeout = false;
+const durationTimeout = 1000 * 60 * 1000;
+let startTime = 0;
+
+function reloadIfTimeoutWorker(isTimeoutWorker) {
+    if (isTimeoutWorker) {
+        window.location.reload();
+    }
+}
+
+function stopWorker() {
+    worker?.terminate();
+    worker = null;
+
+    timeOutStopWorker && clearTimeout(timeOutStopWorker);
+    timeOutStopWorker = null;
+}
+
+function startWorker() {
+    startTime = Date.now();
+    isWorkerTimeout = false;
+    worker = new Worker("beat.js");
+    timeOutStopWorker = setTimeout(() => {
+        stopWorker();
+        isWorkerTimeout = true;
+    }, durationTimeout);
+    worker.onmessage = function (data) {
+        try {
+            const time = data.time;
+            console.log('duration ', time - startTime);
+            if (cc?.game) {
+                cc.game?.step();
+            } else {
+                stopWorker();
+            }
+        } catch (error) {
+            stopWorker();
+        }
+    };
+}
+
+function initWorker() {
+    // Start worker when game is hidden
+    cc.game.on(cc.Game.EVENT_HIDE, () => {
+        !isWorkerTimeout && startWorker();
+    });
+
+    // Stop worker when game is enable
+    cc.game.on(cc.Game.EVENT_SHOW, () => {
+        reloadIfTimeoutWorker(isWorkerTimeout);
+        stopWorker();
+    });
+
+    // Stop the worker when the page is unloaded
+    window.addEventListener("beforeunload", () => {
+        stopWorker();
+    });
+}
+
 function setLoadingDisplay() {
     const splash = document.getElementById("splash");
     const gameCanvas = document.getElementById("GameCanvas");
@@ -41,8 +102,6 @@ export class Application {
         // Implement some custom logic
     }
 
-
-
     start () {
         const ua = window.navigator.userAgent.toLowerCase();
         const isIpad = /ipad/i.test(ua);
@@ -65,6 +124,7 @@ export class Application {
         })
         .then(() => {
             cc.game.run();
+            initWorker();
         })
         .catch(() => window.location.reload()); // If the engine fails to start, reload the page
     }
