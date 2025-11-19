@@ -75,7 +75,7 @@
         <script src="<%= systemJsBundleFile %>" charset="utf-8"></script>
 
         <!-- Import map -->
-        <script src="./customize/import-map.json?v=3" type="systemjs-importmap" charset="utf-8"></script>
+        <script src="../shared-resources/cocos-engine/<%= CocosEngine %>/import-map" type="systemjs-importmap" charset="utf-8"></script>
 
         <script>
             System.import("./<%= indexJsName %>").catch(function (err) {
