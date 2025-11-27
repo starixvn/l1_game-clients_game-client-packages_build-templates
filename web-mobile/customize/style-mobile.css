@@ -132,7 +132,7 @@ p.footer {
     --logo-height: calc(var(--vh, 1vh) * 4.3);
     position: absolute;
     top: calc(var(--vh, 1vh) * 41.36);
-    left: 53%;
+    left: calc(50% + 13px);
     transform: translateX(-50%);
     background: url("./../images/tagline.png") no-repeat top center;
     background-size: auto var(--logo-height);
@@ -442,8 +442,8 @@ p.footer {
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     bottom: 19.2vw;
-    width: 100%;
-    font-size: 3.5vw;
+    width: 98%;
+    font-size: calc(var(--vh, 1vh) * 2);
     opacity: 0;
     color: #989898;
     letter-spacing: -0.2px;
