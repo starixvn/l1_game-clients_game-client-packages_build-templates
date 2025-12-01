@@ -406,8 +406,8 @@ p.footer {
 
 .splash_original_logo {
     position: absolute;
-    top: calc(var(--vh, 1vh) * 45);
-    --logo-height: calc(var(--vh, 1vh) * 4.7);
+    top: calc(var(--vh, 1vh) * 44);
+    --logo-height: calc(var(--vh, 1vh) * 5.9);
     left: 50%;
     transform: translateX(-50%);
     background: url("./../images/logo_nova88.png?v=2") no-repeat top center;
@@ -418,9 +418,9 @@ p.footer {
 
 .splash_original_tagline {
     position: absolute;
-    top: calc(var(--vh, 1vh) * 50.6);
-    --logo-height: calc(var(--vh, 1vh) * 3.8);
-    left: calc(50% + 5px);
+    top: calc(var(--vh, 1vh) * 51.4);
+    --logo-height: calc(var(--vh, 1vh) * 4.7);
+    left: calc(50% + 12px);
     transform: translateX(-50%);
     background: url("./../images/tagline.png?v=1") no-repeat top center;
     background-size: auto var(--logo-height);
