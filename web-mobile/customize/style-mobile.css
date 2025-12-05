@@ -117,15 +117,27 @@ p.footer {
 }
 
 .splash-logo {
-    --logo-height: calc(var(--vh, 1vh) * 5.3);
     position: absolute;
-    top: calc(var(--vh, 1vh) * 35.5);
     left: 50%;
     transform: translateX(-50%);
-    background: url("./../images/logo-nova88.png?v=2") no-repeat top center;
-    background-size: auto var(--logo-height);
     width: 100%;
     height: var(--logo-height);
+}
+
+.splash_logo_nova88 {
+    --logo-height: calc(var(--vh, 1vh) * 9.3);
+    background: url("./../images/logo_nova88.png?v=2") no-repeat top center;
+    top: calc(var(--vh, 1vh) * 35.5);
+
+    background-size: auto var(--logo-height);
+}
+
+.splash_logo_12bet {
+    --logo-height: calc(var(--vh, 1vh) * 9.3);
+    background: url("./../images/logo_12bet.png?v=2") no-repeat top center;
+    top: calc(var(--vh, 1vh) * 35.5);
+
+    background-size: auto var(--logo-height);
 }
 
 .splash_tagline {

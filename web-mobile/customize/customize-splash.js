@@ -30,6 +30,20 @@ const OPERATORS = {
         cssClass: "tip88",
         logo: "./images/logo_tip88.webp?v=3",
     },
+    NOVA88: {
+        name: "NOVA88",
+        title: "Nova88",
+        favicon: "favicon_nova88.ico",
+        cssClass: "nova88",
+        logo: "./images/logo_nova88.webp?v=3",
+    },
+    _12BET: {
+        name: "12BET",
+        title: "12BET",
+        favicon: "favicon_12bet.ico",
+        cssClass: "12bet",
+        logo: "./images/logo_12bet.webp?v=3",
+    },
 };
 
 const LANGUAGE_MAP = {
@@ -257,6 +271,10 @@ class SplashManager {
 
         document.title = title;
         document.getElementById("favicon").href = operatorConfig.favicon;
+
+        // Update splash logo
+        const splashLogo = document.getElementById("splash_logo");
+        splashLogo.classList.add(`splash_logo_${operatorConfig.cssClass}`);
 
         // Update waiting message
         this.randomWaitingMessage(appTypeClass);
