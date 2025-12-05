@@ -41,7 +41,7 @@ body {
     background-size: auto 100vh;
 
     cursor: default;
-    background-color: #000E18;
+    background-color: #000e18;
 
     text-align: center;
     font-family: Helvetica, Verdana, Arial, sans-serif;
@@ -120,7 +120,7 @@ p.footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000E18;
+    background: #000e18;
     background-size: auto 100vh;
 }
 
@@ -142,6 +142,22 @@ p.footer {
     background-size: auto var(--logo-height);
     width: 100%;
     height: var(--logo-height);
+}
+
+.splash_logo_nova88 {
+    --logo-height: calc(var(--vh, 1vh) * 9.3);
+    background: url("./../images/logo_nova88.png?v=2") no-repeat top center;
+    top: calc(var(--vh, 1vh) * 35.5);
+
+    background-size: auto var(--logo-height);
+}
+
+.splash_logo_12bet {
+    --logo-height: calc(var(--vh, 1vh) * 9.3);
+    background: url("./../images/logo_12bet.png?v=2") no-repeat top center;
+    top: calc(var(--vh, 1vh) * 35.5);
+
+    background-size: auto var(--logo-height);
 }
 
 .splash_text {

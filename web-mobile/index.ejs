@@ -41,6 +41,7 @@
         <link rel="stylesheet" type="text/css" href="./customize/fullscreen.css?v=<%= Date.now() %>" />
         <link rel="stylesheet" type="text/css" href="./splash-resources/splash-style.css?v=<%= Date.now() %>" />
     </head>
+
     <body>
         <div id="GameDiv" cc_exact_fit_screen="true">
             <div id="Cocos3dGameContainer">
@@ -49,8 +50,7 @@
         </div>
 
         <div id="splash" class="splash-container">
-            <div id="splash_original_logo" class="splash_original_logo"></div>
-            <div id="splash_original_tagline" class="splash_original_tagline"></div>
+            <div id="splash_logo" class="splash-logo"></div>
             <div id="waiting-message"></div>
         </div>
         <div id="ios-instruction">
@@ -76,7 +76,6 @@
 
         <!-- Import map -->
         <script src="../shared-resources/cocos-engine/<%= CocosEngine %>/import-map" type="systemjs-importmap" charset="utf-8"></script>
-
         <script>
             System.import("./<%= indexJsName %>").catch(function (err) {
                 console.error(err);

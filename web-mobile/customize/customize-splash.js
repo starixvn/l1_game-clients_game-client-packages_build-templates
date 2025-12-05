@@ -1,3 +1,69 @@
+const OPERATORS = {
+    SP: {
+        name: "SP",
+        title: "Saba Play",
+        favicon: "favicon_sabaplay.ico",
+        cssClass: "sabaplay",
+        logo: "./images/logo_sabaplay.webp?v=3",
+    },
+    VG: {
+        name: "VG",
+        title: "Vgaming",
+        favicon: "favicon_vgaming.ico",
+        cssClass: "vg",
+        logo: "./images/logo_vgaming.webp?v=3",
+    },
+    SG: {
+        name: "SG",
+        title: {
+            vi: "Cổng Game SABA",
+            default: "SABA.games",
+        },
+        favicon: "favicon.ico",
+        cssClass: "sg",
+        logo: "./images/logo_saba.webp?v=3",
+    },
+    TIP88: {
+        name: "TIP88",
+        title: "SoiBet",
+        favicon: "favicon_tip88.ico",
+        cssClass: "tip88",
+        logo: "./images/logo_tip88.webp?v=3",
+    },
+    NOVA88: {
+        name: "NOVA88",
+        title: "Nova88",
+        favicon: "favicon_nova88.ico",
+        cssClass: "nova88",
+        logo: "./images/logo_nova88.webp?v=3",
+    },
+    _12BET: {
+        name: "12BET",
+        title: "12BET",
+        favicon: "favicon_12bet.ico",
+        cssClass: "12bet",
+        logo: "./images/logo_12bet.webp?v=3",
+    },
+};
+
+const LANGUAGE_MAP = {
+    "vi-VN": "vi",
+    "en-US": "en",
+    "th-TH": "th",
+    "id-ID": "id",
+    "zh-CN": "zh_cn",
+    "zh-TW": "zh_tw",
+    "ja-JP": "ja",
+    "es-ES": "es",
+    "ko-KR": "ko",
+    "tr-TR": "tr",
+    "fil-PH": "fil_ph",
+    "hi-IN": "hi_in",
+    "bn-BD": "bn_bd",
+    "ms-MY": "ms_my",
+    "pt-BR": "pt_br",
+};
+
 const waitingMessages = {
     en: ["If this is your first visit, downloading may take a while", "Checking and downloading the latest update packages..."],
     vi: ["Lần truy cập đầu tiên, việc tải dữ liệu sẽ mất chút thời gian.", "Đang kiểm tra và tải gói cập nhật game mới nhất..."],
@@ -10,11 +76,20 @@ const waitingMessages = {
     zh_tw: ["如果這是您第一次訪問，下載可能需要一段時間。", "正在檢查和下載最新的更新包..."],
     ja: ["初回アクセス時はダウンロードに時間がかかる場合があります", "最新のアップデートを確認・ダウンロード中…"],
     es: ["Si es tu primera visita, la descarga puede tardar un poco", "Comprobando y descargando la última actualización..."],
-    bn_bd: ["যদি এটি আপনার প্রথম ভিজিট হয়, তবে ডাউনলোড করতে কিছুটা সময় লাগতে পারে", "সর্বশেষ আপডেট প্যাকেজগুলি পরীক্ষা করা এবং ডাউনলোড করা হচ্ছে..."],
-    hi_in: ["यदि यह आपकी पहली यात्रा है, तो डाउनलोड करने में कुछ समय लग सकता है", "नवीनतम अपडेट पैकेजों की जाँच और डाउनलोड किया जा रहा है..."],
+    bn_bd: [
+        "যদি এটি আপনার প্রথম ভিজিট হয়, তবে ডাউনলোড করতে কিছুটা সময় লাগতে পারে",
+        "সর্বশেষ আপডেট প্যাকেজগুলি পরীক্ষা করা এবং ডাউনলোড করা হচ্ছে...",
+    ],
+    hi_in: [
+        "यदि यह आपकी पहली यात्रा है, तो डाउनलोड करने में कुछ समय लग सकता है",
+        "नवीनतम अपडेट पैकेजों की जाँच और डाउनलोड किया जा रहा है...",
+    ],
     ko: ["첫 방문이시라면, 다운로드에 시간이 걸릴 수 있습니다.", "최신 업데이트 패키지를 확인하고 다운로드 중입니다..."],
-    ms_my: ["Jika ini adalah lawatan pertama anda, muat turun mungkin mengambil masa yang lama", "Memeriksa dan memuat turun pakej kemas kini terkini..."],
-    pt_br:["Se esta for sua primeira visita, o download pode levar um tempo","Memeriksa dan memuat turun pakej kemas kini terkini..."]
+    ms_my: [
+        "Jika ini adalah lawatan pertama anda, muat turun mungkin mengambil masa yang lama",
+        "Memeriksa dan memuat turun pakej kemas kini terkini...",
+    ],
+    pt_br: ["Se esta for sua primeira visita, o download pode levar um tempo", "Memeriksa dan memuat turun pakej kemas kini terkini..."],
 };
 
 window.mobilecheck = function () {
@@ -49,7 +124,7 @@ function getLanguageURLparams(locale) {
         "hi-IN": "hi_in",
         "ko-KR": "ko",
         "ms-MY": "ms_my",
-        "pt-BR":"pt_br",
+        "pt-BR": "pt_br",
         ...(globalThis.localeMapping || {}),
     };
     return dict[locale] || "en";
@@ -63,7 +138,7 @@ function getCurrentLanguage() {
         if (localStorage.getItem(languageKey)) {
             language = localStorage.getItem(languageKey);
         }
-    } catch (e) { }
+    } catch (e) {}
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("lang")) {
         language = getLanguageURLparams(urlParams.get("lang"));
@@ -86,7 +161,7 @@ function getCurrentOperator() {
         if (localStorage.getItem(operatorKey)) {
             operator = localStorage.getItem(operatorKey);
         }
-    } catch (e) { }
+    } catch (e) {}
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("op")) {
@@ -191,7 +266,7 @@ function isInstant() {
         if (localStorage.getItem(sessionStorageKey)) {
             return JSON.parse(localStorage.getItem(sessionStorageKey))?.system === 3;
         }
-    } catch (e) { }
+    } catch (e) {}
     return false;
 }
 
@@ -241,10 +316,33 @@ class RandomWaitingMessage {
         this.intervalId && clearInterval(this.intervalId);
         this.intervalId = null;
     }
+
+    updateInterface() {
+        const operatorKey = this.operator.toUpperCase();
+        const operatorConfig = OPERATORS[operatorKey] || { title: "Default Title", favicon: "default_favicon.ico" };
+
+        const appTypeClass = this.appType === 1 ? "portrait" : "";
+
+        // Update title and favicon
+        const title =
+            typeof operatorConfig.title === "object"
+                ? operatorConfig.title[this.language] || operatorConfig.title.default
+                : operatorConfig.title;
+
+        document.title = title;
+        document.getElementById("favicon").href = operatorConfig.favicon;
+
+        // Update splash logo
+        const splashLogo = document.getElementById("splash_logo");
+        splashLogo.classList.add(`splash_logo_${operatorConfig.cssClass}`);
+
+        // Update waiting message
+        this.randomWaitingMessage(appTypeClass);
+        this.randomTaglineMessage();
+    }
 }
 
 console.time("Game Load Time");
-
 
 function initializeSplash() {
     window.randomWaitingMessage = new RandomWaitingMessage();
@@ -253,12 +351,15 @@ function initializeSplash() {
 if (globalThis.localeMapping) {
     initializeSplash();
 } else {
-    globalThis.addEventListener("localeMappingLoaded", () => {
-        initializeSplash();
-    }, {
-        once: true,
-    });
-
+    globalThis.addEventListener(
+        "localeMappingLoaded",
+        () => {
+            initializeSplash();
+        },
+        {
+            once: true,
+        }
+    );
 
     setTimeout(() => {
         if (!globalThis.localeMapping) {
@@ -267,4 +368,3 @@ if (globalThis.localeMapping) {
         }
     }, 2000);
 }
-
